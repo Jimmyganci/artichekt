@@ -1,5 +1,5 @@
-import {fetchGraphQL} from '@/lib/functions'
-import {Menu} from '@/lib/types'
+import {fetchGraphQL} from '../../lib/functions'
+import {Menu} from '../../lib/types'
 
 /**
  * Fetch a menu by slug.
@@ -8,12 +8,14 @@ export default async function getMenuBySlug(slug: string) {
   const query = `
     query GetMenuBySlug($slug: ID = "URI") {
       menu(id: $slug, idType: SLUG) {
-        menuItems {
+        menuItems(first: 100) {
           edges {
             node {
+              id
               uri
               label
               databaseId
+              parentId
             }
           }
         }

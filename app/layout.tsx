@@ -1,6 +1,6 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import config from '@/lib/config'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import config from '../lib/config'
 import type {Metadata, Viewport} from 'next'
 import './globals.css'
 

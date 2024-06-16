@@ -1,4 +1,4 @@
-import {fetchGraphQL} from '@/lib/functions'
+import {fetchGraphQL} from '../../lib/functions'
 
 /**
  * Create a comment.

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Menu;
+    src: url("/assets/fonts/font-menu.ttf");
+}
+
+@font-face {
+    font-family: Regular;
+    src: url('/assets/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: Bold;
+    src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf');
+}

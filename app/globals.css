@@ -1,14 +1,20 @@
 /* https://nextjs.org/docs/app/building-your-application/styling/tailwind-css */
+@import url('./fonts.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
+
+
   body {
-    @apply relative mx-auto space-y-8 px-4 py-8 antialiased;
     @apply prose prose-zinc dark:prose-invert;
-    @apply dark:bg-zinc-900;
+    @apply relative mx-auto space-y-8 px-4 antialiased max-w-screen-2xl min-h-screen;
+    @apply bg-white;
+    @apply font-fontRegular;
   }
 
   input {
@@ -23,11 +29,30 @@
     @apply bg-zinc-200 dark:bg-zinc-200;
   }
 
+  a {
+    @apply no-underline
+  }
+
+  li {
+    @apply list-none
+  }
+
   button,
   .button,
   [type='submit'] {
     @apply rounded px-4 py-3 leading-tight no-underline;
     @apply bg-zinc-200 text-zinc-900 dark:bg-zinc-400;
-    @apply hover:bg-zinc-300 dark:hover:bg-zinc-500;
+
+    /* @apply hover:bg-zinc-300 dark:hover:bg-zinc-500; */
+  }
+
+  .btn-primary {
+    background: #edfbe485;
+    color: white;
+    padding: 0.5em 1.8em;
+    font-family: "Bold";
+    font-size: 20px;
   }
 }
+
+

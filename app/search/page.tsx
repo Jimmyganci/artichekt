@@ -1,4 +1,4 @@
-import SearchForm from '@/components/SearchForm'
+import SearchForm from '../../components/SearchForm'
 
 /**
  * Search page.

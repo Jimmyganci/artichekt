@@ -15,18 +15,26 @@ export interface GraphQLResponse<T = any> {
   errors?: Array<{message: string}>
 }
 
-export interface Menu {
+type MenuItem = {
+  node: {
+    id: string;
+    uri: string;
+    label: string;
+    databaseId: string;
+    parentId: string;
+  };
+};
+
+type Menu = {
   menuItems: {
-    edges: [
-      {
-        node: {
-          uri: string
-          label: string
-          databaseId: string
-        }
-      }
-    ]
-  }
+    edges: MenuItem[];
+  };
+};
+
+
+export interface Logo {
+  mediaItemUrl: string,
+  altText: string
 }
 
 export interface FeaturedImage {

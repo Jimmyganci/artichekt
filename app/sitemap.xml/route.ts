@@ -1,6 +1,6 @@
-import config from '@/lib/config'
-import getAllPages from '@/lib/queries/getAllPages'
-import getAllPosts from '@/lib/queries/getAllPosts'
+import config from '../../lib/config'
+import getAllPages from '../../lib/queries/getAllPages'
+import getAllPosts from '../../lib/queries/getAllPosts'
 
 /**
  * Route segment config.

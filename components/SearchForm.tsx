@@ -1,7 +1,7 @@
 'use client'
 
-import {searchQuery} from '@/lib/functions'
-import {SearchResults} from '@/lib/types'
+import {searchQuery} from '../lib/functions'
+import {SearchResults} from '../lib/types'
 import Link from 'next/link'
 import {useCallback, useEffect, useRef, useState} from 'react'
 

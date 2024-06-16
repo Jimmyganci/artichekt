@@ -1,5 +1,5 @@
-import config from '@/lib/config'
-import getAllPosts from '@/lib/queries/getAllPosts'
+import config from '../../lib/config'
+import getAllPosts from '../../lib/queries/getAllPosts'
 import escape from 'xml-escape'
 
 /**

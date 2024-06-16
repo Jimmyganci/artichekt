@@ -1,5 +1,5 @@
-import config from '@/lib/config'
-import getPreview from '@/lib/queries/getPreview'
+import config from '../../../lib/config'
+import getPreview from '../../../lib/queries/getPreview'
 import {Metadata} from 'next'
 
 // Types.

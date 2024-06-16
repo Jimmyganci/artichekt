@@ -1,5 +1,5 @@
-import config from '@/lib/config'
-import getTagBySlug from '@/lib/queries/getTagBySlug'
+import config from '../../../../lib/config'
+import getTagBySlug from '../../../../lib/queries/getTagBySlug'
 import {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'

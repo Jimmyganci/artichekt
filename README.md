@@ -207,7 +207,7 @@ We can build our queries in GraphiQL (or your favorite REST client) and let `JSO
 Here is a query to fetch a single post (based on the slug), the featured image, author meta, categories, tags, SEO, and post comments:
 
 ```ts
-import {Post} from '@/lib/types'
+import {Post} from '../lib/types'
 
 /**
  * Fetch a single post by slug.
