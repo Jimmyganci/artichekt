@@ -209,12 +209,18 @@ export default function Header() {
                                   <Link
                                     href={children.node.uri}
                                     onClick={handleOpenMenu}
+                                    className="text-primary hover:text-black transition-colors duration-300"
+                                    style={{
+                                      transitionDelay: '0s' // Transition pour la couleur uniquement
+                                    }}
                                   >
                                     <p
                                       style={{
-                                        transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.1 + 's' : index * 0.1 + 's'}`
+                                        transition:
+                                          'opacity 0.3s ease, transform 0.3s ease', // Transition pour l'opacité et la transformation
+                                        transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.07 + 's' : index * 0.1 + 's'}`
                                       }}
-                                      className={`text-primary m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+                                      className={`m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                                     >
                                       {children.node.label}
                                     </p>
