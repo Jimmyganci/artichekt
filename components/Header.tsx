@@ -198,7 +198,6 @@ export default function Header() {
                                   >
                                     <p
                                       style={{
-                                        // transitionDelay: index * 0.1 + 's',
                                         transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.1 + 's' : index * 0.1 + 's'}`
                                       }}
                                       className={`text-primary m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
@@ -210,7 +209,6 @@ export default function Header() {
                               ))}
                           </ul>
                         }
-                        {/* )} */}
                       </div>
                     )
                 )}
