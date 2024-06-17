@@ -105,10 +105,10 @@ export default function Header() {
       </div>
 
       <div
-        className={`px-12 ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
+        className={`px-12 overflow-y-scroll ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
       >
         <div className="flex h-full z-10">
-          <div className="w-[55%] flex flex-col gap-[200px]">
+          <div className="w-[55%] flex flex-col gap-[25vh]">
             {logoModal && !subMenu?.length ? (
               <div
                 className={`max-w-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
@@ -150,7 +150,7 @@ export default function Header() {
                 </p>
               </Link>
               <div
-                className={`flex gap-16 pb-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
+                className={`flex gap-16 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
               >
                 <a
                   target="_blank"
@@ -178,7 +178,7 @@ export default function Header() {
           </div>
           <nav
             onMouseLeave={() => handleMouseLeave()}
-            className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4"
+            className=" mt-[25vh]  pb-28 flex items-end flex-1 flex-col gap-4"
           >
             {!!menu &&
               menu

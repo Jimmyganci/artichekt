@@ -10,7 +10,7 @@
 @layer base {
   body {
     @apply prose prose-zinc dark:prose-invert;
-    @apply relative mx-auto space-y-8 px-4 antialiased max-w-screen-2xl min-h-screen;
+    @apply relative mx-auto space-y-8 px-4 antialiased max-w-[100%] min-h-screen;
     @apply bg-white;
     @apply font-fontRegular;
   }
