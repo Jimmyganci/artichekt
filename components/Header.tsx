@@ -59,9 +59,15 @@ export default function Header() {
     }
   }
 
-  function handleMouseLeave() {
-    setParentId('')
-    setSubMenu([])
+  function handleMouseLeave(isSub?: boolean) {
+    if (!subMenu?.length) {
+      setParentId('')
+      setSubMenu([])
+    }
+    if (isSub && subMenu?.length) {
+      setParentId('')
+      setSubMenu([])
+    }
   }
 
   useEffect(() => {
@@ -170,7 +176,10 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <nav className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4">
+          <nav
+            onMouseLeave={() => handleMouseLeave()}
+            className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4"
+          >
             {!!menu &&
               menu
                 .filter((item) => !item.node.parentId)
@@ -204,8 +213,8 @@ export default function Header() {
 
                         {
                           <ul
-                            // onMouseLeave={handleMouseLeave}
-                            className={`absolute top-0 right-[105%] flex flex-col items-end w-max`}
+                            onMouseLeave={() => handleMouseLeave(true)}
+                            className={`absolute top-0 right-[105%] flex flex-col items-end w-max ${parentId === item.node.id ? 'z-10' : 'z-0'} `}
                           >
                             {menu
                               .filter(
@@ -215,7 +224,7 @@ export default function Header() {
                               ?.map((children, index) => (
                                 <li
                                   key={children.node.id}
-                                  className={`relative font-fontBold text-lg overflow-hidden ${parentId === children.node.parentId ? 'z-10' : 'z-0'} `}
+                                  className={`relative font-fontBold text-lg overflow-hidden`}
                                 >
                                   <Link
                                     href={children.node.uri}
