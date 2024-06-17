@@ -45,10 +45,15 @@ export default function Header() {
     }
   }
 
-  async function handleMouseOver(id: string) {
+  function handleMouseOver(id: string) {
     setParentId(id)
     const subMenu = menu?.filter((children) => children.node.parentId === id)
     setSubMenu(subMenu)
+  }
+
+  function handleMouseLeave() {
+    setParentId('')
+    setSubMenu([])
   }
 
   useEffect(() => {
@@ -86,10 +91,10 @@ export default function Header() {
       </div>
 
       <div
-        className={`px-12 ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-3/5 before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
+        className={`px-12 ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
       >
         <div className="flex h-full z-10">
-          <div className="w-2/3 flex flex-col justify-between">
+          <div className="w-2/3 flex flex-col gap-[200px]">
             {logoModal && !subMenu?.length ? (
               <div
                 className={`max-w-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
@@ -152,25 +157,34 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <nav className=" mt-44  pb-28 pr-16 flex items-end flex-1 justify-between flex-col gap-4">
+          <nav
+            onMouseLeave={handleMouseLeave}
+            className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4"
+          >
             {!!menu &&
               menu
                 .filter((item) => !item.node.parentId)
                 .map(
                   (item, index) =>
                     !item.node.parentId && (
-                      <div className="relative" key={item.node.databaseId}>
+                      <div
+                        className={`relative w-full text-end ${parentId && parentId === item.node.id ? 'after:w-32 after:h-[30%] after:bg-white after:absolute after:top-1/2 after:translate-y-1/2 after:left-full after:skew-y-[35deg]' : ''}`}
+                        key={item.node.databaseId}
+                      >
                         <div className="overflow-hidden">
                           <Link
                             onClick={handleOpenMenu}
                             onMouseOver={() => handleMouseOver(item.node.id)}
-                            className="whitespace-nowrap font-fontMenu no-underline text-[90px] leading-none text-white"
+                            className={`whitespace-nowrap font-fontMenu no-underline text-[90px] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
                             href={item.node.uri}
                           >
                             <p
-                              className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  p-0 m-0`}
+                              className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  py-0 pl-0 pr-16 ${parentId && parentId !== item.node.id ? 'pr-[10vw]' : 'pr-16'} m-0`}
                               style={{
-                                transitionDelay: `${showContentmenu ? (menu.length - index - 1) * 0.05 + 's' : index * 0.1 + 's'}`
+                                transition: `
+                                  transform 0.7s ${showContentmenu ? (menu.length - index - 1) * 0.05 + 's' : index * 0.1 + 's'}, 
+                                  opacity 0.7s ${showContentmenu ? (menu.length - index - 1) * 0.05 + 's' : index * 0.1 + 's'}, 
+                                  padding 0.7s`
                               }}
                             >
                               {item.node.label}
@@ -190,17 +204,23 @@ export default function Header() {
                               ?.map((children, index) => (
                                 <li
                                   key={children.node.id}
-                                  className={`font-fontBold text-lg overflow-hidden ${parentId === children.node.parentId ? 'z-10' : 'z-0'}`}
+                                  className={`relative font-fontBold text-lg overflow-hidden ${parentId === children.node.parentId ? 'z-10' : 'z-0'} `}
                                 >
                                   <Link
                                     href={children.node.uri}
                                     onClick={handleOpenMenu}
+                                    className="text-primary hover:text-black transition-colors duration-300"
+                                    style={{
+                                      transitionDelay: '0s' // Transition pour la couleur uniquement
+                                    }}
                                   >
                                     <p
                                       style={{
-                                        transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.1 + 's' : index * 0.1 + 's'}`
+                                        transition:
+                                          'opacity 0.3s ease, transform 0.3s ease', // Transition pour l'opacité et la transformation
+                                        transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.07 + 's' : index * 0.1 + 's'}`
                                       }}
-                                      className={`text-primary m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+                                      className={`m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                                     >
                                       {children.node.label}
                                     </p>
