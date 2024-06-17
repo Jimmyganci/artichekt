@@ -120,6 +120,7 @@ export default function Header() {
             )}
             <div className="">
               <Link
+                onClick={handleOpenMenu}
                 className={`  text-[20px] flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
                 href={'/estimer'}
               >
@@ -131,7 +132,8 @@ export default function Header() {
               </Link>
             </div>
             <div className={`flex flex-col gap-4`}>
-              <a
+              <Link
+                onClick={handleOpenMenu}
                 className={` max-w-fit duration-700  ${showContentmenu ? ' delay-200 opacity-100 translate-y-0' : 'delay-500 opacity-0 translate-y-10'}`}
                 href="/contact"
               >
@@ -140,23 +142,26 @@ export default function Header() {
                 >
                   Contact
                 </p>
-              </a>
+              </Link>
               <div
                 className={`flex gap-16 pb-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
               >
                 <a
+                  target="_blank"
                   className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                   href=""
                 >
                   Instagram
                 </a>
                 <a
+                  target="_blank"
                   className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                   href=""
                 >
                   Facebook
                 </a>
                 <a
+                  target="_blank"
                   className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                   href=""
                 >
@@ -180,11 +185,11 @@ export default function Header() {
                           <Link
                             onClick={handleOpenMenu}
                             onMouseOver={() => handleMouseOver(item.node.id)}
-                            className={`whitespace-nowrap font-fontMenu no-underline text-[90px] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
+                            className={`whitespace-nowrap font-fontMenu no-underline text-[60px] lg:text-[85px] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
                             href={item.node.uri}
                           >
                             <p
-                              className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  py-0 pl-0 pr-16 ${parentId && parentId !== item.node.id ? 'pr-[10vw]' : 'pr-16'} m-0`}
+                              className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  py-0 pl-0 pr-16 ${parentId && parentId !== item.node.id ? 'pr-[120px]' : 'pr-16'} m-0`}
                               style={{
                                 transition: `
                                   transform 0.7s ${showContentmenu ? (menu.length - index - 1) * 0.05 + 's' : index * 0.1 + 's'}, 
@@ -200,7 +205,7 @@ export default function Header() {
                         {
                           <ul
                             // onMouseLeave={handleMouseLeave}
-                            className={`absolute top-0 -left-[20vw] flex flex-col items-end w-max`}
+                            className={`absolute top-0 right-[105%] flex flex-col items-end w-max`}
                           >
                             {menu
                               .filter(
