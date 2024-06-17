@@ -3,7 +3,7 @@ import getLogo from '@/lib/queries/getLogo'
 import getMenuBySlug from '@/lib/queries/getMenuBySlug'
 import {Logo, Menu, MenuItem} from '@/lib/types'
 import Link from 'next/link'
-import {useEffect, useState} from 'react'
+import {use, useEffect, useState} from 'react'
 
 /**
  * Header component.
@@ -17,6 +17,7 @@ export default function Header() {
   const [logoMiddle, setLogoMiddle] = useState<Logo>()
   const [logoModal, setLogoModal] = useState<Logo>()
   const [subMenu, setSubMenu] = useState<MenuItem[]>()
+  const [loading, setLoading] = useState(true)
 
   async function getDatas() {
     const menu = await getMenuBySlug('header-menu')
@@ -36,19 +37,26 @@ export default function Header() {
       setTimeout(() => {
         setShowContentMenu(true)
       }, 500)
+      setTimeout(() => {
+        setLoading(false)
+      }, 1500)
     } else {
       setSubMenu([])
       setShowContentMenu(false)
+      setLoading(true)
       setTimeout(() => {
+        setParentId('')
         setIsOpen(false)
       }, 1000)
     }
   }
 
   function handleMouseOver(id: string) {
-    setParentId(id)
-    const subMenu = menu?.filter((children) => children.node.parentId === id)
-    setSubMenu(subMenu)
+    if (!loading) {
+      setParentId(id)
+      const subMenu = menu?.filter((children) => children.node.parentId === id)
+      setSubMenu(subMenu)
+    }
   }
 
   function handleMouseLeave() {
@@ -94,7 +102,7 @@ export default function Header() {
         className={`px-12 ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
       >
         <div className="flex h-full z-10">
-          <div className="w-2/3 flex flex-col gap-[200px]">
+          <div className="w-[55%] flex flex-col gap-[200px]">
             {logoModal && !subMenu?.length ? (
               <div
                 className={`max-w-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
@@ -157,10 +165,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <nav
-            onMouseLeave={handleMouseLeave}
-            className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4"
-          >
+          <nav className=" mt-44  pb-28 flex items-end flex-1 flex-col gap-4">
             {!!menu &&
               menu
                 .filter((item) => !item.node.parentId)
@@ -194,7 +199,8 @@ export default function Header() {
 
                         {
                           <ul
-                            className={`absolute top-0 -left-[30vw] flex flex-col items-end w-max pr-32`}
+                            // onMouseLeave={handleMouseLeave}
+                            className={`absolute top-0 -left-[20vw] flex flex-col items-end w-max`}
                           >
                             {menu
                               .filter(
