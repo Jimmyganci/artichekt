@@ -252,7 +252,7 @@ export default function Header() {
                                             'opacity 0.3s ease, transform 0.3s ease', // Transition pour l'opacité et la transformation
                                           transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.07 + 's' : index * 0.1 + 's'}`
                                         }}
-                                        className={`m-0 md:text-xl 2xl:text-3xl leading-none lg:text-[1.5vw] duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+                                        className={`m-0 md:text-xl 2xl:text-2xl leading-none lg:text-[1.5vw] duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                                       >
                                         {children.node.label}
                                       </p>
