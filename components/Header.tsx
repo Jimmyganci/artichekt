@@ -117,20 +117,20 @@ export default function Header() {
         </div>
 
         <div
-          className={`px-12 overflow-y-scroll ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300  absolute top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
+          className={`px-12 overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
         >
           <div className="flex h-full z-10">
-            <div className="w-[55%] flex flex-col gap-[25vh]">
+            <div className="w-[55%] flex flex-col gap-[21vh]">
               {logoModal && !subMenu?.length ? (
                 <div
-                  className={`max-w-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
+                  className={`min-w-24 w-[8vw] max-w-[200px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
                 >
                   <img src={logoModal.mediaItemUrl} alt={logoModal.altText} />
                 </div>
               ) : (
                 logoLeft && (
                   <div
-                    className={`max-w-24 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
+                    className={`min-w-24 w-[8vw] max-w-[200px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
                   >
                     <img src={logoLeft.mediaItemUrl} alt={logoLeft.altText} />
                   </div>
@@ -190,7 +190,7 @@ export default function Header() {
             </div>
             <nav
               onMouseLeave={() => handleMouseLeave()}
-              className=" mt-[25vh]  pb-28 flex items-end flex-1 flex-col gap-4"
+              className=" mt-[22vh]  pb-28 flex items-end flex-1 flex-col gap-4"
             >
               {!!menu &&
                 menu
@@ -206,11 +206,11 @@ export default function Header() {
                             <Link
                               onClick={handleOpenMenu}
                               onMouseOver={() => handleMouseOver(item.node.id)}
-                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] lg:text-[85px] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
+                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] lg:text-[5vw] 2xl:text-[10vh] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
                               href={item.node.uri}
                             >
                               <p
-                                className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  py-0 pl-0 pr-16 ${parentId && parentId !== item.node.id ? 'pr-[120px]' : 'pr-16'} m-0`}
+                                className={`duration-700 ${showContentmenu ? 'translate-y-0  opacity-1' : 'translate-y-full opacity-0'}  py-2 pl-0 pr-16 ${parentId && parentId !== item.node.id ? 'pr-[120px]' : 'pr-16'} m-0`}
                                 style={{
                                   transition: `
                                   transform 0.7s ${showContentmenu ? (menu.length - index - 1) * 0.05 + 's' : index * 0.1 + 's'}, 
@@ -226,7 +226,7 @@ export default function Header() {
                           {
                             <ul
                               onMouseLeave={() => handleMouseLeave(true)}
-                              className={`absolute top-0 right-[105%] flex flex-col items-end w-max ${parentId === item.node.id ? 'z-10' : 'z-0'} `}
+                              className={`gap-2 absolute top-0 right-[105%] flex flex-col items-end w-max ${parentId === item.node.id ? 'z-10' : 'z-0'} `}
                             >
                               {menu
                                 .filter(
@@ -236,7 +236,7 @@ export default function Header() {
                                 ?.map((children, index) => (
                                   <li
                                     key={children.node.id}
-                                    className={`relative font-fontBold text-lg overflow-hidden`}
+                                    className={`m-0 relative font-fontBold text-lg overflow-hidden`}
                                   >
                                     <Link
                                       href={children.node.uri}
@@ -252,7 +252,7 @@ export default function Header() {
                                             'opacity 0.3s ease, transform 0.3s ease', // Transition pour l'opacité et la transformation
                                           transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.07 + 's' : index * 0.1 + 's'}`
                                         }}
-                                        className={`m-0 text-xl duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+                                        className={`m-0 md:text-xl 2xl:text-3xl leading-none lg:text-[1.5vw] duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                                       >
                                         {children.node.label}
                                       </p>
