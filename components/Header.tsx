@@ -161,7 +161,7 @@ export default function Header() {
           className={`px-4 pb-8 sm:pb-0 sm:px-12 overflow-hidden sm:overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-1000 sm:duration-700 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-[''] before:bg-white before:bottom-0 bg-primary sm:before:h-full before:w-full sm:before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-y-0 sm:before:translate-x-0 ' : 'before:translate-y-full sm:before:translate-y-0 sm:before:-translate-x-full'}`}
         >
           <div className="flex h-full z-10 flex-col-reverse sm:flex-row">
-            <div className="w-full sm:w-[55%] items-center sm:items-start flex flex-col gap-[20px] sm:gap-[30vh]">
+            <div className="w-full sm:w-[55%] items-center sm:items-start flex flex-col gap-0 sm:gap-[30vh]">
               {logoModal && (!subMenu?.length || isMobile()) ? (
                 <div
                   className={`sm:min-w-20 left-4 h-8 sm:left-auto w-12 sm:w-[7vw] sm:relative absolute top-0 sm:top-auto max-w-[200px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
@@ -199,7 +199,7 @@ export default function Header() {
                 </Link>
               </div>
               <div
-                className={`flex flex-col gap-4 items-center w-full sm:items-start`}
+                className={`flex flex-col gap-0 sm:gap-4 items-center w-full sm:items-start`}
               >
                 <Link
                   onClick={() => handleOpenMenu()}
@@ -213,25 +213,25 @@ export default function Header() {
                   </p>
                 </Link>
                 <div
-                  className={`flex w-full sm:w-auto justify-between sm:justify-start px-10 sm:px-0 gap-16 max-[872px]:gap-10 max-[640px]:gap-[10px] max-w-[80%] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
+                  className={`flex w-full sm:w-auto justify-between sm:justify-start sm:px-10 px-0 gap-16 max-[872px]:gap-10 max-[640px]:gap-[10px] max-w-[80%] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
                 >
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[18px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px]`}
                     href=""
                   >
                     Instagram
                   </a>
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[18px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px]`}
                     href=""
                   >
                     Facebook
                   </a>
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[18px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px]`}
                     href=""
                   >
                     Pinterest
@@ -241,7 +241,7 @@ export default function Header() {
             </div>
             <nav
               onMouseLeave={() => handleMouseLeave()}
-              className=" mt-28 sm:mt-[22vh] w-fit sm:w-auto mx-auto  sm:pb-28 flex items-end flex-1 flex-col gap-1 sm:gap-4"
+              className=" mt-[15vh] sm:mt-[22vh] w-fit sm:w-auto mx-auto  sm:pb-28 flex items-end flex-1 flex-col gap-1 sm:gap-4"
             >
               {!!menu &&
                 menu
@@ -305,7 +305,7 @@ export default function Header() {
                                             'opacity 0.3s ease, transform 0.3s ease', // Transition pour l'opacité et la transformation
                                           transitionDelay: `${parentId === children.node.parentId ? (menu.length - index - 1) * 0.07 + 's' : index * 0.1 + 's'}`
                                         }}
-                                        className={`m-0 py-1 2xl:text-2xl max-[872px]:text-[1.8vw] max-[640px]:text-[25px] leading-none lg:text-[1.5vw] duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+                                        className={`m-0 py-1 2xl:text-2xl max-[872px]:text-[1.8vw] max-[640px]:text-[18px] leading-none lg:text-[1.5vw] duration-300 ${parentId === children.node.parentId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
                                       >
                                         {children.node.label}
                                       </p>
