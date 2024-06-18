@@ -158,7 +158,7 @@ export default function Header() {
 
         <div
           id="menu-before"
-          className={`px-4 pb-8 sm:pb-0 sm:px-12 overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-1000 sm:duration-700 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-[''] before:bg-white before:bottom-0 bg-primary sm:before:h-full before:w-full sm:before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-y-0 sm:before:translate-x-0 ' : 'before:translate-y-full sm:before:translate-y-0 sm:before:-translate-x-full'}`}
+          className={`px-4 pb-8 sm:pb-0 sm:px-12 overflow-hidden sm:overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-1000 sm:duration-700 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-[''] before:bg-white before:bottom-0 bg-primary sm:before:h-full before:w-full sm:before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-y-0 sm:before:translate-x-0 ' : 'before:translate-y-full sm:before:translate-y-0 sm:before:-translate-x-full'}`}
         >
           <div className="flex h-full z-10 flex-col-reverse sm:flex-row">
             <div className="w-full sm:w-[55%] items-center sm:items-start flex flex-col gap-[20px] sm:gap-[30vh]">
@@ -213,7 +213,7 @@ export default function Header() {
                   </p>
                 </Link>
                 <div
-                  className={`flex w-full sm:w-auto justify-between sm:justify-start px-10 sm:px-0 gap-16 max-[872px]:gap-10 duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
+                  className={`flex w-full sm:w-auto justify-between sm:justify-start px-10 sm:px-0 gap-16 max-[872px]:gap-10 max-[640px]:gap-[10px] max-w-[80%] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0' : 'delay-700 opacity-0 translate-y-10'}`}
                 >
                   <a
                     target="_blank"
@@ -259,7 +259,7 @@ export default function Header() {
                                 handleOpenMenu(false, item.node.id, e)
                               }}
                               onMouseOver={() => handleMouseOver(item.node.id)}
-                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] max-[872px]:text-[5.5vw] max-[640px]:text-[60px] lg:text-[6vw] 2xl:text-[10vh] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
+                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] max-[872px]:text-[5.5vw] max-[640px]:text-[6vh] lg:text-[6vw] 2xl:text-[10vh] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
                               href={item.node.uri}
                             >
                               <p
