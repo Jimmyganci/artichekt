@@ -37,25 +37,33 @@ export default function Header() {
     }
   }
 
-  const handleOpenMenu = useCallback(() => {
-    if (!isOpen) {
-      setIsOpen(true)
-      setTimeout(() => {
-        setShowContentMenu(true)
-      }, 500)
-      setTimeout(() => {
-        setLoading(false)
-      }, 1500)
-    } else {
-      setSubMenu([])
-      setShowContentMenu(false)
-      setLoading(true)
-      setTimeout(() => {
-        setParentId('')
-        setIsOpen(false)
-      }, 1000)
-    }
-  }, [isOpen])
+  const handleOpenMenu = useCallback(
+    (isChildren: boolean = false, e?: any) => {
+      if (subMenu?.length && !isChildren) {
+        e.preventDefault()
+        return false
+      }
+
+      if (!isOpen) {
+        setIsOpen(true)
+        setTimeout(() => {
+          setShowContentMenu(true)
+        }, 500)
+        setTimeout(() => {
+          setLoading(false)
+        }, 1500)
+      } else {
+        setSubMenu([])
+        setShowContentMenu(false)
+        setLoading(true)
+        setTimeout(() => {
+          setParentId('')
+          setIsOpen(false)
+        }, 1000)
+      }
+    },
+    [isOpen, subMenu]
+  )
 
   const handleMouseOver = useCallback(
     (id: string) => {
@@ -104,7 +112,7 @@ export default function Header() {
             </a>
           )}
           <button
-            onClick={handleOpenMenu}
+            onClick={() => handleOpenMenu()}
             className="z-10 bg-transparent text-right p-0 items-end justify-center w-12 h-12 gap-4 flex-col max-w-14 max-h-14 flex column"
           >
             <span
@@ -117,7 +125,7 @@ export default function Header() {
         </div>
 
         <div
-          className={`px-12 overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-out duration-300 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
+          className={`px-12 overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-1000 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-['']  before:bg-white bg-primary before:h-full before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-x-0 ' : ' before:-translate-x-full'}`}
         >
           <div className="flex h-full z-10">
             <div className="w-[55%] flex flex-col gap-[21vh]">
@@ -138,7 +146,7 @@ export default function Header() {
               )}
               <div className="">
                 <Link
-                  onClick={handleOpenMenu}
+                  onClick={() => handleOpenMenu()}
                   className={`  text-[20px] flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
                   href={'/estimer'}
                 >
@@ -151,7 +159,7 @@ export default function Header() {
               </div>
               <div className={`flex flex-col gap-4`}>
                 <Link
-                  onClick={handleOpenMenu}
+                  onClick={() => handleOpenMenu()}
                   className={` max-w-fit duration-700  ${showContentmenu ? ' delay-200 opacity-100 translate-y-0' : 'delay-500 opacity-0 translate-y-10'}`}
                   href="/contact"
                 >
@@ -204,9 +212,9 @@ export default function Header() {
                         >
                           <div className="overflow-hidden">
                             <Link
-                              onClick={handleOpenMenu}
+                              onClick={(e: any) => handleOpenMenu(false, e)}
                               onMouseOver={() => handleMouseOver(item.node.id)}
-                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] lg:text-[5vw] 2xl:text-[10vh] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
+                              className={`whitespace-nowrap font-fontMenu no-underline text-[60px] lg:text-[6vw] 2xl:text-[10vh] leading-none text-white ${!parentId || parentId === item.node.id ? 'opacity-100' : 'opacity-60'}`}
                               href={item.node.uri}
                             >
                               <p
@@ -240,7 +248,7 @@ export default function Header() {
                                   >
                                     <Link
                                       href={children.node.uri}
-                                      onClick={handleOpenMenu}
+                                      onClick={() => handleOpenMenu(true)}
                                       className="text-primary hover:text-black transition-colors duration-300"
                                       style={{
                                         transitionDelay: '0s' // Transition pour la couleur uniquement
