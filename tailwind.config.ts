@@ -7,6 +7,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        'in-menu': 'cubic-bezier(0.92,0.19,0.94,0.72)',
+      },
       colors: {
         primary: '#7DA365',
         secondary: '#161819',
