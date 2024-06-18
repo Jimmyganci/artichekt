@@ -143,7 +143,7 @@ export default function Header() {
                   href={'/estimer'}
                 >
                   <p
-                    className={`m-0 ${subMenu?.length ? 'text-primary' : 'text-white'} `}
+                    className={`hover:text-black duration-300 m-0 ${subMenu?.length ? 'text-primary' : 'text-white'} `}
                   >
                     Estimez votre budget
                   </p>
@@ -156,7 +156,7 @@ export default function Header() {
                   href="/contact"
                 >
                   <p
-                    className={`btn-primary ${subMenu?.length ? 'bg-primary' : 'bg-white text-primary'}`}
+                    className={`hover:text-black duration-300 btn-primary ${subMenu?.length ? 'bg-primary' : 'bg-white text-primary'}`}
                   >
                     Contact
                   </p>
@@ -166,21 +166,21 @@ export default function Header() {
                 >
                   <a
                     target="_blank"
-                    className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                     href=""
                   >
                     Instagram
                   </a>
                   <a
                     target="_blank"
-                    className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                     href=""
                   >
                     Facebook
                   </a>
                   <a
                     target="_blank"
-                    className={`${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px]`}
                     href=""
                   >
                     Pinterest
