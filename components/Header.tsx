@@ -171,7 +171,7 @@ export default function Header() {
           )}
           <button
             onClick={() => handleOpenMenu()}
-            className="z-10 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 lg:w-12 xl:w-16 2xl:w-24 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 2xl:max-w-24 max-h-14 flex column"
+            className="z-10 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 lg:w-12 xl:w-16 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 max-h-14 flex column"
           >
             <span
               className={`transition-all ease-in-out duration-300 w-full h-[2px] sm:h-1 bg-black ${isOpen ? 'transform rotate-45 translate-y-[9px] sm:translate-y-2.5 bg-white' : ''}`}
