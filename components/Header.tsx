@@ -153,7 +153,7 @@ export default function Header() {
         <div className="flex px-0 sm:px-12 sm:mt-4 sm:h-auto h-20 items-center justify-between">
           {logoLeft && (
             <a href="/">
-              <div className="sm:max-w-16 lg:max-w-14 xl:max-w-16 2xl:max-w-20 m-0 max-w-[120px]">
+              <div className="max-w-[45px] sm:max-w-14 lg:max-w-14 xl:max-w-16 2xl:max-w-20 m-0">
                 <img
                   className="m-0"
                   src={logoLeft.mediaItemUrl}
