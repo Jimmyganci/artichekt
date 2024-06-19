@@ -49,31 +49,53 @@ export default function Header() {
   const handleOpenMenu = useCallback(
     (isChildren: boolean = false, id?: string, e?: any) => {
       if ((subMenu?.length && !isChildren) || (id && hasChildren(id))) {
-        e.preventDefault()
+        if (e) {
+          e.preventDefault()
 
-        if (isMobile()) {
-          const y = e.target.getBoundingClientRect().y
-          const elementHeight = e.target.getBoundingClientRect().height
-          var cssRule = `#menu-before::before {
+          if (isMobile()) {
+            const y = e.target.getBoundingClientRect().y
+            const elementHeight = e.target.getBoundingClientRect().height
+            var cssRule = `#menu-before::before {
+              content: '';
+              background-color: white;
+              position: absolute;
+              bottom: 0;
+              top: ${y + elementHeight + elementHeight / 10}px;
+              z-index: 1;
+              transition: all 0.3s ease-in-out;
+              width: 100%;
+              left: 0;
+            }`
+            const style: any = document.createElement('style')
+            style.type = 'text/css'
+            document.head.appendChild(style)
+
+            // Ajouter la nouvelle règle CSS à cet élément style
+            style.sheet.insertRule(cssRule, 0)
+          }
+          return false
+        } else {
+          if (isMobile()) {
+            // Logique pour le cas où `e` n'est pas défini
+            var defaultCssRule = `#menu-before::before {
             content: '';
             background-color: white;
             position: absolute;
             bottom: 0;
-            top: ${y + elementHeight + elementHeight / 10}px;
+            top: ${window.innerHeight}; /* ou toute autre position par défaut */
             z-index: 1;
             transition: all 0.3s ease-in-out;
             width: 100%;
             left: 0;
           }`
-          var style: any = document.createElement('style')
-          style.type = 'text/css'
-          document.head.appendChild(style)
+            const defaultStyle: any = document.createElement('style')
+            defaultStyle.type = 'text/css'
+            document.head.appendChild(defaultStyle)
 
-          // Ajouter la nouvelle règle CSS à cet élément style
-          style.sheet.insertRule(cssRule, 0)
+            // Ajouter la nouvelle règle CSS à cet élément style
+            defaultStyle.sheet.insertRule(defaultCssRule, 0)
+          }
         }
-
-        return false
       }
 
       if (!isOpen) {
@@ -128,7 +150,7 @@ export default function Header() {
     logoLeft &&
     logoMiddle && (
       <header>
-        <div className="flex px-4 sm:px-12 sm:mt-7 sm:h-auto h-20 items-center justify-between">
+        <div className="flex px-0 sm:px-12 sm:mt-7 sm:h-auto h-20 items-center justify-between">
           {logoLeft && (
             <a href="/">
               <div className="max-w-8 sm:max-w-16 lg:max-w-20 xl:max-w-16 2xl:max-w-24 m-0">
@@ -168,7 +190,7 @@ export default function Header() {
             <div className="w-full sm:w-[55%] items-center sm:items-start flex flex-col gap-0 sm:gap-[30vh]">
               {logoModal && (!subMenu?.length || isMobile()) ? (
                 <div
-                  className={`sm:min-w-16  left-4 h-8 sm:left-auto w-12 sm:w-[5vw] sm:relative absolute top-0 sm:top-auto max-w-[120px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
+                  className={`sm:min-w-16 mt-1 sm:mt-0 left-4 h-8 sm:left-auto w-12 sm:w-[5vw] sm:relative absolute top-0 sm:top-auto max-w-[120px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
                 >
                   <img
                     className="my-2 sm:my-4"
