@@ -150,10 +150,10 @@ export default function Header() {
     logoLeft &&
     logoMiddle && (
       <header>
-        <div className="flex px-0 sm:px-12 sm:mt-7 sm:h-auto h-20 items-center justify-between">
+        <div className="flex px-0 sm:px-12 sm:mt-4 sm:h-auto h-20 items-center justify-between">
           {logoLeft && (
             <a href="/">
-              <div className="max-w-8 sm:max-w-16 lg:max-w-20 xl:max-w-16 2xl:max-w-24 m-0">
+              <div className="sm:max-w-16 lg:max-w-14 xl:max-w-16 2xl:max-w-20 m-0 max-w-[120px]">
                 <img
                   className="m-0"
                   src={logoLeft.mediaItemUrl}
@@ -164,20 +164,20 @@ export default function Header() {
           )}
           {logoMiddle && (
             <a href="/">
-              <div className="max-w-32 sm:max-w-56 xl:max-w-56 2xl:max-w-80">
+              <div className="max-w-32 sm:max-w-52 xl:max-w-56 2xl:max-w-72">
                 <img src={logoMiddle.mediaItemUrl} alt={logoMiddle.altText} />
               </div>
             </a>
           )}
           <button
             onClick={() => handleOpenMenu()}
-            className="z-10 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 lg:w-12 xl:w-16 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 max-h-14 flex column"
+            className="z-10 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 max-h-14 flex column"
           >
             <span
-              className={`transition-all ease-in-out duration-300 w-full h-[2px] sm:h-1 bg-black ${isOpen ? 'transform rotate-45 translate-y-[9px] sm:translate-y-2.5 bg-white' : ''}`}
+              className={`transition-all ease-in-out duration-300 w-full h-[2px] sm:h-[2px] bg-black ${isOpen ? 'transform rotate-45 translate-y-[9px] sm:translate-y-2.4 bg-white' : ''}`}
             ></span>
             <span
-              className={`transition-all ease-in-out duration-300 h-[2px] sm:h-1 bg-black ${isOpen ? 'transform -rotate-45 -translate-y-[9px] sm:-translate-y-2.5 bg-white w-full' : 'w-2/3'}`}
+              className={`transition-all ease-in-out duration-300 h-[2px] sm:h-[2px] bg-black ${isOpen ? 'transform -rotate-45 -translate-y-[9px] sm:-translate-y-2.4 bg-white w-full' : 'w-2/3'}`}
             ></span>
           </button>
         </div>
@@ -193,7 +193,7 @@ export default function Header() {
                   className={`sm:min-w-16 mt-1 sm:mt-0 left-4 h-8 sm:left-auto w-12 sm:w-[5vw] sm:relative absolute top-0 sm:top-auto max-w-[120px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
                 >
                   <img
-                    className="my-2 sm:my-4"
+                    className="my-2 sm:mt-6"
                     src={logoModal.mediaItemUrl}
                     alt={logoModal.altText}
                   />
@@ -204,7 +204,7 @@ export default function Header() {
                     className={`min-w-16 w-12 sm:w-[5vw] h-8 max-w-[120px] duration-700 ${showContentmenu ? 'opacity-100 translate-y-0 delay-700' : 'opacity-0 translate-y-10'}`}
                   >
                     <img
-                      className="my-2 sm:my-4"
+                      className="my-2 sm:mt-6"
                       src={logoLeft.mediaItemUrl}
                       alt={logoLeft.altText}
                     />
@@ -214,7 +214,7 @@ export default function Header() {
               <div>
                 <Link
                   onClick={() => handleOpenMenu()}
-                  className={`  text-[20px] max-[640px]:text-[18px] max-[872px]:text-[12px] 2xl:text-3xl flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
+                  className={`  text-[20px] max-[640px]:text-[18px] max-[872px]:text-[12px] 2xl:text-2xl flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
                   href={'/estimer'}
                 >
                   <p
@@ -243,21 +243,21 @@ export default function Header() {
                 >
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-3xl`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-2xl`}
                     href=""
                   >
                     Instagram
                   </a>
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-3xl`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-2xl`}
                     href=""
                   >
                     Facebook
                   </a>
                   <a
                     target="_blank"
-                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-3xl`}
+                    className={`hover:text-black duration-300 ${subMenu?.length ? 'text-primary' : 'text-white'}  text-[20px] max-[872px]:text-[12px] max-[640px]:text-[16px] 2xl:text-2xl`}
                     href=""
                   >
                     Pinterest
