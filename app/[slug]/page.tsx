@@ -39,8 +39,11 @@ function RenderPage({page}: {page: Page}) {
   return (
     <main className="flex flex-col gap-8">
       <article>
-        <h1 dangerouslySetInnerHTML={{__html: page.title}} />
-        <div dangerouslySetInnerHTML={{__html: page.content}} />
+        {/* <h1 dangerouslySetInnerHTML={{__html: page.title}} /> */}
+        <div
+          className="text-3xl"
+          dangerouslySetInnerHTML={{__html: page.content}}
+        />
       </article>
     </main>
   )

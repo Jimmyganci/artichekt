@@ -149,8 +149,8 @@ export default function Header() {
   return (
     logoLeft &&
     logoMiddle && (
-      <header>
-        <div className="flex px-0 sm:px-12 sm:mt-4 sm:h-auto h-20 items-center justify-between">
+      <header className="pb-2 px-4 left-0 top-0 fixed w-full z-10 bg-white">
+        <div className="flex px-0 lg:px-12 sm:mt-4 sm:h-auto h-20 items-center justify-between">
           {logoLeft && (
             <a href="/">
               <div className="max-w-[45px] sm:max-w-14 lg:max-w-14 xl:max-w-16 2xl:max-w-20 m-0">
@@ -171,7 +171,7 @@ export default function Header() {
           )}
           <button
             onClick={() => handleOpenMenu()}
-            className="z-10 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 max-h-14 flex column"
+            className="z-50 bg-transparent text-right p-0 items-end justify-center w-8 sm:w-12 h-6 sm:h-12 gap-4 flex-col max-w-14 lg:max-w-12 xl:max-w-16 max-h-14 flex column"
           >
             <span
               className={`transition-all ease-in-out duration-300 w-full h-[2px] sm:h-[2px] bg-black ${isOpen ? 'transform rotate-45 translate-y-[9px] sm:translate-y-2.4 bg-white' : ''}`}
@@ -184,7 +184,7 @@ export default function Header() {
 
         <div
           id="menu-before"
-          className={`px-4 pb-8 sm:pb-0 sm:px-12 overflow-hidden sm:overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-700 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-[''] before:bg-white before:bottom-0 bg-primary sm:before:h-full before:w-full sm:before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-y-0 sm:before:translate-x-0 ' : 'before:translate-y-full sm:before:translate-y-0 sm:before:-translate-x-full'}`}
+          className={`z-30 px-4 pb-8 sm:pb-0 sm:px-12 overflow-hidden sm:overflow-y-scroll overflow-x-hidden ${!isOpen ? '-translate-y-full' : 'translate-y-0'} transition-transform ease-in-menu duration-700 fixed top-0 left-0 w-full h-full before:z-0 before:transition before:duration-300 before:ease-in-out before:absolute before:content-[''] before:bg-white before:bottom-0 bg-primary sm:before:h-full before:w-full sm:before:w-[55%] before:left-0 ${subMenu?.length ? 'before:translate-y-0 sm:before:translate-x-0 ' : 'before:translate-y-full sm:before:translate-y-0 sm:before:-translate-x-full'}`}
         >
           <div className="flex h-full z-10 flex-col-reverse sm:flex-row">
             <div className="w-full sm:w-[55%] items-center sm:items-start flex flex-col gap-0 sm:gap-[30vh]">

@@ -1,5 +1,6 @@
 import {GraphQLResponse, SearchResults} from '../lib/types'
-
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 /**
  * Function to execute a GraphQL query.
  */
@@ -108,4 +109,38 @@ export async function searchQuery(query: string): Promise<SearchResults[]> {
     console.error('Error fetching data:', error)
     throw error
   }
+}
+
+export function isMobile() {
+  
+  return window.innerWidth <= 640
+}
+
+
+export function gsapTo(elements: string, coef: number) {
+  const elementArray = gsap.utils.toArray(elements)
+      elementArray.forEach((span: any, index) => {
+
+        return gsap.to(span, {
+          y: !isMobile()
+            ? (0.1 * index + coef) * ScrollTrigger.maxScroll(window)
+            : -(0.1 * index + coef) * ScrollTrigger.maxScroll(window),
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            start: 0,
+            end: 'bottom',
+            invalidateOnRefresh: true,
+            scrub: 0, 
+            // markers: true
+          }
+        })
+      })
+  
+} 
+
+export function getRandomNumberWithOneDecimal(min:number, max: number) {
+  const randomNum = Math.random() * (max - min) + min;
+  const roundedNum = Math.round(randomNum * 10) / 10;
+  return roundedNum;
 }
