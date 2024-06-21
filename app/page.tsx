@@ -1,9 +1,14 @@
+import getLogo from '@/lib/queries/getLogo'
 import getAllPosts from '../lib/queries/getAllPosts'
 import getPageBySlug from '../lib/queries/getPageBySlug'
 import {Post} from '../lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
+import TitleHome from '@/components/TitleHome'
+import ImageHero from '@/components/home/ImageHero'
+import Agency from '@/components/home/Agency'
+import Carousel from '@/components/home/carousel/Carousel'
 
 /**
  * The homepage route.
@@ -13,17 +18,24 @@ import {notFound} from 'next/navigation'
 export default async function Home() {
   // Fetch homepage from WordPress.
   const homepage = await getPageBySlug('accueil')
+  const heroImage = await getLogo('Artichaut')
 
   if (!homepage) {
     notFound()
   }
 
   return (
-    <main className="flex flex-col gap-8">
-      <article>
-        <h1 dangerouslySetInnerHTML={{__html: homepage.title}} />
-        <div dangerouslySetInnerHTML={{__html: homepage.content}} />
-      </article>
+    <main className="top-32 relative">
+      <section className="sm:px-[8.8vw] z-0 relative">
+        <TitleHome />
+        <ImageHero heroImage={heroImage} />
+      </section>
+      <section>
+        <Agency />
+      </section>
+      <section className="h-screen w-screen overflow-hidden mt-96">
+        <Carousel />
+      </section>
     </main>
   )
 }
