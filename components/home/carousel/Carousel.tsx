@@ -7,11 +7,7 @@ import {Preload} from '@react-three/drei'
 
 function Carousel() {
   return (
-    <Canvas
-      className="w-[200vw] sm:w-auto"
-      gl={{antialias: false}}
-      dpr={[1, 1.5]}
-    >
+    <Canvas gl={{antialias: false}} dpr={[1, 1.5]}>
       <Suspense fallback={null}>
         <ScrollControls infinite horizontal damping={4} pages={4} distance={1}>
           <Scroll>
@@ -19,7 +15,7 @@ function Carousel() {
           </Scroll>
           <Scroll html>
             <h1
-              className={`text-[40vw] sm:text-[20vw] absolute top-[0vh] left-[100vw]`}
+              className={`text-[40vw] sm:text-[20vw] absolute top-[10vh] left-[100vw]`}
             >
               LE
             </h1>
