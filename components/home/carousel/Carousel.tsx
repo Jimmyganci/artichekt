@@ -4,12 +4,11 @@ import React, {Suspense} from 'react'
 import {Scroll, ScrollControls} from './ScrollControls'
 import Pages from './Pages'
 import {Preload} from '@react-three/drei'
-import {isMobile} from '@/lib/functions'
 
 function Carousel() {
   return (
     <Canvas
-      style={{width: isMobile() ? '200vw' : 'auto'}}
+      className="w-[200vw] sm:w-auto"
       gl={{antialias: false}}
       dpr={[1, 1.5]}
     >
@@ -20,14 +19,12 @@ function Carousel() {
           </Scroll>
           <Scroll html>
             <h1
-              className={isMobile() ? `text-[40vw]` : 'text-[20vw]'}
-              style={{position: 'absolute', top: '0vh', left: '100vw'}}
+              className={`text-[40vw] sm:text-[20vw] absolute top-[0vh] left-[100vw]`}
             >
               LE
             </h1>
             <h1
-              className={isMobile() ? `text-[50vw]` : 'text-[30vw]'}
-              style={{position: 'absolute', top: '50vh', left: '150vw'}}
+              className={`text-[50vw] sm:text-[30vw] absolute top-[50vh] left-[150vw]`}
             >
               KATANA
             </h1>

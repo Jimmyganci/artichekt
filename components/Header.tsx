@@ -1,9 +1,9 @@
 'use client'
 import getLogo from '@/lib/queries/getLogo'
 import getMenuBySlug from '@/lib/queries/getMenuBySlug'
-import {Logo, Menu, MenuItem} from '@/lib/types'
+import {Logo, MenuItem} from '@/lib/types'
 import Link from 'next/link'
-import {use, useCallback, useEffect, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 
 /**
  * Header component.

@@ -111,7 +111,7 @@ export async function searchQuery(query: string): Promise<SearchResults[]> {
   }
 }
 
-export function isMobile() {
+export function isMobile(window: any) {
   
   return window.innerWidth <= 640
 }
@@ -122,7 +122,7 @@ export function gsapTo(elements: string, coef: number) {
       elementArray.forEach((span: any, index) => {
 
         return gsap.to(span, {
-          y: !isMobile()
+          y: !isMobile(window)
             ? (0.1 * index + coef) * ScrollTrigger.maxScroll(window)
             : -(0.1 * index + coef) * ScrollTrigger.maxScroll(window),
           opacity: 0,
