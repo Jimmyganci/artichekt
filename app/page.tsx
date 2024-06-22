@@ -25,7 +25,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="top-32 relative">
+    <main className="top-32 relative w-screen overflow-hidden">
       <section className="sm:px-[8.8vw] z-0 relative">
         <TitleHome />
         <ImageHero heroImage={heroImage} />
@@ -33,7 +33,7 @@ export default async function Home() {
       <section>
         <Agency />
       </section>
-      <section className="h-screen w-screen overflow-hidden mt-96">
+      <section className="h-screen overflow-hidden mt-96 w-[200vw] sm:w-screen">
         <Carousel />
       </section>
     </main>

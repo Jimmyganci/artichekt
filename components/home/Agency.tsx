@@ -1,10 +1,9 @@
 'use client'
 
-import React, {useRef, useEffect} from 'react'
+import React, {useRef} from 'react'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
-import {gsapTo, isMobile} from '@/lib/functions'
 
 gsap.registerPlugin(ScrollTrigger)
 
