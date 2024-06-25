@@ -16,7 +16,7 @@ function TitleHome() {
 
   useGSAP(
     () => {
-      gsapTo('.title-span', 0.2)
+      gsapTo('.title-span', 0.5)
     },
     {scope: main}
   )
@@ -25,8 +25,10 @@ function TitleHome() {
     setIsHovered(e.target.id)
   }
 
-  function handleMouseLeave(e: any) {
-    setIsHovered('')
+  function handleMouseLeave() {
+    setTimeout(() => {
+      setIsHovered('')
+    }, 300)
   }
 
   return (
