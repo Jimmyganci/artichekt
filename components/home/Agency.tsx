@@ -44,7 +44,7 @@ function Agency() {
   return (
     <div
       ref={container}
-      className={`min-h-[100vh] sm:min-h-[120vh] flex justify-center items-center`}
+      className={`min-h-[100vh] sm:min-h-[100vh] flex justify-center items-center`}
     >
       <div className="toSlide sm:w-fit text-center">
         <h4 className="text-primary ">

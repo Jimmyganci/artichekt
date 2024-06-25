@@ -25,7 +25,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="top-32 relative w-screen overflow-hidden">
+    <main className="top-32 relative w-full overflow-hidden">
       <section className="sm:px-[8.8vw] z-0 relative">
         <TitleHome />
         <ImageHero heroImage={heroImage} />
