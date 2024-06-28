@@ -5,6 +5,7 @@ import Image from './Image'
 function Page({m = 0.4, urls, ...props}: any) {
   const {width} = useThree((state) => state.viewport)
   const w = width < 10 ? 1.5 / 3 : 1 / 3
+
   return (
     <group {...props}>
       <Image

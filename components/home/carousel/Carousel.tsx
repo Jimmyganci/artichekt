@@ -4,31 +4,52 @@ import React, {Suspense} from 'react'
 import {Scroll, ScrollControls} from './ScrollControls'
 import Pages from './Pages'
 import {Preload} from '@react-three/drei'
+import {Image, Post} from '@/lib/types'
+import {chunkArray} from '@/lib/functions'
 
-function Carousel() {
+function Carousel({project}: {project: Post}) {
+  const {title, imagesGalleries} = project
+
+  const chunkedImages: Image[][] = imagesGalleries
+    ? chunkArray(imagesGalleries.images, 3)
+    : []
+
+  const extendedChunkedImages = [...chunkedImages, ...chunkedImages]
+
   return (
-    <Canvas gl={{antialias: false}} dpr={[1, 1.5]}>
-      <Suspense fallback={null}>
-        <ScrollControls infinite horizontal damping={4} pages={4} distance={1}>
-          <Scroll>
-            <Pages />
-          </Scroll>
-          <Scroll html>
-            <h1
-              className={`text-[40vw] sm:text-[20vw] absolute top-[10vh] left-[100vw]`}
-            >
-              LE
-            </h1>
-            <h1
-              className={`text-[50vw] sm:text-[30vw] absolute top-[50vh] left-[150vw]`}
-            >
-              KATANA
-            </h1>
-          </Scroll>
-        </ScrollControls>
-        <Preload />
-      </Suspense>
-    </Canvas>
+    imagesGalleries &&
+    imagesGalleries.images.length > 0 &&
+    title && (
+      <Canvas gl={{antialias: false}} dpr={[1, 1.5]}>
+        <Suspense fallback={null}>
+          <ScrollControls
+            infinite
+            horizontal
+            damping={4}
+            pages={chunkedImages.length + 1}
+            distance={1}
+          >
+            <Scroll>
+              <Pages images={extendedChunkedImages} />
+            </Scroll>
+            <Scroll html>
+              <h1>
+                {title.split(' ').map((word, i) => (
+                  <span
+                    key={i}
+                    style={{left: 100 + i * 50 + 'vw'}}
+                    className={`odd:text-[40vw] even:text-[50vw] odd:sm:text-[20vw] even:sm:text-[30vw] sm:text-[20vw] absolute odd:top-[10vh] even:top-[50vh]`}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </h1>
+            </Scroll>
+          </ScrollControls>
+          <Preload />
+        </Suspense>
+      </Canvas>
+    )
   )
 }
 

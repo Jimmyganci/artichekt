@@ -111,7 +111,7 @@ export async function searchQuery(query: string): Promise<SearchResults[]> {
   }
 }
 
-export function isMobile(window: any) {
+export function isMobile() {
   
   return window.innerWidth <= 640
 }
@@ -122,9 +122,9 @@ export function gsapTo(elements: string, coef: number) {
       elementArray.forEach((span: any, index) => {
 
         return gsap.to(span, {
-          y: !isMobile(window)
+          y: !isMobile()
             ? (0.1 * index + coef) * ScrollTrigger.maxScroll(window)
-            : -(0.1 * index + coef) * ScrollTrigger.maxScroll(window),
+            : (0.1 * index + coef / 2) * ScrollTrigger.maxScroll(window),
           opacity: 0,
           ease: 'none',
           scrollTrigger: {
@@ -143,4 +143,12 @@ export function getRandomNumberWithOneDecimal(min:number, max: number) {
   const randomNum = Math.random() * (max - min) + min;
   const roundedNum = Math.round(randomNum * 10) / 10;
   return roundedNum;
+}
+
+export function chunkArray(array: any[], size: number) {
+  const chunked = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunked.push(array.slice(i, size + i));
+  }
+  return chunked;
 }

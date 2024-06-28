@@ -143,7 +143,21 @@ export interface Post {
         }
       }
     ]
+  },
+  imagesGalleries ?: {
+    images : Image[]
   }
+}
+
+export interface Image {
+  id: string;
+  title: string;
+  caption: string;
+  full_image_url: string;
+  thumbnail_image_url: string;
+  large_srcset: string;
+  medium_srcset: string;
+  alt_text: string
 }
 
 export interface Book {

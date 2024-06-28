@@ -43,12 +43,27 @@ const config: Config = {
             opacity: '1'
            },
         },
-        pluseLetter: {
+        pulseLetter: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '33%': {
+            transform: 'scale(0.8)',
+          },
+          '77%': {
+            transform: 'scale(1.2)',
+            color: '#7DA365'
+          },
+          '100%': {
+            transform: 'scale(1)',
+          }
+        },
+        hoverLetter: {
           '0%': {
             transform: 'scale(0.8)'
           },
           '50%': {
-            transform: 'scale(1.2)'
+            transform: 'scale(1.2)',
           },
           '100%': {
             transform: 'scale(1)'
@@ -58,7 +73,8 @@ const config: Config = {
       animation: {
         translateY100: 'translateY100 0.9s ease-in-out both',
         translateY10: 'translateY10 0.9s ease-in-out both',
-        pluseLetter: 'pluseLetter 0.3s ease-in-out both',
+        pulseLetter: 'pulseLetter 0.3s ease-in-out both',
+        hoverLetter: 'hoverLetter 0.3s ease-in-out both',
       }
     }
   },
