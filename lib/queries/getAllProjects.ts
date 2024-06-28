@@ -2,12 +2,12 @@ import {fetchGraphQL} from '../../lib/functions'
 import {Post} from '../../lib/types'
 
 /**
- * Fetch all books.
+ * Fetch all blog posts.
  */
-export default async function getAllBooks() {
+export default async function getAllProjects() {
   const query = `
-    query GetAllBooks {
-      books(where: {status: PUBLISH}) {
+    query GetAllProjects {
+      projects(where: {status: PUBLISH}) {
         nodes {
           databaseId
           date
@@ -25,6 +25,19 @@ export default async function getAllBooks() {
               }
             }
           }
+          imagesGalleries {
+            images {
+              id
+              title
+              caption
+              full_image_url
+              thumbnail_image_url
+              large_srcset
+              medium_srcset
+              media_details
+              alt_text
+            }
+          }
           seo {
             metaDesc
             title
@@ -36,5 +49,5 @@ export default async function getAllBooks() {
 
   const response = await fetchGraphQL(query)
 
-  return response.data.books.nodes as Post[]
+  return response.data.projects.nodes as Post[]
 }

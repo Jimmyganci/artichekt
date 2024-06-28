@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
@@ -11,6 +11,7 @@ const title = ['ARCHITECTURE', 'INTERIEURE', 'INNOVANTE']
 
 function TitleHome() {
   const [isHovered, setIsHovered] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const main = useRef<any>()
 
@@ -22,7 +23,9 @@ function TitleHome() {
   )
 
   function handleMouseEnter(e: any) {
-    setIsHovered(e.target.id)
+    setTimeout(() => {
+      setIsHovered(e.target.id)
+    }, 300)
   }
 
   function handleMouseLeave() {
@@ -30,6 +33,12 @@ function TitleHome() {
       setIsHovered('')
     }, 300)
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(true)
+    }, 2000)
+  }, [])
 
   return (
     <h1
@@ -48,12 +57,15 @@ function TitleHome() {
                 onMouseLeave={handleMouseLeave}
                 key={i}
                 id={`${index}_${i}`}
-                className={`transition ease-in-letter duration-300 inline-block
+                className={`transition ${!isLoading ? 'animate-pulseLetter' : ''} ease-in-letter duration-300 inline-block
                   ${isHighlighted ? 'sm:text-white' : ''}
-                  ${isHoveredLetter ? 'animate-pluseLetter  text-primary' : ''}
+                  ${isHoveredLetter ? 'animate-hoverLetter text-primary' : ''}
                 `}
                 style={{
-                  color: isHoveredLetter ? '#7DA365' : undefined
+                  // color: isHoveredLetter ? '#7DA365' : undefined,
+                  animationDelay: !isHoveredLetter
+                    ? `${(i + 0.1) * 0.1 + 1}s`
+                    : '0s'
                 }}
               >
                 {letter}
