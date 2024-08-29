@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {gsap} from 'gsap'
 import {MotionPathPlugin, ScrollTrigger} from 'gsap/all'
 
@@ -7,6 +7,9 @@ import {MotionPathPlugin, ScrollTrigger} from 'gsap/all'
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger)
 
 function Line() {
+  const circles = useRef<(SVGCircleElement | null)[]>([])
+  const [pointToAppear, setPointToAppear] = useState<string[]>([])
+
   useEffect(() => {
     // Initialisation des éléments avec GSAP
     gsap.set('#linesvg', {opacity: 1})
@@ -15,6 +18,36 @@ function Line() {
 
     let rotateTo = gsap.quickTo('#tractor', 'rotation'),
       prevDirection = 0
+
+    function checkCollision() {
+      const tractor = document.getElementById('tractor') as any
+      const tractorRect = tractor.getBoundingClientRect()
+
+      circles.current.forEach((circle, index) => {
+        if (circle) {
+          const circleRect = circle.getBoundingClientRect()
+
+          // Comparer les positions du `tractor` et du cercle fixe
+          const isColliding =
+            tractorRect.left < circleRect.right &&
+            tractorRect.right > circleRect.left &&
+            tractorRect.top < circleRect.bottom &&
+            tractorRect.bottom > circleRect.top
+
+          if (isColliding) {
+            setPointToAppear((prevPoints) => {
+              // Vérifie si l'élément existe déjà dans le tableau
+              if (!prevPoints.includes(String(index))) {
+                // Si l'élément n'est pas présent, on l'ajoute
+                return [...prevPoints, String(index)]
+              }
+              // Sinon, on retourne le tableau inchangé
+              return prevPoints
+            })
+          }
+        }
+      })
+    }
 
     // Animation principale
     const motionPath = document.querySelector('#motionPath')
@@ -25,13 +58,14 @@ function Line() {
           start: '-100 center',
           end: () => '+=' + motionPath.getBoundingClientRect().height,
           scrub: 0.5,
-          //   markers: true,
           onUpdate: (self) => {
             if (prevDirection !== self.direction) {
               // Changer la direction de rotation
               rotateTo(self.direction === 1 ? 0 : -180)
               prevDirection = self.direction
             }
+
+            checkCollision()
           }
         },
         ease: pathEase('#motionPath'), // Utilisation de la fonction de facilité personnalisée
@@ -47,27 +81,139 @@ function Line() {
   }, [])
 
   return (
-    <svg
-      id="linesvg"
-      opacity="0"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
-      viewBox="0 0 869 2502"
-      xmlSpace="preserve"
-      className="-mt-[350px]"
-    >
-      <path
-        id="motionPath"
-        className="fill-none stroke-primary stroke-[10] stroke-linecap-round stroke-linejoin-round"
-        style={{strokeMiterlimit: 10}}
-        d="M155.395,383.31 C152.773,390.548 92.401,646.162 250.215,727.041 453.479,831.213 835.629,715.412 832.33,924.268 830.006,1071.385 20.339,1040.965 22.58,1206.204 24.517,1348.994 835.125,1320.378 832.275,1445.504 827.175,1669.362 57.235,1623.348 56.673,1760.63 55.674,2004.272 837.157,1936.609 837.205,2053.845 837.283,2246.807 137.92199,2252.96102 137.92199,2252.96102 "
-      />
-      <g id="motionSVG">
-        <circle cx="50" cy="50" r="20" id="tractor" className="fill-primary" />
-      </g>
-    </svg>
+    <div className="relative">
+      <svg
+        id="linesvg"
+        opacity="0"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 869 2502"
+        xmlSpace="preserve"
+        className="-mt-[350px]"
+      >
+        <path
+          id="motionPath"
+          className="fill-none stroke-primary stroke-[5] stroke-linecap-round stroke-linejoin-round"
+          style={{strokeMiterlimit: 10}}
+          d="M155.395,383.31 C152.773,390.548 92.401,646.162 250.215,727.041 453.479,831.213 835.629,715.412 832.33,924.268 830.006,1071.385 20.339,1040.965 22.58,1206.204 24.517,1348.994 835.125,1320.378 832.275,1445.504 827.175,1669.362 57.235,1623.348 56.673,1760.63 55.674,2004.272 837.157,1936.609 837.205,2053.845 837.283,2246.807 137.92199,2252.96102 137.92199,2252.96102 "
+        />
+        <circle
+          ref={(el: any) => (circles.current[0] = el)}
+          cx="250"
+          cy="727"
+          r="10"
+          className="fill-red"
+        />
+        <circle
+          ref={(el: any) => (circles.current[1] = el)}
+          cx="832"
+          cy="924"
+          r="10"
+          className="fill-red"
+        />
+        <circle
+          ref={(el: any) => (circles.current[2] = el)}
+          cx="22"
+          cy="1206"
+          r="10"
+          className="fill-red"
+        />
+        <circle
+          ref={(el: any) => (circles.current[3] = el)}
+          cx="832"
+          cy="1445"
+          r="10"
+          className="fill-red"
+        />
+        <circle
+          ref={(el: any) => (circles.current[4] = el)}
+          cx="56"
+          cy="1760"
+          r="10"
+          className="fill-red"
+        />
+        <circle
+          ref={(el: any) => (circles.current[5] = el)}
+          cx="837"
+          cy="2053"
+          r="10"
+          className="fill-red"
+        />
+        <g id="motionSVG">
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            id="tractor"
+            className="fill-primary"
+          />
+        </g>
+      </svg>
+      <div
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[700px] left-1/2 opacity-0 ${pointToAppear.includes('0') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/architecture.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">CONCEPTION</p>
+      </div>
+      <div
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[1200px] left-1/3  opacity-0 ${pointToAppear.includes('1') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/casque.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">SUIVI DE CHANTIER</p>
+      </div>
+      <div
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[1600px] left-1/2  opacity-0 ${pointToAppear.includes('2') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/autorisation.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">{"DEMANDE D'AUTORISATION"}</p>
+      </div>
+      <div
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[1950px] left-1/4  opacity-0 ${pointToAppear.includes('3') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/maison-ecologique.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">
+          CONSEIL EN RENOVATION SOBRE
+        </p>
+      </div>
+      <div
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[2400px] left-1/2  opacity-0 ${pointToAppear.includes('4') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/architecture.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">CLIENTS</p>
+      </div>
+      <div
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[2800px] left-1/3  opacity-0 ${pointToAppear.includes('5') && 'opacity-100'}`}
+      >
+        <img
+          className="w-16"
+          src="/assets/icons/casque.svg"
+          alt="architecture"
+        />
+        <p className="font-fontBold text-primary">ÉVÈNEMENTIELS</p>
+      </div>
+    </div>
   )
 }
 
