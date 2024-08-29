@@ -9,7 +9,7 @@ async function Team() {
   return (
     <div>
       <TitleSection primary path="/lequipe" title="L'équipe" />
-      <div className="relative mt-20 sm:px-16 lg:px-36 flex flex-col sm:flex-row">
+      <div className="relative mt-20 sm:px-16 lg:px-36 max-w-[1200px] mx-auto flex flex-col sm:flex-row">
         <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer">
           {imageLeft && (
             <img
