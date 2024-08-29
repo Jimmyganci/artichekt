@@ -89,9 +89,9 @@ function Line() {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
         y="0px"
-        viewBox="0 0 869 2502"
+        viewBox="0 0 869 2402"
         xmlSpace="preserve"
-        className="-mt-[350px]"
+        className="-mt-[400px]"
       >
         <path
           id="motionPath"
@@ -152,7 +152,7 @@ function Line() {
         </g>
       </svg>
       <div
-        className={`absolute flex items-center gap-6 duration-500 transition-all top-[700px] left-1/2 opacity-0 ${pointToAppear.includes('0') && 'opacity-100'}`}
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[27%] left-[30%] opacity-0 ${pointToAppear.includes('0') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -162,7 +162,7 @@ function Line() {
         <p className="font-fontBold text-primary">CONCEPTION</p>
       </div>
       <div
-        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[1200px] left-1/3  opacity-0 ${pointToAppear.includes('1') && 'opacity-100'}`}
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[37%] left-[82%] -translate-x-1/2 opacity-0 ${pointToAppear.includes('1') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -172,7 +172,7 @@ function Line() {
         <p className="font-fontBold text-primary">SUIVI DE CHANTIER</p>
       </div>
       <div
-        className={`absolute flex items-center gap-6 duration-500 transition-all top-[1600px] left-1/2  opacity-0 ${pointToAppear.includes('2') && 'opacity-100'}`}
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[48%] left-[7%]  opacity-0 ${pointToAppear.includes('2') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -182,7 +182,7 @@ function Line() {
         <p className="font-fontBold text-primary">{"DEMANDE D'AUTORISATION"}</p>
       </div>
       <div
-        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[1950px] left-1/4  opacity-0 ${pointToAppear.includes('3') && 'opacity-100'}`}
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[59%] left-[80%] -translate-x-1/2  opacity-0 ${pointToAppear.includes('3') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -194,7 +194,7 @@ function Line() {
         </p>
       </div>
       <div
-        className={`absolute flex items-center gap-6 duration-500 transition-all top-[2400px] left-1/2  opacity-0 ${pointToAppear.includes('4') && 'opacity-100'}`}
+        className={`absolute flex items-center gap-6 duration-500 transition-all top-[72%] left-[10%]  opacity-0 ${pointToAppear.includes('4') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -204,7 +204,7 @@ function Line() {
         <p className="font-fontBold text-primary">CLIENTS</p>
       </div>
       <div
-        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[2800px] left-1/3  opacity-0 ${pointToAppear.includes('5') && 'opacity-100'}`}
+        className={`absolute flex flex-row-reverse items-center gap-6 duration-500 transition-all top-[84%] left-[85%] -translate-x-1/2  opacity-0 ${pointToAppear.includes('5') && 'opacity-100'}`}
       >
         <img
           className="w-16"
@@ -213,6 +213,64 @@ function Line() {
         />
         <p className="font-fontBold text-primary">ÉVÈNEMENTIELS</p>
       </div>
+      {/* {circles.current.map((circle, index) => {
+        if (!circle) return null
+
+        const rect = circle.getBoundingClientRect()
+        console.log(rect)
+
+        const isRightSide = index % 2 !== 0
+        let label = ''
+        let image = ''
+
+        if (index === 0) {
+          label = 'CONCEPTION'
+          image = 'architecture'
+        }
+        if (index === 1) {
+          label = 'SUIVI DE CHANTIER'
+          image = 'casque'
+        }
+        if (index === 2) {
+          label = "DEMANDE D'AUTORISATION"
+          image = 'autorisation'
+        }
+        if (index === 3) {
+          label = 'CONSEIL EN RENOVATION SOBRE'
+          image = 'maison-ecologique'
+        }
+        if (index === 4) {
+          label = 'CLIENTS'
+          image = 'casque'
+        }
+        if (index === 5) {
+          label = 'ÉVÈNEMENTIELS'
+          image = 'architecture'
+        }
+
+        console.log(label)
+
+        return (
+          <div
+            key={index}
+            className={`absolute flex ${isRightSide ? 'flex-row-reverse' : ''} items-center gap-6 duration-500 transition-all opacity-0 ${pointToAppear.includes(String(index)) && 'opacity-100'}`}
+            style={{
+              top: `calc(${rect.top}px + ${rect.height / 2}px)`,
+              left: isRightSide
+                ? `calc(${rect.left}px + ${rect.width}px + 20px)`
+                : `calc(${rect.left}px - 20px)`,
+              transform: 'translateY(-50%)'
+            }}
+          >
+            <img
+              className="w-16"
+              src={`/assets/icons/${image}.svg`}
+              alt="icon"
+            />
+            <p className="font-fontBold text-primary">{label}</p>
+          </div>
+        )
+      })} */}
     </div>
   )
 }
