@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import Line from './Line'
 
 function Services() {
   return (
@@ -11,6 +12,9 @@ function Services() {
           </span>
         </h4>
       </Link>
+      <div>
+        <Line />
+      </div>
     </div>
   )
 }

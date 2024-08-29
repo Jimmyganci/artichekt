@@ -22,6 +22,7 @@ type MenuItem = {
     label: string;
     databaseId: string;
     parentId: string;
+    children?: MenuItem['node'][]
   };
 };
 
