@@ -8,7 +8,7 @@ function Agency() {
     un réseau de professionnels compétents tout en développant une
     approche innovante et pluridisciplinaire.`
 
-  return <ScrollTextAppear primary link={link} content={content} />
+  return <ScrollTextAppear primary={false} link={link} content={content} />
 }
 
 export default Agency

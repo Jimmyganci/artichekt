@@ -1,23 +1,33 @@
-import Link from 'next/link'
 import React from 'react'
 
 function TitleSection({
-  path,
   title,
-  primary
+  primary,
+  position = 'left'
 }: {
-  path: string
   title: string
   primary: boolean
+  position?: string
 }) {
+  let row = 'flex-row-reverse'
+  let topSkew = 'top-8'
+  let textAlign = 'text-start'
+  if (position === 'right') {
+    row = 'flex-row'
+    topSkew = '-top-8'
+    textAlign = 'text-end'
+  }
   return (
-    <Link href={path}>
-      <h4 className={`${primary ? 'text-primary' : 'text-black'} text-center`}>
-        <span className="relative after:h-px after:absolute after:w-1/2 after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:bg-primary">
-          {title}
-        </span>
-      </h4>
-    </Link>
+    <div className={`flex ${row} justify-end`}>
+      <h2
+        className={`${primary ? 'text-primary' : 'text-black'} mt-0 mb-0 uppercase max-w-[160px] ${textAlign}`}
+      >
+        <span>{title}</span>
+      </h2>
+      <span
+        className={`pl-24 relative after:-z-10 after:w-[6.5rem] after:h-12 after:bg-primary after:absolute after:${topSkew} after:left-0 after:skew-y-[-35deg]`}
+      ></span>
+    </div>
   )
 }
 

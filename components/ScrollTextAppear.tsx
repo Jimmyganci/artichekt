@@ -5,6 +5,9 @@ import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
 import Link from 'next/link'
+import Image from 'next/image'
+import TitleSection from './TitleSection'
+import SeeAll from './layouts/SeeAll'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -49,19 +52,13 @@ function ScrollTextAppear({
   return (
     <div
       ref={container}
-      className={`min-h-[100vh] sm:min-h-[100vh] flex justify-center items-center`}
+      className={`min-h-[100vh] sm:min-h-[100vh] mt-8 flex justify-center items-center`}
     >
-      <div className="toSlide sm:w-fit text-center">
-        <Link href={path}>
-          <h4 className={primary ? 'text-primary' : 'text-black'}>
-            <span className="relative after:h-px after:absolute after:w-1/2 after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:bg-primary">
-              {name}
-            </span>
-          </h4>
-        </Link>
+      <div className="toSlide sm:w-fit">
+        <TitleSection title={name} primary={false} />
 
         <p
-          className={`text-2xl w-full sm:w-2/3 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`text-2xl w-full text-right sm:w-2/3 pl-28 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
@@ -70,6 +67,7 @@ function ScrollTextAppear({
             </span>
           ))}
         </p>
+        <SeeAll path="/lagence" />
       </div>
     </div>
   )
