@@ -58,7 +58,7 @@ function Approch() {
         position="right"
       />
 
-      <div className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-2 gap-4 p-10">
+      <div className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-2 grid-rows-[1fr_auto] gap-4 p-10">
         <div className="text-end flex flex-col justify-center">
           <p>
             Restructuration et agencement des espaces de vie, de travail et de
@@ -91,7 +91,7 @@ function Approch() {
           </p>
         </div>
       </div>
-      {/* <SeeAll  /> */}
+      <SeeAll path="/methodologie" />
     </div>
   )
 }
