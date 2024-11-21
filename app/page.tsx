@@ -11,6 +11,7 @@ import Team from '@/components/home/Team'
 import Approch from '@/components/home/Approch'
 import Skew from '@/components/layouts/Skew'
 import getAllServices from '@/lib/queries/getAllServices'
+import SeeAll from '@/components/layouts/SeeAll'
 
 /**
  * The homepage route.
@@ -47,12 +48,11 @@ export default async function Home() {
       <section className="mt-[70vh]">
         <Services services={services} />
       </section>
+      <section className="mt-[20vh]">
+        <Approch />
+      </section>
       {/* <section className="h-screen overflow-hidden mb-7">
         <Projects project={projects[0]} />
-      </section>
-
-      <section>
-        <Approch />
       </section>
       <section className="my-[70vh]">
         <Team />

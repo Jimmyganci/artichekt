@@ -7,6 +7,7 @@ import {useGSAP} from '@gsap/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import TitleSection from './TitleSection'
+import SeeAll from './layouts/SeeAll'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,20 +67,7 @@ function ScrollTextAppear({
             </span>
           ))}
         </p>
-        <Link
-          className="text-2xl w-fit mx-auto flex items-center gap-4 justify-center"
-          href={'/lagence'}
-        >
-          <span className="font-bold">{'tout voir'}</span>
-          <span>
-            <Image
-              src={'./assets/icons/arrow-right.svg'}
-              width={50}
-              height={50}
-              alt="arrow right"
-            />{' '}
-          </span>
-        </Link>
+        <SeeAll path="/lagence" />
       </div>
     </div>
   )
