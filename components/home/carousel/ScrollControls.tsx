@@ -231,7 +231,7 @@ const ScrollHtml = React.forwardRef(
     const {width, height} = useThree((state) => state.size)
     const fiberState = React.useContext(fiberContext)
     useFrame(() => {
-      if (state.delta > state.eps) {
+      if (state.delta > state.eps && group.current) {
         group.current.style.transform = `translate3d(${state.horizontal ? -width * (state.pages - 1) * state.offset : 0}px,${
           state.horizontal ? 0 : height * (state.pages - 1) * -state.offset
         }px,0)`

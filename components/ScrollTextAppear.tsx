@@ -2,23 +2,22 @@
 
 import React, {useRef} from 'react'
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {useGSAP} from '@gsap/react'
-import Link from 'next/link'
-import Image from 'next/image'
 import TitleSection from './TitleSection'
 import SeeAll from './layouts/SeeAll'
-
-gsap.registerPlugin(ScrollTrigger)
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import {generateUUID} from 'three/src/math/MathUtils.js'
 
 function ScrollTextAppear({
-  link: {path, name},
+  name,
   content,
-  primary
+  primary,
+  id
 }: {
-  link: {path: string; name: string}
+  name?: string
   content: string
   primary: boolean
+  id: string
 }) {
   const container = useRef<any>()
   const textRef = useRef<any>()
@@ -26,6 +25,7 @@ function ScrollTextAppear({
   useGSAP(
     () => {
       const words = gsap.utils.toArray('.toSlide span')
+
       gsap.fromTo(
         words,
         {
@@ -40,11 +40,19 @@ function ScrollTextAppear({
             start: 'center center',
             end: '+=600',
             pin: true,
-            // markers: true,
+            markers: false,
             scrub: true
+            // onLeave: () => {
+            //   if (yForced) {
+            //     gsap.set('.toSlide', {y: '-600px'})
+            //   }
+            // }
           }
         }
       )
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      }
     },
     {scope: container}
   )
@@ -54,8 +62,8 @@ function ScrollTextAppear({
       ref={container}
       className={`min-h-[100vh] sm:min-h-[100vh] mt-8 flex justify-center items-center`}
     >
-      <div className="toSlide sm:w-fit">
-        <TitleSection title={name} primary={false} />
+      <div className={`toSlide sm:w-fit`}>
+        {name && <TitleSection title={name} primary={false} />}
 
         <p
           className={`text-2xl w-full text-right sm:w-2/3 pl-28 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
@@ -67,7 +75,7 @@ function ScrollTextAppear({
             </span>
           ))}
         </p>
-        <SeeAll path="/lagence" />
+        <SeeAll path={`/${name}`} />
       </div>
     </div>
   )

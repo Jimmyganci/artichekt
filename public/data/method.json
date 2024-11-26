@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "content": "Analyse des besoins"
+  },
+  {
+    "id": 1,
+    "content": "CAHIER DES CHARGES VALIDATION CLIENTS"
+  },
+  {
+    "id": 2,
+    "content": "OBSERVATION ET ETAT DES LIEUX + VEILLE CREATIVE"
+  },
+  {
+    "id": 3,
+    "content": "ESQUISSES ET PLANS SOMMAIRE"
+  },
+  {
+    "id": 4,
+    "content": "PROJET DE CONCEPTION GENERALE ET DCE/CCTP"
+  },
+  {
+    "id": 5,
+    "content": "PREPARATION CHANTIER ET DEMARRAGE"
+  },
+  {
+    "id": 6,
+    "content": "SUIVI DES OPERATIONS DE CHANTIER"
+  }
+]
