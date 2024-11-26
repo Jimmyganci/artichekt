@@ -132,7 +132,6 @@ export function gsapTo(elements: string, coef: number) {
             end: 'bottom',
             invalidateOnRefresh: true,
             scrub: 0, 
-            // markers: true
           }
         })
       })

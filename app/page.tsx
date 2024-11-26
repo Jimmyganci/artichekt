@@ -5,13 +5,16 @@ import TitleHome from '@/components/TitleHome'
 import ImageHero from '@/components/home/ImageHero'
 import Agency from '@/components/home/Agency'
 import getAllProjects from '@/lib/queries/getAllProjects'
-import Projects from '@/components/home/Projects'
 import Services from '@/components/home/Services'
-import Team from '@/components/home/Team'
 import Approch from '@/components/home/Approch'
 import Skew from '@/components/layouts/Skew'
 import getAllServices from '@/lib/queries/getAllServices'
-import SeeAll from '@/components/layouts/SeeAll'
+import Quote from '@/components/home/Quote'
+
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import Method from '@/components/home/Method'
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * The homepage route.
@@ -45,11 +48,17 @@ export default async function Home() {
       <section>
         <Agency />
       </section>
-      <section className="mt-[70vh]">
+      <section>
         <Services services={services} />
       </section>
-      <section className="mt-[20vh]">
+      <section>
         <Approch />
+      </section>
+      <section>
+        <Quote />
+      </section>
+      <section>
+        <Method />
       </section>
       {/* <section className="h-screen overflow-hidden mb-7">
         <Projects project={projects[0]} />

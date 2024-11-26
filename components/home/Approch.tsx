@@ -6,8 +6,6 @@ import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import SeeAll from '../layouts/SeeAll'
 
-gsap.registerPlugin(ScrollTrigger)
-
 function Approch() {
   const containerRef = useRef(null)
 
@@ -26,7 +24,8 @@ function Approch() {
         scrollTrigger: {
           trigger: container, // L'élément déclencheur
           start: 'top 15%', // Début de l'animation
-          end: 'top top', // Fin de l'animation
+          end: '+=500', // Fin de l'animation
+          // end: 'top top', // Fin de l'animation
           scrub: true, // Synchronisé avec le scroll
           pin: true, // Active le pin
           markers: false // Pour le débogage
@@ -48,17 +47,24 @@ function Approch() {
         0 // Début en même temps que l'image
       )
     }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
   }, [])
 
   return (
-    <div ref={containerRef} className="approch-container mt-7">
+    <div className="approch-container mt-7">
       <TitleSection
         title={"L'approche artichekt"}
         primary={false}
         position="right"
       />
 
-      <div className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-2 grid-rows-[1fr_auto] gap-4 p-10">
+      <div
+        ref={containerRef}
+        className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-[1fr_auto] gap-4 p-10"
+      >
         <div className="text-end flex flex-col justify-center">
           <p>
             Restructuration et agencement des espaces de vie, de travail et de
