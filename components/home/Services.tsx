@@ -16,9 +16,9 @@ function Services({services}: {services: Post[]}) {
       const totalWidth = container.scrollWidth - window.innerWidth
       gsap.fromTo(
         container,
-        {x: '250px'}, // Point de départ
+        {x: '25%'}, // Point de départ
         {
-          x: '0px', // Point final
+          x: '0%', // Point final
           duration: 1,
           scrollTrigger: {
             trigger: testRef.current,
