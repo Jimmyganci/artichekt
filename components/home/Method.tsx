@@ -54,13 +54,16 @@ function Method() {
       // Animation des lettres
       timeline.fromTo(
         letters,
-        {opacity: 1},
+        {y: 0, opacity: 1},
         {
+          y: () => `-${Math.random() * 50}vh`,
           opacity: 0,
-          duration: 5,
-          stagger: 0
-        },
-        '+=0.5'
+          duration: () => Math.random() * 10 + 10, // Durée entre 10s et 20s
+          stagger: {
+            each: 0.2,
+            from: 'random'
+          }
+        }
       )
 
       // Animation pour centrer le cercle à partir de sa position
@@ -109,7 +112,10 @@ function Method() {
   return (
     <div ref={containerRef} id="method-container" className="text-center">
       <div className="m-0 flex justify-center items-center">
-        <span className="letter text-[16vw]">METH</span>
+        <span className="letter text-[16vw]">M</span>
+        <span className="letter text-[16vw]">E</span>
+        <span className="letter text-[16vw]">T</span>
+        <span className="letter text-[16vw]">H</span>
         <div
           ref={circleRef}
           id="circle"
@@ -126,7 +132,8 @@ function Method() {
             </p>
           )}
         </div>
-        <span className="letter text-[16vw]">DE</span>
+        <span className="letter text-[16vw]">D</span>
+        <span className="letter text-[16vw]">E</span>
       </div>
       {data && data.length > 0 && (
         <ul

@@ -14,6 +14,8 @@ import Quote from '@/components/home/Quote'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Method from '@/components/home/Method'
+import Team from '@/components/home/Team'
+import Projects from '@/components/home/Projects'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -60,12 +62,12 @@ export default async function Home() {
       <section>
         <Method />
       </section>
-      {/* <section className="h-screen overflow-hidden mb-7">
+      <section>
+        <Team />
+      </section>
+      <section className="h-screen overflow-hidden mb-[30vh]">
         <Projects project={projects[0]} />
       </section>
-      <section className="my-[70vh]">
-        <Team />
-      </section> */}
     </main>
   )
 }

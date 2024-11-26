@@ -43,8 +43,8 @@ function Approch() {
       timeline.fromTo(
         texts,
         {opacity: 0, y: 50}, // État initial
-        {opacity: 1, y: 0, duration: 1}, // État final (stagger pour un effet en cascade)
-        0 // Début en même temps que l'image
+        {opacity: 1, y: 0, duration: 1} // État final (stagger pour un effet en cascade)
+        // 0 // Début en même temps que l'image
       )
     }
 
