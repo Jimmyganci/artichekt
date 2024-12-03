@@ -119,16 +119,16 @@ function Method() {
         <div
           ref={circleRef}
           id="circle"
-          className="rounded-full h-[10vw] w-[10vw] bg-slate-400 flex flex-col items-center justify-center p-2"
+          className="rounded-full h-[10vw] w-[10vw] bg-[#B9B9B9] flex flex-col items-center justify-center p-2"
         >
           {activePoint !== undefined && (
             <span className="text-white font-fontBlack content-circle">
-              {data[activePoint]?.id + 1 || ''}
+              {data[0]?.id + 1 || ''}
             </span>
           )}
           {activePoint !== undefined && (
             <p className="m-0 text-white leading-none font-fontBlack text-[12px] content-circle">
-              {data[activePoint]?.content || ''}
+              {data[0]?.content || ''}
             </p>
           )}
         </div>
@@ -141,9 +141,9 @@ function Method() {
         >
           <span
             ref={progressBarRef}
-            className="w-0 h-1 bg-black absolute top-6"
+            className="w-0 h-1 bg-[#B9B9B9] absolute top-6"
           ></span>
-          {data.map((method, index) => (
+          {data.slice(1).map((method, index) => (
             <li
               ref={(el) => {
                 pointsRef.current[index] = el // Assigner la référence sans retourner de valeur
@@ -152,7 +152,7 @@ function Method() {
               className={`w-[10vw] transition ease-in-out duration-300 z-10 ${activePoint !== undefined && activePoint >= index ? 'opacity-100' : 'opacity-0'}`}
             >
               <div className="flex flex-col items-center">
-                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-slate-400 text-white font-fontBlack">
+                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-[#B9B9B9] text-white font-fontBlack">
                   {method.id + 1}
                 </span>
                 <p className="uppercase text-primary font-fontBlack text-sm">
