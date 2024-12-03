@@ -4,7 +4,7 @@ import React from 'react'
 
 function ServiceCard({title, featuredImage}: Post) {
   return (
-    <div className="relative h-[500px] w-[400px] overflow-hidden cursor-pointer">
+    <div className="relative h-[38vw] w-[30vw] overflow-hidden cursor-pointer">
       <div className="absolute top-0 left-0 w-full h-full mt-0 mn-0 transform transition-transform duration-300 hover:scale-110">
         <Image
           className="object-cover w-full h-full mt-0 mb-0 grayscale hover:grayscale-0"
@@ -14,7 +14,7 @@ function ServiceCard({title, featuredImage}: Post) {
           alt={featuredImage.node.altText}
         />
       </div>
-      <h6 className="absolute text-[26px] px-9 leading-tight bottom-2 text-center w-full text-white font-bold">
+      <h6 className="absolute text-[26px] px-20 leading-tight flex flex-col bottom-2 text-center w-full text-white font-bold whitespace-normal">
         {title}
       </h6>
     </div>

@@ -72,8 +72,12 @@ function Services({services}: {services: Post[]}) {
         className=" pl-20 flex relative whitespace-nowrap will-change-transform"
       >
         <div>
-          <div className="w-60 break-words z-10 absolute top-0">
-            <h3 className="text-[108px] leading-tight mt-0 mb-0">SERVICES</h3>
+          <div className="w-60 z-10 absolute top-0">
+            <h3 className="text-[108px] flex flex-col leading-tight mt-0 mb-0">
+              <span>SER</span>
+              <span>VIC</span>
+              <span>ES</span>
+            </h3>
           </div>
           {services && services.length > 0 && (
             <div className="flex gap-12 pl-28">

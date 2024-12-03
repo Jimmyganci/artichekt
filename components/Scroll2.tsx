@@ -9,21 +9,30 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 function Scroll2({
   name,
   content,
-  primary
+  primary,
+  position = 'right'
 }: {
   name?: string
   content: string
   primary: boolean
+  position?: string
 }) {
   const containerRef = useRef<any>()
   const textRef = useRef<any>()
+  let test = 'text-right'
+  let test2 = 'left-[92%]'
+
+  if (position === 'left') {
+    test = 'text-left'
+    test2 = 'left-0'
+  }
 
   useEffect(() => {
     const container = containerRef.current
 
     if (container) {
       // Récupérer les mots à animer
-      const words = container.querySelectorAll('.test span')
+      const words = container.querySelectorAll('.containerText span')
 
       // Définir les animations GSAP avec ScrollTrigger
       const timeline = gsap.timeline({
@@ -58,17 +67,24 @@ function Scroll2({
   return (
     <div ref={containerRef} className={`mt-8`}>
       <div
-        className={`test sm:w-fit min-h-screen flex flex-col justify-center`}
+        className={`containerText sm:w-fit min-h-screen flex flex-col justify-evenly`}
       >
         {name && <TitleSection title={name} primary={false} />}
 
         <p
-          className={`text-2xl w-full text-right sm:w-2/3 pl-28 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`relative text-2xl w-full ${test} sm:w-2/3 pl-28 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
             <span key={index}>{word} </span>
           ))}
+          <em className="opacity-50">
+            <span
+              className={`absolute text-primary text-[300px] ${test2} bottom-[20%] -z-10`}
+            >
+              {'"'}
+            </span>
+          </em>
         </p>
         <SeeAll path="/lagence" />
       </div>

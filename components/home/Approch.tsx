@@ -65,30 +65,35 @@ function Approch() {
         ref={containerRef}
         className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-[1fr_auto] gap-4 p-10"
       >
-        <div className="text-end flex flex-col justify-center">
-          <p>
+        <div className="text-end flex flex-col justify-center items-end mr-0">
+          <p className="max-w-52">
             Restructuration et agencement des espaces de vie, de travail et de
             consommation.
           </p>
-          <p>Prise en compte des dimensions esthétiques et fonctionnelles. </p>
+          <p className="max-w-52">
+            Prise en compte des dimensions esthétiques et fonctionnelles.{' '}
+          </p>
         </div>
-        <div>
+        <div className="flex justify-center items-center">
           <Image
-            className="w-full"
+            className="w-[80%]"
             src="/images/approch.png"
             alt="schema"
-            width={500}
-            height={300}
+            width={450}
+            height={250}
           />
         </div>
-        <div className="flex flex-col justify-center">
-          <p>
+        <div className="flex flex-col justify-center ml-0">
+          <p className="max-w-52">
             Observation et étude des usages des habitants, des personnes en
             activité et des consommateurs dans leur milieu.
           </p>
-          <p> Prise en compte de ce qui constitue le bien-être des usagers.</p>
+          <p className="max-w-52">
+            {' '}
+            Prise en compte de ce qui constitue le bien-être des usagers.
+          </p>
         </div>
-        <div className="col-start-2">
+        <div className="col-start-2 max-w-96 mx-auto">
           <p className="text-center">
             Proposer des espaces de vie, de travail et de consommation adaptés
             aux usages des habitants, des personnes en activité et des
@@ -97,7 +102,9 @@ function Approch() {
           </p>
         </div>
       </div>
-      <SeeAll path="/methodologie" />
+      <div className="mt-8">
+        <SeeAll path="/methodologie" />
+      </div>
     </div>
   )
 }

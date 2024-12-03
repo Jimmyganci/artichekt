@@ -31,6 +31,7 @@ export default async function Home() {
   const projects = await getAllProjects()
 
   const services = await getAllServices()
+  const sortedServices = services.sort((a, b) => a.order - b.order)
 
   if (!homepage) {
     notFound()
@@ -50,8 +51,8 @@ export default async function Home() {
       <section>
         <Agency />
       </section>
-      <section>
-        <Services services={services} />
+      <section className="mb-32">
+        <Services services={sortedServices} />
       </section>
       <section>
         <Approch />
@@ -62,7 +63,7 @@ export default async function Home() {
       <section>
         <Method />
       </section>
-      <section>
+      <section className="mt-36">
         <Team />
       </section>
       <section className="h-screen overflow-hidden mb-[30vh]">

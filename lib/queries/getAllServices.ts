@@ -29,6 +29,7 @@ export default async function getAllServices() {
             metaDesc
             title
           }
+          order
         }
       }
     }

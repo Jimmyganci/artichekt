@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: Medium;
+    src: url('/assets/fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
     font-family: Bold;
     src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf');
 }

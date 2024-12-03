@@ -125,6 +125,7 @@ export interface Post {
     metaDesc: string
     title: string
   }
+  order: number
   comments: {
     nodes: [
       {
