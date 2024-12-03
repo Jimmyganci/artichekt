@@ -19,6 +19,7 @@ const config: Config = {
       fontFamily: {
         fontMenu: ['Menu', 'sans-serif'],
         fontRegular: ['Regular', 'sans-serif'],
+        fontMedium: ['Medium', 'sans-serif'],
         fontBold: ['Bold', 'sans-serif'],
         fontBlack: ['Black', 'sans-serif'],
       },

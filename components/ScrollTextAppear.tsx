@@ -60,7 +60,7 @@ function ScrollTextAppear({
   return (
     <div
       ref={container}
-      className={`min-h-[100vh] sm:min-h-[100vh] mt-8 flex justify-center items-center`}
+      className={`min-h-[100vh] sm:min-h-[100vh] mt-8 flex justify-evenly items-center`}
     >
       <div className={`toSlide sm:w-fit`}>
         {name && <TitleSection title={name} primary={false} />}
