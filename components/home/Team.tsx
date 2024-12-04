@@ -77,7 +77,7 @@ function Team() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container2,
-          start: 'top 15%',
+          start: 'top 20%',
           end: '+=500',
           scrub: true,
           pin: true,
@@ -101,16 +101,23 @@ function Team() {
     <div className="teamContainer">
       <TitleSection primary title="L'équipe" />
       <div className="relative mt-20 sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
-        <div className="flex w-full" ref={containerRef}>
-          <div className="textContent w-full px-8">
-            <p className="text-[20px]">
+        <div className="flex w-full overflow-hidden" ref={containerRef}>
+          <div className="textContent w-full relative">
+            <Image
+              width={300}
+              height={400}
+              src="/images/artichaut_left.png"
+              alt="bloc haut gauche d'un artichaut"
+              className="absolute w-full -z-10 max-h-full opacity-50"
+            />
+            <p className="text-[20px] px-8">
               Amandine cumule 6 années d’activités dans le domaine de
               l’architecture intérieure acquises par le biais d’une première
               expérience réussie en tant qu’auto-entrepreneur durant laquelle
               elle a dirigé, entre autres, la conception et la rénovation du
               restaurant Le Katana.
             </p>
-            <p className="text-[20px]">
+            <p className="text-[20px] px-8">
               Architecte d’intérieur cheffe de projet pour la société darroman
               design d’octobre 2022 à janvier 2024, cette seconde expérience lui
               a permis de consolider ses compétences dans la gestion globale de
@@ -122,13 +129,14 @@ function Team() {
               </span>
             </p>
           </div>
+
           <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
             {/* <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer"> */}
             {images.imageLeft && (
               <Image
                 width={300}
                 height={400}
-                className="w-full"
+                className="w-full m-0"
                 src={images.imageLeft.mediaItemUrl}
                 alt={images.imageLeft.altText}
               />
@@ -143,20 +151,27 @@ function Team() {
               <Image
                 width={300}
                 height={400}
-                className="w-full"
+                className="w-full m-0"
                 src={images.imageRight.mediaItemUrl}
                 alt={images.imageRight.altText}
               />
             )}
           </div>
-          <div className="textContent2 w-full px-8">
-            <p className="text-[20px]">
+          <div className="textContent2 w-full relative">
+            <Image
+              width={300}
+              height={400}
+              src="/images/artichaut_right.png"
+              alt="bloc haut gauche d'un artichaut"
+              className="absolute w-full -z-10 m-0 opacity-50"
+            />
+            <p className="text-[20px] px-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
               C’est celui qui a une solution pour chaque problème mais qui ne
               sera pas à l’aise qu’on écrive cela à propos de lui.
             </p>
-            <p className="text-[20px]">
+            <p className="text-[20px] px-8">
               Les 5 années qu’il a passées à sillonner l’Europe dans plus de 15
               pays et 3 états des États-Unis lui ont permis de développer des
               capacités relationnelles, d’adaptation et de gestion de ses
