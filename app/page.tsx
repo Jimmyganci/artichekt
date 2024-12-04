@@ -63,7 +63,7 @@ export default async function Home() {
       <section>
         <Method />
       </section>
-      <section className="mt-36">
+      <section className="my-36">
         <Team />
       </section>
       <section className="h-screen overflow-hidden mb-[30vh]">
