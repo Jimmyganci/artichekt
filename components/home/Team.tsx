@@ -98,54 +98,66 @@ function Team() {
   }, [])
 
   return (
-    <div className="teamContainer">
-      <TitleSection primary title="L'équipe" />
+    <div className="teamContainer relative">
       <div className="relative mt-20 sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
-        <div className="flex w-full overflow-hidden" ref={containerRef}>
-          <div className="textContent w-full relative">
-            <Image
-              width={300}
-              height={400}
-              src="/images/artichaut_left.png"
-              alt="bloc haut gauche d'un artichaut"
-              className="absolute w-full -z-10 max-h-full opacity-50"
-            />
-            <p className="text-[20px] px-8">
-              Amandine cumule 6 années d’activités dans le domaine de
-              l’architecture intérieure acquises par le biais d’une première
-              expérience réussie en tant qu’auto-entrepreneur durant laquelle
-              elle a dirigé, entre autres, la conception et la rénovation du
-              restaurant Le Katana.
-            </p>
-            <p className="text-[20px] px-8">
-              Architecte d’intérieur cheffe de projet pour la société darroman
-              design d’octobre 2022 à janvier 2024, cette seconde expérience lui
-              a permis de consolider ses compétences dans la gestion globale de
-              projet d’architecture intérieure.
-              <span>
-                <a href="#" className="text-[20px] pl-1">
-                  <strong>Lire plus</strong>
-                </a>
-              </span>
-            </p>
+        <div ref={containerRef}>
+          <div className="z-10 absolute -top-28 text-end -right-12">
+            <h3 className="text-[108px] flex flex-col leading-tight mt-0 mb-0 text-primary">
+              <span>{"L'EQ"}</span>
+              <span>UI</span>
+              <span>PE</span>
+            </h3>
           </div>
-
-          <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
-            {/* <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer"> */}
-            {images.imageLeft && (
+          <div className="flex w-full overflow-hidden">
+            <div className="textContent w-full relative">
               <Image
                 width={300}
                 height={400}
-                className="w-full m-0"
-                src={images.imageLeft.mediaItemUrl}
-                alt={images.imageLeft.altText}
+                src="/images/artichaut_left.png"
+                alt="bloc haut gauche d'un artichaut"
+                className="absolute w-full -z-10 max-h-full opacity-50"
               />
-            )}
+              <p className="text-[20px] px-8">
+                Amandine cumule 6 années d’activités dans le domaine de
+                l’architecture intérieure acquises par le biais d’une première
+                expérience réussie en tant qu’auto-entrepreneur durant laquelle
+                elle a dirigé, entre autres, la conception et la rénovation du
+                restaurant Le Katana.
+              </p>
+              <p className="text-[20px] px-8">
+                Architecte d’intérieur cheffe de projet pour la société darroman
+                design d’octobre 2022 à janvier 2024, cette seconde expérience
+                lui a permis de consolider ses compétences dans la gestion
+                globale de projet d’architecture intérieure.
+                <span>
+                  <a href="#" className="text-[20px] pl-1">
+                    <strong>Lire plus</strong>
+                  </a>
+                </span>
+              </p>
+            </div>
+
+            <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
+              {/* <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer"> */}
+              {images.imageLeft && (
+                <Image
+                  width={300}
+                  height={400}
+                  className="w-full m-0"
+                  src={images.imageLeft.mediaItemUrl}
+                  alt={images.imageLeft.altText}
+                />
+              )}
+              <div className="absolute bottom-0 flex flex-col justify-center items-center w-full pb-2 text-white">
+                <p className="my-0 font-fontBold text-2xl">AMANDINE GANCI</p>
+                <p className="my-0 font-fontBold ">Dirigeante associé</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="flex" ref={containerRef2}>
-          <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
+          <div className="sm:w-full w-1/2 relative cursor-pointer">
             {/* <div className="sm:w-1/2 sm:top-44 sm:right-10 sm:relative cursor-pointer"> */}
             {images.imageRight && (
               <Image
@@ -156,6 +168,10 @@ function Team() {
                 alt={images.imageRight.altText}
               />
             )}
+            <div className="absolute bottom-0 flex flex-col justify-center items-center w-full pb-2 text-white">
+              <p className="my-0 font-fontBold text-2xl">VINCENT BAUDAIN</p>
+              <p className="my-0 font-fontBold ">Dirigeant associé</p>
+            </div>
           </div>
           <div className="textContent2 w-full relative">
             <Image
@@ -163,7 +179,7 @@ function Team() {
               height={400}
               src="/images/artichaut_right.png"
               alt="bloc haut gauche d'un artichaut"
-              className="absolute w-full -z-10 m-0 opacity-50"
+              className="absolute w-full m-0 -z-10 max-h-full opacity-50"
             />
             <p className="text-[20px] px-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
