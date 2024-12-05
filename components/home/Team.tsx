@@ -1,6 +1,5 @@
 'use client'
 import React, {useEffect, useRef, useState} from 'react'
-import TitleSection from '../TitleSection'
 import getLogo from '@/lib/queries/getLogo'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -51,20 +50,13 @@ function Team() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: 'top 15%',
+          start: 'top 25%',
           end: '+=500',
           scrub: true,
           pin: true,
           markers: false
         }
       })
-
-      // // Ajouter l'animation de l'image à la timeline
-      // timeline.fromTo(
-      //   image,
-      //   {scale: 1.25}, // État initial
-      //   {scale: 1, duration: 1} // État final
-      // )
 
       timeline.fromTo(
         '.teamContainer .textContent p',
@@ -77,7 +69,7 @@ function Team() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container2,
-          start: 'top 20%',
+          start: 'top 25%',
           end: '+=500',
           scrub: true,
           pin: true,
