@@ -20,6 +20,7 @@ import ScrollTitle from '@/components/home/ScrollTitle'
 import Guarantee from '@/components/home/Guarantee'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import TargetedLocations from '@/components/home/TargetedLocations'
+import Engagment from '@/components/home/Engagment'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -80,6 +81,9 @@ export default async function Home() {
       </section>
       <section className="min-h-screen mt-36">
         <TargetedLocations targetedLocations={targetedLocations} />
+      </section>
+      <section className="min-h-screen mt-36 mx-auto">
+        <Engagment />
       </section>
       <section className="h-screen">
         {/* <Projects project={projects[0]} /> */}

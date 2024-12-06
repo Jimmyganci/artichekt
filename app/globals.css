@@ -11,7 +11,7 @@
   body {
     @apply prose prose-zinc ;
     @apply relative mx-auto  px-0 antialiased max-w-[100%] min-h-[200vh];
-    @apply bg-white;
+    @apply bg-[#F0F0F0];
     @apply font-fontRegular;
   }
 
