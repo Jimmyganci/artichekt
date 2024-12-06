@@ -18,6 +18,8 @@ import Team from '@/components/home/Team'
 import Projects from '@/components/home/Projects'
 import ScrollTitle from '@/components/home/ScrollTitle'
 import Guarantee from '@/components/home/Guarantee'
+import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
+import TargetedLocations from '@/components/home/TargetedLocations'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -34,6 +36,8 @@ export default async function Home() {
 
   const services = await getAllServices()
   const sortedServices = services.sort((a, b) => a.order - b.order)
+
+  const targetedLocations = await getAllTargetedLocations()
 
   if (!homepage) {
     notFound()
@@ -73,6 +77,9 @@ export default async function Home() {
       </section>
       <section className="min-h-screen">
         <Guarantee />
+      </section>
+      <section className="min-h-screen mt-36">
+        <TargetedLocations targetedLocations={targetedLocations} />
       </section>
       <section className="h-screen">
         {/* <Projects project={projects[0]} /> */}
