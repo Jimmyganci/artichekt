@@ -22,9 +22,11 @@ function Guarantee() {
       return pointsRef.current
         .filter((point) => point !== null) // Éliminer les références nulles
         .map((point) => {
-          const bounds = point.getBoundingClientRect()
-          // Calculer la position relative au conteneur
-          return bounds.top + bounds.height - containerBounds.top - 80
+          if (point) {
+            const bounds = point.getBoundingClientRect()
+            // Calculer la position relative au conteneur
+            return bounds.top + bounds.height - containerBounds.top - 80
+          }
         })
     }
 
@@ -66,7 +68,7 @@ function Guarantee() {
 
           // Vérifier si la barre a atteint un point
           points.forEach((pointY, index) => {
-            if (currentY >= pointY && activePoint !== index) {
+            if (pointY && currentY >= pointY && activePoint !== index) {
               setActivePoint(index) // Mettre à jour le point actif
             }
           })
