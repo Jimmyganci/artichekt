@@ -7,7 +7,7 @@ function TitleSection({
 }: {
   title: string
   primary: boolean
-  position?: string
+  position?: 'left' | 'right'
 }) {
   let row = 'flex-row-reverse'
   let topSkew = 'top-8'
