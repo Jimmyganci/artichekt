@@ -46,17 +46,24 @@ function ScrollTitle() {
           markers: true
         }
       })
-      timeline2.to('.image', {
-        xPercent: -50,
-        yPercent: -50,
-        scale: 3,
-        rotationX: 0,
-        rotationY: 0,
-        rotationZ: 0,
-        duration: 2,
-        top: '40%',
-        ease: 'power1.out'
-      })
+      timeline2
+        .to('.scrollTitleContainer .text', {opacity: 0, duration: 100})
+        .to(
+          '.image',
+          {
+            xPercent: -50,
+            yPercent: -50,
+            scale: 1.5,
+            rotationX: 0,
+            rotationY: 0,
+            rotationZ: 0,
+            duration: 200,
+            top: '40%',
+            left: '50%',
+            ease: 'power1.out'
+          },
+          '<'
+        )
     }
 
     return () => {
@@ -65,22 +72,22 @@ function ScrollTitle() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center relative">
+    <div className="min-h-screen flex flex-col justify-center items-center relative scrollTitleContainer">
       <div ref={containerRef} className="flex flex-col ">
         <Image
-          width={500}
-          height={400}
+          width={1000}
+          height={800}
           alt="test"
           src={'/imagesTest/img8.jpg'}
-          className="absolute -z-10 top-[20%] will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-[50%] image scrollFromRight"
+          className="absolute -z-10 top-[20%] scale-50 will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-[20%] image scrollFromRight"
         />
-        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight">
+        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight text">
           {'UN LIEU'}
         </span>
-        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromLeft">
+        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromLeft text">
           {'PHYSIQUE POUR'}
         </span>
-        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight">
+        <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight text">
           {'VOUS ACCUEILLIR'}
         </span>
       </div>
