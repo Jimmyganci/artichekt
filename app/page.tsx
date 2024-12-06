@@ -17,6 +17,7 @@ import Method from '@/components/home/Method'
 import Team from '@/components/home/Team'
 import Projects from '@/components/home/Projects'
 import ScrollTitle from '@/components/home/ScrollTitle'
+import Guarantee from '@/components/home/Guarantee'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -69,6 +70,9 @@ export default async function Home() {
       </section>
       <section>
         <ScrollTitle />
+      </section>
+      <section className="min-h-screen">
+        <Guarantee />
       </section>
       <section className="h-screen">
         {/* <Projects project={projects[0]} /> */}
