@@ -14,7 +14,8 @@ const config: Config = {
       colors: {
         primary: '#7DA365',
         secondary: '#161819',
-        white: '#f0f0f0'
+        white: '#f0f0f0',
+        grey: "#D9D9D9"
       },
       fontFamily: {
         fontMenu: ['Menu', 'sans-serif'],

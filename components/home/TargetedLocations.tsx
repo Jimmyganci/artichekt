@@ -11,7 +11,7 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
       </h4>
       {targetedLocations && targetedLocations.length > 0 && (
         <div className="flex gap-12 pl-28 -mt-10">
-          {targetedLocations.map((targetedLocation) => (
+          {targetedLocations.slice(0, 3).map((targetedLocation) => (
             <ServiceCard key={targetedLocation.slug} {...targetedLocation} />
           ))}
         </div>
