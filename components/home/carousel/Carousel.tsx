@@ -1,13 +1,13 @@
 'use client'
 import {Canvas} from '@react-three/fiber'
-import React, {Suspense} from 'react'
+import React, {Suspense, useEffect, useRef} from 'react'
 import {Scroll, ScrollControls} from './ScrollControls'
 import Pages from './Pages'
 import {Preload} from '@react-three/drei'
 import {Image, Post} from '@/lib/types'
 import {chunkArray} from '@/lib/functions'
 
-function Carousel({project}: {project: Post}) {
+function Carousel({project, test}: {project: Post; test: boolean}) {
   const {title, imagesGalleries} = project
 
   const chunkedImages: Image[][] = imagesGalleries
@@ -20,7 +20,7 @@ function Carousel({project}: {project: Post}) {
     imagesGalleries &&
     imagesGalleries.images.length > 0 &&
     title && (
-      <Canvas gl={{antialias: false}} dpr={[1, 1.5]}>
+      <Canvas className="w-full" gl={{antialias: false}} dpr={[1, 1.5]}>
         <Suspense fallback={null}>
           <ScrollControls
             infinite
