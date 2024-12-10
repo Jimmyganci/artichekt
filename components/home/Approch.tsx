@@ -54,7 +54,7 @@ function Approch() {
   }, [])
 
   return (
-    <div className="approch-container mt-7">
+    <div className="approch-container pt-7">
       <TitleSection
         title={"L'approche artichekt"}
         primary={false}

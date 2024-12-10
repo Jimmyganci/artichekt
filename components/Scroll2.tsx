@@ -65,7 +65,7 @@ function Scroll2({
   }, [])
 
   return (
-    <div ref={containerRef} className={`mt-8`}>
+    <div ref={containerRef} className={`my-8`}>
       <div
         className={`containerText sm:w-fit min-h-screen flex flex-col justify-evenly`}
       >
