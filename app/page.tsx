@@ -23,6 +23,7 @@ import TargetedLocations from '@/components/home/TargetedLocations'
 import Engagment from '@/components/home/Engagment'
 import SeeAll from '@/components/layouts/SeeAll'
 import Laboratory from '@/components/home/Laboratory'
+import Spacer from '@/components/Spacer'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -57,43 +58,26 @@ export default async function Home() {
           <Skew />
         </div>
       </section>
-      <section>
-        <Agency />
-      </section>
-      <section className="mb-32">
-        <Services services={sortedServices} />
-      </section>
-      <section>
-        <Approch />
-      </section>
-      <section>
-        <Quote />
-      </section>
-      <section>
-        <Method />
-      </section>
-      <section className="mt-80 mb-36">
-        <Team />
-      </section>
-      <section className="pb-36">
-        <ScrollTitle />
-      </section>
-      <section className="min-h-screen">
-        <Guarantee />
-      </section>
-      <section className="min-h-screen mt-36">
-        <TargetedLocations targetedLocations={targetedLocations} />
-      </section>
-      <section className="min-h-screen mt-36 mx-auto">
-        <Engagment />
-      </section>
-      <section className="h-screen my-[30vh]">
-        <Projects project={projects[0]} />
-        <SeeAll path="/projects" />
-      </section>
-      <section className="min-h-screen">
-        <Laboratory />
-      </section>
+      <Agency />
+      <Services services={sortedServices} />
+      <Spacer h={150} />
+      <Approch />
+      <Quote />
+      <Method />
+      <Spacer h={150} />
+      <Team />
+      <ScrollTitle />
+      <Spacer h={150} />
+      <Guarantee />
+      <Spacer h={150} />
+      <TargetedLocations targetedLocations={targetedLocations} />
+      <Spacer h={150} />
+      <Engagment />
+      <Spacer h={150} />
+      <Projects project={projects[0]} />
+      <SeeAll path="/projects" />
+      <Spacer h={150} />
+      <Laboratory />
     </main>
   )
 }
