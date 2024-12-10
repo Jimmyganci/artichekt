@@ -15,7 +15,7 @@ function ScrollTitle() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: 'top 90%',
+          start: 'top 50%',
           end: 'bottom 70%',
           scrub: 2.5,
           pin: false,
@@ -47,7 +47,7 @@ function ScrollTitle() {
         }
       })
       timeline.to('.scrollTitleContainer .text', {opacity: 0, duration: 50})
-      timeline2.to(
+      timeline.to(
         '.image',
         {
           xPercent: -50,
@@ -56,8 +56,8 @@ function ScrollTitle() {
           rotationX: 0,
           rotationY: 0,
           rotationZ: 0,
-          duration: 200,
-          top: '40%',
+          duration: 100,
+          top: '50%',
           left: '50%',
           ease: 'power1.out'
         }
