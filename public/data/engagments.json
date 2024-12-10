@@ -2,21 +2,21 @@
   {
     "id": 0,
     "title": "Durabilité",
-    "content": "ARTICHEKT s’engage à pratiquer une architecture d’intérieur sensée et respectueuse des enjeux climatiques en proposant des espaces durables et agréables. Notre engagement sincère en faveur des habitats durables nous poussera toujours à favoriser les rénovations du bâti ancien."
+    "content": "ARTICHEKT s’engage à pratiquer une architecture d’intérieur sensée et respectueuse des enjeux climatiques en proposant des <strong className='text-white font-fontBlack'>espaces durables et agréables.</strong> Notre engagement sincère en faveur des habitats durables nous poussera toujours à favoriser les <strong className='text-white font-fontBlack'>rénovations du bâti ancien.</strong>"
   },
   {
     "id": 1,
     "title": "Bien-être",
-    "content": "Nous proposons des espaces à habiter propice au bien-être des personnes, qu’il s’agisse de lieux d’habitation , de travail ou de consommation. Dans cette perspective, nous avons développé une méthode de travail rigoureuse et des outils innovants pour analyser les besoins des clients."
+    "content": "Nous proposons <strong className='text-white font-fontBlack'>des espaces à habiter</strong> propice au bien-être des personnes, qu’il s’agisse de lieux d’habitation , de travail ou de consommation. Dans cette perspective, nous avons développé une <strong className='text-white font-fontBlack'>méthode de travail rigoureuse et des outils innovants</strong> pour analyser les besoins des clients."
   },
   {
     "id": 2,
     "title": "Des lieux & des liens",
-    "content": "Plus que des lieux “instagramables”, les lieux que nous dessinons sont pensés pour favoriser les liens entre les personnes, comme une invitation à renouer, à rencontrer, à échanger, jouer, élaborer ensemble, grandir. Des lieux qui incitent une occupation de l’espace consciente et choisie."
+    "content": "Plus que des lieux “instagramables”, les lieux que nous dessinons sont pensés pour <strong className='text-white font-fontBlack'>favoriser les liens</strong> entre les personnes, comme une <strong className='text-white font-fontBlack'>invitation à renouer</strong>, à rencontrer, à échanger, jouer, élaborer ensemble, grandir. Des lieux qui incitent une occupation de l’espace consciente et choisie."
   },
   {
     "id": 3,
     "title": "Le vivant",
-    "content": "Chacune de nos propositions comportent une très forte volonté de reconnexion au vivant et à l’authenticité des savoirs faire d’antan. Nous mettons à l’honneur l’artisanat d’art et les matériaux durables dans le cadre des projets de rénovation et d’agencement quelque soit la typologie de l’espace et sa destination."
+    "content": "Chacune de nos propositions comportent une très forte volonté de <strong className='text-white font-fontBlack'>reconnexion au vivant</strong> et à l’authenticité des savoirs faire d’antan. Nous mettons à l’honneur l’artisanat d’art et les matériaux durables dans le cadre des projets de rénovation et d’agencement quelque soit la typologie de l’espace et sa destination."
   }
 ]

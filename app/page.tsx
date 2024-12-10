@@ -21,6 +21,8 @@ import Guarantee from '@/components/home/Guarantee'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import TargetedLocations from '@/components/home/TargetedLocations'
 import Engagment from '@/components/home/Engagment'
+import SeeAll from '@/components/layouts/SeeAll'
+import Laboratory from '@/components/home/Laboratory'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -73,7 +75,7 @@ export default async function Home() {
       <section className="mt-80 mb-36">
         <Team />
       </section>
-      <section>
+      <section className="pb-36">
         <ScrollTitle />
       </section>
       <section className="min-h-screen">
@@ -85,8 +87,12 @@ export default async function Home() {
       <section className="min-h-screen mt-36 mx-auto">
         <Engagment />
       </section>
-      <section className="h-screen">
-        {/* <Projects project={projects[0]} /> */}
+      <section className="h-screen my-[30vh]">
+        <Projects project={projects[0]} />
+        <SeeAll path="/projects" />
+      </section>
+      <section className="min-h-screen">
+        <Laboratory />
       </section>
     </main>
   )

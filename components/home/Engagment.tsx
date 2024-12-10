@@ -3,7 +3,7 @@ import engagments from '@/public/data/engagments.json'
 
 function Engagment() {
   return (
-    <div className="p-[10%] bg-white max-w-[1400px] mx-auto">
+    <div className="px-[10%] bg-white max-w-[1400px] mx-auto">
       <h4 className="font-fontMedium text-grey text-9xl my-0 opacity-100 z-[2] -ml-24 relative">
         ENGAGEMENTS
       </h4>
@@ -15,12 +15,13 @@ function Engagment() {
               index % 2 === 0 ? 'bg-primary text-white' : 'bg-black text-white'
             }`}
           >
-            <h5 className="font-bold my-4 text-center text-[28px]">
+            <h5 className="font-fontBold my-4 text-center text-[28px]">
               {engagment.title}
             </h5>
-            <p className="text-sm leading-relaxed text-center text-[21px]">
-              {engagment.content}
-            </p>
+            <p
+              className=" leading-relaxed text-center text-[20px]"
+              dangerouslySetInnerHTML={{__html: engagment.content}}
+            ></p>
           </div>
         ))}
       </div>
