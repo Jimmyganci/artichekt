@@ -21,7 +21,7 @@ function Projects({project}: {project: Post}) {
           end: '+=8000',
           scrub: true,
           pin: true,
-          markers: true,
+          markers: false,
           pinSpacing: true
         }
       })
