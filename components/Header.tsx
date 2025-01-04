@@ -4,6 +4,7 @@ import getMenuBySlug from '@/lib/queries/getMenuBySlug'
 import {Logo, MenuItem} from '@/lib/types'
 import Link from 'next/link'
 import {useCallback, useEffect, useState} from 'react'
+import Skew from './layouts/Skew'
 
 /**
  * Header component.
@@ -143,6 +144,11 @@ export default function Header() {
 
   return (
     <header className="pb-2 px-4 left-0 top-0 fixed w-full z-10 bg-white">
+      <div className="absolute top-28 right-0 flex flex-col gap-16">
+        <Skew />
+        <Skew />
+        <Skew />
+      </div>
       <div className="flex px-0 lg:px-12 sm:mt-4 sm:h-auto h-20 items-center justify-between">
         <Link href="/">
           <div className="max-w-[45px] sm:max-w-14 lg:max-w-14 xl:max-w-16 2xl:max-w-20 m-0">

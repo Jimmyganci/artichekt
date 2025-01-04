@@ -49,14 +49,10 @@ export default async function Home() {
 
   return (
     <main className="top-32 relative w-full overflow-hidden">
+      <div className="hidden text-[150px] self-end mt-40 pl-12 leading-[10rem] w-[65%] grayscale px-32"></div>
       <section className="sm:px-[8.8vw] z-0 relative">
         <TitleHome />
         <ImageHero heroImage={heroImage} />
-        <div className="absolute top-12 right-0 flex flex-col gap-16">
-          <Skew />
-          <Skew />
-          <Skew />
-        </div>
       </section>
       <Agency />
       <Services services={sortedServices} />

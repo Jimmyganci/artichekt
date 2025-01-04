@@ -31,11 +31,11 @@ async function fetchData(slug: string) {
  */
 function RenderPage({page}: {page: Page}) {
   return (
-    <main className="flex flex-col gap-8">
+    <main className="flex flex-col gap-8 mt-20 max-w-[1500px] mx-auto">
       <article>
         {/* <h1 dangerouslySetInnerHTML={{__html: page.title}} /> */}
         <div
-          className="text-3xl"
+          className="text-2xl"
           dangerouslySetInnerHTML={{__html: page.content}}
         />
       </article>
