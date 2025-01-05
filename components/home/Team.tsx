@@ -131,7 +131,7 @@ function Team() {
 
             <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
               {/* <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer"> */}
-              {images.imageLeft && (
+              {images.imageLeft && images.imageLeft.mediaItemUrl && (
                 <Image
                   width={300}
                   height={400}
@@ -151,7 +151,7 @@ function Team() {
         <div className="flex" ref={containerRef2}>
           <div className="sm:w-full w-1/2 relative cursor-pointer">
             {/* <div className="sm:w-1/2 sm:top-44 sm:right-10 sm:relative cursor-pointer"> */}
-            {images.imageRight && (
+            {images.imageRight && images.imageRight.mediaItemUrl && (
               <Image
                 width={300}
                 height={400}
