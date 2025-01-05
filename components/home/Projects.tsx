@@ -8,7 +8,6 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 function Projects({project}: {project: Post}) {
   const containerRef = useRef<any>()
-  const [test, setTest] = useState(false)
 
   useEffect(() => {
     const container = containerRef.current
@@ -37,7 +36,7 @@ function Projects({project}: {project: Post}) {
         ref={containerRef}
         className="min-h-screen w-[200vw] sm:w-screen h-full"
       >
-        <Carousel test={test} project={project} />
+        <Carousel project={project} />
       </div>
     </>
   )
