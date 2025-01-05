@@ -14,8 +14,13 @@ async function fetchData(slug: string) {
     return {posts: await getAllPosts(), context: 'blog'}
   }
 
+  /* eslint-disable no-console */
+  console.log(slug)
+
   // Otherwise, this could be a page.
   const page = await getPageBySlug(slug)
+  /* eslint-disable no-console */
+  console.log(page)
 
   // If page data exists, return it.
   if (page) {
