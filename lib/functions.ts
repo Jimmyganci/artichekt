@@ -34,6 +34,9 @@ export async function fetchGraphQL<T = any>(
     const slug = variables?.slug || variables?.id || 'graphql'
 
     // Fetch data from external API.
+    /* eslint-disable no-console */
+    console.log(headers);
+    
     const response = await fetch(graphqlUrl, {
       method: 'POST',
       headers,
