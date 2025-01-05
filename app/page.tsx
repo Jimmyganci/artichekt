@@ -7,7 +7,6 @@ import Agency from '@/components/home/Agency'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import Services from '@/components/home/Services'
 import Approch from '@/components/home/Approch'
-import Skew from '@/components/layouts/Skew'
 import getAllServices from '@/lib/queries/getAllServices'
 import Quote from '@/components/home/Quote'
 

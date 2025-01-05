@@ -7,7 +7,7 @@ import {Preload} from '@react-three/drei'
 import {Image, Post} from '@/lib/types'
 import {chunkArray} from '@/lib/functions'
 
-function Carousel({project, test}: {project: Post; test: boolean}) {
+function Carousel({project}: {project: Post}) {
   const {title, imagesGalleries} = project
 
   const chunkedImages: Image[][] = imagesGalleries
