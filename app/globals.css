@@ -73,7 +73,7 @@
 
 
 strong {
-  color: white;
+  /* color: white; */
 }
 
 h3 {
@@ -83,4 +83,34 @@ h3 {
 
 .full-image img {
   width: 100%;
+}
+
+.wp-block-columns-is-layout-flex {
+  display: flex;
+}
+
+.wp-block-columns-is-layout-flex > div {
+  width: 50%;
+}
+
+.image-cover-container figure {
+  height: 500px;
+}
+
+.image-cover-container img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.aligncenter {
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.has-text-align-right {
+  text-align: right;
+}
+
+.wp-duotone-grayscale {
+  filter: grayscale();
 }
