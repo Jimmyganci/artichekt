@@ -114,3 +114,7 @@ h3 {
 .wp-duotone-grayscale {
   filter: grayscale();
 }
+
+html {
+  scroll-padding-top: 250px; /* La hauteur du header */
+}
