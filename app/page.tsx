@@ -48,7 +48,7 @@ export default async function Home() {
 
   return (
     <main className="top-32 relative w-full overflow-hidden">
-      <div className="hidden text-[150px] self-end mt-40 pl-12 leading-[10rem] w-[65%] grayscale px-32"></div>
+      <div className="hidden text-[150px] text-[110px] self-end mt-40 mt-60 pl-12 leading-[10rem] leading-[5rem] w-[65%] grayscale px-32 gap-6 mt-[113px] -Z-10 text-6xl mb-40 right-52 -top-12 -top-16"></div>
       <section className="sm:px-[8.8vw] z-0 relative">
         <TitleHome />
         <ImageHero heroImage={heroImage} />
