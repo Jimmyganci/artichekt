@@ -118,3 +118,45 @@ h3 {
 html {
   scroll-padding-top: 250px; /* La hauteur du header */
 }
+
+.quote {
+  position: relative;
+}
+
+.quote::before {
+  content: "“";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  font-size: 14rem;
+}
+
+.quote::after {
+  content: "”";
+  font-size: 15rem;
+  position: absolute;
+  right: 62px;
+  top: 122%;
+}
+
+
+.quote-2 {
+  position: relative;
+  padding-right: 13rem;
+}
+
+.quote-2::before {
+  content: "“";
+  position: absolute;
+  top: 60%;
+  left: 36%;
+  font-size: 14rem;
+}
+
+.quote-2::after {
+  content: "”";
+  font-size: 15rem;
+  position: absolute;
+  right: 7rem;
+  top: 7rem;
+}
