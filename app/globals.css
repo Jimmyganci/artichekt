@@ -123,7 +123,7 @@ html {
   position: relative;
 }
 
-.quote:before {
+.quote::before {
   content: "“";
   position: absolute;
   top: 50%;
@@ -131,7 +131,7 @@ html {
   font-size: 14rem;
 }
 
-.quote:after {
+.quote::after {
   content: "”";
   font-size: 15rem;
   position: absolute;
@@ -145,7 +145,7 @@ html {
   padding-right: 13rem;
 }
 
-.quote-2:before {
+.quote-2::before {
   content: "“";
   position: absolute;
   top: 60%;
@@ -153,7 +153,7 @@ html {
   font-size: 14rem;
 }
 
-.quote-2:after {
+.quote-2::after {
   content: "”";
   font-size: 15rem;
   position: absolute;
