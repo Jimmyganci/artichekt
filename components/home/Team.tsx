@@ -90,7 +90,7 @@ function Team() {
   }, [])
 
   return (
-    <div className="teamContainer relative">
+    <div className="teamContainer relative" id="team">
       <div className="relative mt-20 sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
         <div ref={containerRef}>
           <div className="z-10 absolute -top-28 text-end -right-12">
