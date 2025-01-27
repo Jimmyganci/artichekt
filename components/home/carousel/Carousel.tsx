@@ -7,7 +7,7 @@ import {Preload} from '@react-three/drei'
 import {Image, Post} from '@/lib/types'
 import {chunkArray} from '@/lib/functions'
 
-function Carousel({project}: {project: Post}) {
+function Carousel({project, horizontal}: {project: Post; horizontal: boolean}) {
   const {title, imagesGalleries} = project
 
   const chunkedImages: Image[][] = imagesGalleries
@@ -24,7 +24,7 @@ function Carousel({project}: {project: Post}) {
         <Suspense fallback={null}>
           <ScrollControls
             infinite
-            horizontal
+            horizontal={horizontal}
             damping={4}
             pages={chunkedImages.length + 1}
             distance={1}

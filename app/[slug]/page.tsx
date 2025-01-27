@@ -4,6 +4,8 @@ import {Page, Post} from '../../lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
+import getAllProjects from '@/lib/queries/getAllProjects'
+import Projects from '@/components/projects/Projects'
 
 /**
  * Fetches data from WordPress.
@@ -89,12 +91,28 @@ export default async function Archive({params}: {params: {slug: string}}) {
   // Get the slug from the params.
   const {slug} = params
 
+  console.log(slug)
+
   // Fetch data from WordPress.
   const data = await fetchData(slug)
 
   // If there's an error, return a 404 page.
   if (data.error) {
     notFound()
+  }
+
+  if (slug === 'projets') {
+    const projects = await getAllProjects()
+    return (
+      <div
+        className="min-h-screen w-screen h-screen"
+        style={{
+          height: '100vh' // Hauteur en viewport
+        }}
+      >
+        <Projects projects={projects} />
+      </div>
+    )
   }
 
   // If this is a single page, render the page.
