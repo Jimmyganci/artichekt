@@ -10,7 +10,7 @@
 @layer base {
   body {
     @apply prose prose-zinc ;
-    @apply relative mx-auto  px-0 antialiased max-w-[100%] min-h-[200vh];
+    @apply relative mx-auto  px-0 antialiased max-w-[100%];
     @apply bg-[#F0F0F0];
     @apply font-fontRegular;
   }
