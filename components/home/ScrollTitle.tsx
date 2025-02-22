@@ -80,7 +80,7 @@ function ScrollTitle() {
           width={1000}
           height={800}
           alt="test"
-          src={'/imagesTest/img8.jpg'}
+          src={'/images/golden_hour.png'}
           className="absolute -z-10 top-[30%] scale-50 will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-[30%] image scrollFromRight"
         />
         <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight text">
