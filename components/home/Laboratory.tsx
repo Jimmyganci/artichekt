@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function Laboratory() {
   return (
-    <div className="mb-28">
+    <div className="mb-80">
       <TitleSection
         title={'LE LABORATOIRE ARTICHEKT'}
         primary={false}
