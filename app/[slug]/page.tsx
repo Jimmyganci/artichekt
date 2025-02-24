@@ -6,6 +6,7 @@ import Link from 'next/link'
 import {notFound} from 'next/navigation'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import Projects from '@/components/projects/Projects'
+import Book from '@/components/method/Book'
 
 /**
  * Fetches data from WordPress.
@@ -111,6 +112,18 @@ export default async function Archive({params}: {params: {slug: string}}) {
         }}
       >
         <Projects projects={projects} />
+      </div>
+    )
+  }
+  if (slug === 'la-methode-artichekt') {
+    return (
+      <div
+        className="min-h-screen w-screen h-screen"
+        style={{
+          height: '100vh' // Hauteur en viewport
+        }}
+      >
+        <Book />
       </div>
     )
   }
