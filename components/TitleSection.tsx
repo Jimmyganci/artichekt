@@ -1,4 +1,5 @@
 import React from 'react'
+import Skew from './layouts/Skew'
 
 function TitleSection({
   title,
@@ -20,13 +21,19 @@ function TitleSection({
   return (
     <div className={`flex ${row} justify-end`}>
       <h2
-        className={`${primary ? 'text-primary' : 'text-black'} mt-0 mb-0 uppercase max-w-[160px] ${textAlign}`}
+        className={`${primary ? 'text-primary' : 'text-black'} mt-0 mb-0 uppercase ${textAlign}`}
       >
-        <span>{title}</span>
+        <span>
+          {title && (
+            <>
+              {title.split(' ').slice(0, -1).join(' ')}
+              <br />
+              {title.split(' ').slice(-1)}
+            </>
+          )}
+        </span>
       </h2>
-      <span
-        className={`pl-24 relative after:-z-10 after:w-[6.5rem] after:h-12 after:bg-primary after:absolute after:${topSkew} after:left-0 after:skew-y-[-35deg]`}
-      ></span>
+      <Skew />
     </div>
   )
 }
