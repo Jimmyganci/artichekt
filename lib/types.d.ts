@@ -117,6 +117,7 @@ export interface Post {
       {
         databaseId: string
         name: string
+        tagIcon: string
       }
     ]
   }
