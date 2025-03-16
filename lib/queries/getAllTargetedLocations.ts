@@ -14,6 +14,7 @@ export default async function getAllTargetedLocations() {
           modified
           title
           slug
+          content(format: RENDERED)
           excerpt(format: RENDERED)
           featuredImage {
             node {
@@ -28,6 +29,13 @@ export default async function getAllTargetedLocations() {
           seo {
             metaDesc
             title
+          }
+          tags {
+            nodes {
+              id
+              name
+              tagIcon
+            }
           }
         }
       }

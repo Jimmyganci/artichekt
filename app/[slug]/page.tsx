@@ -7,6 +7,8 @@ import {notFound} from 'next/navigation'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import Projects from '@/components/projects/Projects'
 import Book from '@/components/method/Book'
+import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
+import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
 
 /**
  * Fetches data from WordPress.
@@ -124,6 +126,15 @@ export default async function Archive({params}: {params: {slug: string}}) {
         }}
       >
         <Book />
+      </div>
+    )
+  }
+
+  if (slug === 'les-lieux-cibles') {
+    const targetedLocations = await getAllTargetedLocations()
+    return (
+      <div className="mt-40 px-20">
+        <TargetedLocations targetedLocations={targetedLocations} />
       </div>
     )
   }
