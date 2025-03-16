@@ -14,7 +14,7 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
   }
 
   return (
-    <div>
+    <div className="mb-40">
       <h1 className="flex flex-col text-[128px] font-fontBold">
         <span>LES</span>
         <span>ESPACES</span>
@@ -30,9 +30,11 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
 
       {targetedLocations.length > 0 &&
         targetedLocations.map(
-          ({featuredImage, content, title, tags, databaseId}) => (
+          ({featuredImage, content, title, tags, databaseId}, index) => (
             <article key={databaseId} className="mb-10">
-              <div className="flex gap-8 items-center px-8">
+              <div
+                className={`flex gap-8 items-center px-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+              >
                 <div className="w-1/2">
                   <Image
                     width={600}
@@ -48,12 +50,18 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
                   dangerouslySetInnerHTML={{__html: content}}
                 />
               </div>
-              <div className="flex gap-5">
+              <div
+                className={`flex gap-5  ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+              >
                 <div className="w-1/2">
-                  <h3 className="text-7xl text-end m-0">{title}</h3>
+                  <h3
+                    className={`text-7xl m-0  ${index % 2 === 0 ? 'text-end' : 'text-start'}`}
+                  >
+                    {title}
+                  </h3>
                 </div>
                 <div
-                  className={`w-1/2 flex items-end`}
+                  className={`w-1/2 flex items-end ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
                   style={{gap: tags.nodes.length < 3 ? '6vw' : '3vw'}}
                 >
                   {tags &&
