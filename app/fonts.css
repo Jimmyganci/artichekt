@@ -22,3 +22,8 @@
     font-family: Black;
     src: url('/assets/fonts/Montserrat/Montserrat-Black.ttf');
 }
+
+@font-face {
+    font-family: Number;
+    src: url('/assets/fonts/Lack-Line-Regular.woff2');
+}

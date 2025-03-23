@@ -5,6 +5,62 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  safelist: [
+    // Toutes les tailles de texte en pixels personnalisées
+    {
+      pattern: /text-\[\d+px\]/, // ex : text-[150px], text-[600px], text-[180px], etc.
+    },
+    // Toutes les marges négatives en rem ou px
+    {
+      pattern: /-?mt-\[\d+rem\]/, // ex : -mt-[44rem], -mt-[28rem], etc.
+    },
+    {
+      pattern: /-?mt-\d+/, // ex : -mt-40, mt-40, mt-60, etc.
+    },
+    {
+      pattern: /-?mb-\d+/, // ex : mb-20, mb-60, mb-40
+    },
+    {
+      pattern: /-?top-\d+/, // ex : -top-12, -top-16
+    },
+    // Largeurs personnalisées en %
+    {
+      pattern: /w-\[\d+%\]/, // ex : w-[48%], w-[59%], w-[65%]
+    },
+    {
+      pattern: /w-\d+\/\d+/, // ex : w-1/3
+    },
+    {
+      pattern: /w-\d+/, // ex : w-24
+    },
+    // Padding
+    {
+      pattern: /p[ltbrxy]?-?\d+/, // ex : p-10, px-48, px-32, pl-12, pt-60, etc.
+    },
+    // Leading (line-height)
+    {
+      pattern: /leading-\[\d+rem\]/, // ex : leading-[10rem], leading-[5rem]
+    },
+    // Espacement (gap)
+    {
+      pattern: /gap-\d+/, // ex : gap-6
+    },
+    // Position & alignment
+    'justify-self-end',
+    'self-end',
+    'text-center',
+    'right-52',
+    // Couleur & effet
+    'bg-grey',
+    'grayscale',
+    // Fonts
+    'font-number',
+    // Text utilities classiques
+    'text-3',
+    'text-4xl',
+    'text-6xl',
+    '-z-10', // attention à la casse de `Z` → c'est `-z-10` en tailwind
+  ],
   theme: {
     extend: {
       transitionTimingFunction: {
@@ -23,6 +79,7 @@ const config: Config = {
         fontMedium: ['Medium', 'sans-serif'],
         fontBold: ['Bold', 'sans-serif'],
         fontBlack: ['Black', 'sans-serif'],
+        number: ['Number', 'sans-serif'],
       },
       keyframes: {
         translateY100: {
