@@ -35,8 +35,8 @@ export async function fetchGraphQL<T = any>(
 
     // Fetch data from external API.
     /* eslint-disable no-console */
-    console.log(headers);
-    
+    console.log(headers)
+
     const response = await fetch(graphqlUrl, {
       method: 'POST',
       headers,
@@ -115,42 +115,38 @@ export async function searchQuery(query: string): Promise<SearchResults[]> {
 }
 
 export function isMobile() {
-  
   return window.innerWidth <= 640
 }
 
-
 export function gsapTo(elements: string, coef: number) {
   const elementArray = gsap.utils.toArray(elements)
-      elementArray.forEach((span: any, index) => {
+  elementArray.forEach((span: any, index) => {
+    return gsap.to(span, {
+      y: !isMobile()
+        ? (0.1 * index + coef) * ScrollTrigger.maxScroll(window)
+        : (0.1 * index + coef / 2) * ScrollTrigger.maxScroll(window),
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: {
+        start: 0,
+        end: 'bottom',
+        invalidateOnRefresh: true,
+        scrub: 0
+      }
+    })
+  })
+}
 
-        return gsap.to(span, {
-          y: !isMobile()
-            ? (0.1 * index + coef) * ScrollTrigger.maxScroll(window)
-            : (0.1 * index + coef / 2) * ScrollTrigger.maxScroll(window),
-          opacity: 0,
-          ease: 'none',
-          scrollTrigger: {
-            start: 0,
-            end: 'bottom',
-            invalidateOnRefresh: true,
-            scrub: 0, 
-          }
-        })
-      })
-  
-} 
-
-export function getRandomNumberWithOneDecimal(min:number, max: number) {
-  const randomNum = Math.random() * (max - min) + min;
-  const roundedNum = Math.round(randomNum * 10) / 10;
-  return roundedNum;
+export function getRandomNumberWithOneDecimal(min: number, max: number) {
+  const randomNum = Math.random() * (max - min) + min
+  const roundedNum = Math.round(randomNum * 10) / 10
+  return roundedNum
 }
 
 export function chunkArray(array: any[], size: number) {
-  const chunked = [];
+  const chunked = []
   for (let i = 0; i < array.length; i += size) {
-    chunked.push(array.slice(i, size + i));
+    chunked.push(array.slice(i, size + i))
   }
-  return chunked;
+  return chunked
 }
