@@ -18,11 +18,11 @@ export default async function getLogo(name: string) {
         }
       }
     }
-  `;
+  `
 
   const variables = {
     name: name
-  };
+  }
 
   const response = await fetchGraphQL(query, variables)
 
