@@ -1,14 +1,15 @@
-import getAllPosts from '../../lib/queries/getAllPosts'
-import getPageBySlug from '../../lib/queries/getPageBySlug'
-import {Page, Post} from '../../lib/types'
+import Estimate from '@/components/estimate/Estimate'
+import Book from '@/components/method/Book'
+import Projects from '@/components/projects/Projects'
+import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
+import getAllProjects from '@/lib/queries/getAllProjects'
+import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import {notFound} from 'next/navigation'
-import getAllProjects from '@/lib/queries/getAllProjects'
-import Projects from '@/components/projects/Projects'
-import Book from '@/components/method/Book'
-import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
-import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
+import { notFound } from 'next/navigation'
+import getAllPosts from '../../lib/queries/getAllPosts'
+import getPageBySlug from '../../lib/queries/getPageBySlug'
+import { Page, Post } from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -136,6 +137,27 @@ export default async function Archive({params}: {params: {slug: string}}) {
       <div className="mt-40 px-20">
         <TargetedLocations targetedLocations={targetedLocations} />
       </div>
+    )
+  }
+
+  if (slug === 'estimer') {
+    return (
+      <>
+        <div className="mt-40 px-32">
+          <Estimate />
+        </div>
+        <div className="bg-grey px-40 pt-10 pb-64">
+          <p className="mt-0 text-sm max-w-4xl">
+            ARTICHEKT a développé un outil qui vous permet d’estimer
+            approximativement le montant de vos prestations en fonction de la
+            nature de votre projet et sa typologie.
+          </p>
+          <p className="mt-0 text-sm max-w-4xl">
+            Cette estimation n’est évidemment pas contractuelle et ne peut se
+            substituer a
+          </p>
+        </div>
+      </>
     )
   }
 

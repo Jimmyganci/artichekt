@@ -1,7 +1,7 @@
+import type {Metadata, Viewport} from 'next'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import config from '../lib/config'
-import type {Metadata, Viewport} from 'next'
 import './globals.css'
 
 /**
@@ -12,7 +12,10 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(config.siteUrl),
   title: `${config.siteName} - ${config.siteDescription}`,
-  description: config.siteDescription
+  description: config.siteDescription,
+  icons: {
+    icon: '/favicon.png'
+  }
 }
 
 /**

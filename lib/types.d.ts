@@ -17,24 +17,23 @@ export interface GraphQLResponse<T = any> {
 
 type MenuItem = {
   node: {
-    id: string;
-    uri: string;
-    label: string;
-    databaseId: string;
-    parentId: string;
+    id: string
+    uri: string
+    label: string
+    databaseId: string
+    parentId: string
     children?: MenuItem['node'][]
-  };
-};
+  }
+}
 
 type Menu = {
   menuItems: {
-    edges: MenuItem[];
-  };
-};
-
+    edges: MenuItem[]
+  }
+}
 
 export interface Logo {
-  mediaItemUrl: string,
+  mediaItemUrl: string
   altText: string
 }
 
@@ -146,20 +145,20 @@ export interface Post {
         }
       }
     ]
-  },
-  imagesGalleries ?: {
-    images : Image[]
+  }
+  imagesGalleries?: {
+    images: Image[]
   }
 }
 
 export interface Image {
-  id: string;
-  title: string;
-  caption: string;
-  full_image_url: string;
-  thumbnail_image_url: string;
-  large_srcset: string;
-  medium_srcset: string;
+  id: string
+  title: string
+  caption: string
+  full_image_url: string
+  thumbnail_image_url: string
+  large_srcset: string
+  medium_srcset: string
   alt_text: string
 }
 
