@@ -73,7 +73,7 @@ function Estimate() {
             <button
               key={travaux}
               type="button"
-              className={`border min-w-40 max-w-52 h-fit p-3 font-fontBold  ${formData.typeTravaux === travaux ? 'bg-primary text-white' : ' text-black '}`}
+              className={`border min-w-64 max-w-52 h-fit p-3 text-xl font-fontBold  ${formData.typeTravaux === travaux ? 'bg-primary text-white' : ' text-black '}`}
               onClick={() => handleChange('typeTravaux', travaux)}
             >
               {travaux}
@@ -83,12 +83,12 @@ function Estimate() {
 
         {/* 3. Type de marché */}
         <p>2. Type de marché : </p>
-        <div className="flex gap-6">
+        <div className="flex gap-11 justify-center">
           {['Marché privé', 'Marché public'].map((marche, i) => (
             <button
               key={marche}
               type="button"
-              className={`relative border min-w-40 max-w-52 h-fit p-3 font-fontBold  ${formData.typeMarche === marche ? 'bg-primary text-white' : ''}`}
+              className={`relative border min-w-64 max-w-52 text-xl h-fit p-3 font-fontBold  ${formData.typeMarche === marche ? 'bg-primary text-white' : ''}`}
               onClick={() => handleChange('typeMarche', marche)}
             >
               {marche}
@@ -173,12 +173,12 @@ function Estimate() {
 
         {/* 6. Finitions */}
         <p>6. Finitions souhaitées : </p>
-        <div className="flex gap-6">
+        <div className="flex gap-11 justify-center">
           {['Standard', 'Haut de gamme'].map((finition) => (
             <button
               key={finition}
               type="button"
-              className={`relative border min-w-40 max-w-52 h-fit p-3 font-fontBold ${formData.finitions === finition ? 'bg-primary text-white' : ''}`}
+              className={`relative border text-xl min-w-64 max-w-52 h-fit p-3 font-fontBold ${formData.finitions === finition ? 'bg-primary text-white' : ''}`}
               onClick={() => handleChange('finitions', finition)}
             >
               {finition}
@@ -209,7 +209,7 @@ function Estimate() {
         <Spacer h={55} />
 
         {/* Bouton Calculer */}
-        <button type="submit" className="bg-primary text-white p-4 ">
+        <button type="submit" className="bg-primary text-white p-4 font-fontBold text-xl">
           Calculer
         </button>
       </form>
