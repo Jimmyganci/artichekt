@@ -157,3 +157,8 @@ html {
   right: 7rem;
   top: 7rem;
 }
+
+.content-post h2 {
+  color: #7da365;
+  font-weight: bold;
+}

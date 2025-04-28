@@ -1,9 +1,9 @@
-import CommentForm from '../../../components/CommentForm'
+import getRelatedPosts from '@/lib/queries/getRelatedPosts'
+import { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import getAllPosts from '../../../lib/queries/getAllPosts'
 import getPostBySlug from '../../../lib/queries/getPostBySlug'
-import {Metadata} from 'next'
-import Link from 'next/link'
-import {notFound} from 'next/navigation'
 
 /**
  * Generate the static routes at build time.
@@ -63,67 +63,95 @@ export default async function Post({params}: {params: {slug: string}}) {
     notFound()
   }
 
+  const relatedPosts = await getRelatedPosts(
+    post.categories.nodes[0].name, // récupère la catégorie principale
+    +post.databaseId // exclut l'article actuel
+  )
+
   return (
-    <article>
+    <article className="px-32 max-w-screen-2xl my-60">
       <header>
-        <h2 dangerouslySetInnerHTML={{__html: post.title}} />
+        <div className="flex gap-8">
+          <div className="w-1/2 ">
+            <h1
+              className="mt-0 text-4xl md:text-6xl font-bold leading-tight text-gray-900"
+              dangerouslySetInnerHTML={{__html: post.title}}
+            />
+            <ul className="m-0 flex list-none gap-2 p-0">
+              {post.categories.nodes.map((category) => (
+                <li
+                  className="m-0 p-1 bg-primary font-fontBlack"
+                  key={category.databaseId}
+                >
+                  <Link
+                    className="text-white"
+                    href={`/blog/category/${category.name}`}
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {post.featuredImage && (
+            <div className="w-1/2">
+              <img
+                className="mt-0"
+                src={post.featuredImage.node.sourceUrl}
+                alt={post.featuredImage.node.altText}
+              />
+            </div>
+          )}
+        </div>
+
         <p className="italic">
-          By {post.author.node.name} on <time>{post.date}</time>
+          Par {post.author.node.name} le{' '}
+          <strong>
+            <time>
+              {new Date(post.date).toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+              })}
+            </time>
+          </strong>
         </p>
       </header>
-      <div dangerouslySetInnerHTML={{__html: post.content}} />
-      <footer className="flex items-center justify-between gap-4 pb-4">
-        <div>
-          <h3>Categories</h3>
-          <ul className="m-0 flex list-none gap-2 p-0">
-            {post.categories.nodes.map((category) => (
-              <li className="m-0 p-0" key={category.databaseId}>
-                <Link href={`/blog/category/${category.name}`}>
-                  {category.name}
+      <div
+        className="content-post px-12"
+        dangerouslySetInnerHTML={{__html: post.content}}
+      />
+      {relatedPosts.length > 0 && (
+        <section className="mt-20 px-10">
+          <h2 className="text-2xl bg-primary text-center text-white w-fit mx-auto mt-0 mb-1 p-1 px-2 font-fontBold">Articles liés à cet catégorie</h2>
+          <div className="flex gap-8 flex-wrap">
+            {relatedPosts.map((related) => (
+              <article key={related.databaseId} className="w-80">
+                <Link href={`/blog/${related.slug}`}>
+                  {related.featuredImage && (
+                    <img
+                      src={related.featuredImage.node.sourceUrl}
+                      alt={related.featuredImage.node.altText}
+                      className="w-full h-48 object-cover mb-4"
+                    />
+                  )}
+                  <h3
+                    className="text-xl font-semibold"
+                    dangerouslySetInnerHTML={{__html: related.title}}
+                  />
+                  <div
+                    className="text-gray-600 text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html: related.excerpt.slice(0, 100) + '...'
+                    }}
+                  />
                 </Link>
-              </li>
+              </article>
             ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3>Tags</h3>
-          <ul className="m-0 flex list-none gap-2 p-0">
-            {post.tags.nodes.map((tag) => (
-              <li className="m-0 p-0" key={tag.databaseId}>
-                <Link href={`/blog/tag/${tag.name}`}>{tag.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </footer>
-      <section className="border-t-2">
-        <h3>Comments</h3>
-        {post.comments.nodes.map((comment) => (
-          <article key={comment.databaseId}>
-            <header className="flex items-center gap-2">
-              <img
-                alt={comment.author.node.name}
-                className="m-0 rounded-full"
-                height={64}
-                loading="lazy"
-                src={comment.author.node.avatar.url}
-                width={64}
-              />
-              <div className="flex flex-col gap-2">
-                <h4
-                  className="m-0 p-0 leading-none"
-                  dangerouslySetInnerHTML={{__html: comment.author.node.name}}
-                />
-                <time className="italic">{comment.date}</time>
-              </div>
-            </header>
-
-            <div dangerouslySetInnerHTML={{__html: comment.content}} />
-          </article>
-        ))}
-      </section>
-      <CommentForm postID={post.databaseId} />
+          </div>
+        </section>
+      )}
     </article>
   )
 }
