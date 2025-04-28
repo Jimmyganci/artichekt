@@ -127,8 +127,8 @@ function Estimate() {
   }
 
   function getSurfaceCoefficient(surface: string): number {
-    if (surface === '0-50m²') return 1.1
-    if (surface === '50-100m²') return 1.2
+    if (surface === '20-60m²') return 1.1
+    if (surface === '60-100m²') return 1.2
     if (surface === '100-150m²') return 1.3
     if (surface === '>150m²') return 1.4
     return 1
@@ -153,7 +153,7 @@ function Estimate() {
     const coefSurfaceAmenager = getSurfaceCoefficient(surfaceAmenager)
 
     let tempsTotal = tempsBase * coefSurfaceRenover * coefSurfaceAmenager
-    if (finitions === 'Haut de gamme') tempsTotal *= 1.2
+    if (finitions === 'Haut de gamme') tempsTotal *= 1.1
 
     const tarifHoraire = 90
     const estimationEuros = tempsTotal * tarifHoraire
