@@ -7,7 +7,7 @@ import TitleHome from '@/components/TitleHome'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllServices from '@/lib/queries/getAllServices'
 import getLogo from '@/lib/queries/getLogo'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 import getPageBySlug from '../lib/queries/getPageBySlug'
 
 import Engagment from '@/components/home/Engagment'
@@ -21,8 +21,8 @@ import Team from '@/components/home/Team'
 import SeeAll from '@/components/layouts/SeeAll'
 import Spacer from '@/components/Spacer'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -48,7 +48,7 @@ export default async function Home() {
 
   return (
     <main className="top-32 relative w-full overflow-hidden">
-      <div className="hiddentext-[150px] text-[600px] text-[180px] font-number mr-12 bg-grey justify-self-end text-3 -mt-[44rem] -mt-[28rem] -mt-9 text-[110px] w-1/3 p-10 -mt-40 w-[48%] w-[59%] text-center -mt-52 -mt-64 -mt-96 w-24 px-48 self-end mt-40 mt-60 pl-12 leading-[10rem] lead leading-[5rem] mb-20 px-40 text-4xl pt-60 mb-60 w-[65%] grayscale px-32 gap-6 mt-[113px] -Z-10 text-6xl mb-40 right-52 -top-12 -top-16"></div>
+      <div className="hidden text-[150px] text-[600px] text-[180px] font-number mr-12 bg-grey justify-self-end text-3 -mt-[44rem] -mt-[28rem] -mt-9 text-[110px] w-1/3 p-10 -mt-40 w-[48%] w-[59%] text-center -mt-52 -mt-64 -mt-96 w-24 px-48 self-end mt-40 mt-60 pl-12 leading-[10rem] lead leading-[5rem] mb-20 px-40 text-4xl pt-60 mb-60 w-[65%] grayscale px-32 gap-6 mt-[113px] -Z-10 text-6xl mb-40 right-52 -top-12 -top-16"></div>
       <section className="sm:px-[8.8vw] z-0 relative">
         <TitleHome />
         <ImageHero heroImage={heroImage} />
