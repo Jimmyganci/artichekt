@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState} from 'react'
-import Spacer from '../Spacer'
+import { useEffect, useState } from 'react';
+import Spacer from '../Spacer';
 
 const projectTimes: Record<
   string,
@@ -233,7 +233,7 @@ function Estimate() {
             <p className="text-9xl my-0 font-number">
               {Math.round(tempsTotal)}
             </p>
-            <p className="text-xl font-fontBold">heures</p>
+            <p className="text-2xl text-white font-fontBold mt-0">heures</p>
             <p className="text-sm text-left mt-2">
               Il s’agit du temps total approximatif nécessaire pour réaliser le
               projet d’étude
