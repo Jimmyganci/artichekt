@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Spacer from '../Spacer';
 
 const projectTimes: Record<
@@ -54,6 +54,8 @@ function Estimate() {
   const [isLoading, setIsLoading] = useState(true)
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
+  
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const savedData = localStorage.getItem('estimateFormData')
@@ -100,19 +102,21 @@ function Estimate() {
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors) // on stocke les erreurs pour affichage
-      window.scrollTo({top: 0, behavior: 'smooth'}) // Remonter pour voir les erreurs
+      headerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return
     }
 
     // Tout est ok
     setFormErrors({})
+    headerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
     localStorage.setItem('estimateFormData', JSON.stringify(formData))
     setSubmitted(true)
-    window.scrollTo({top: 0, behavior: 'smooth'})
+    
   }
 
   function handleReset() {
     localStorage.removeItem('estimateFormData')
+    headerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
     setFormData({
       natureProjet: '',
       typeTravaux: '',
@@ -162,7 +166,7 @@ function Estimate() {
   }
 
   const headerBlock = (
-    <div className="flex">
+    <div className="flex" ref={headerRef}>
       <h1 className="flex flex-col gap-1 text-6xl font-fontBold w-2/5 min-w-[400px]">
         <span className="bg-primary w-fit text-white p-1">Outil de</span>
         <span className="bg-primary w-fit text-white p-1">calcul</span>
