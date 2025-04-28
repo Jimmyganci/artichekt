@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react';
-import Spacer from '../Spacer';
+import {useEffect, useRef, useState} from 'react'
+import Spacer from '../Spacer'
 
 const projectTimes: Record<
   string,
@@ -54,8 +54,8 @@ function Estimate() {
   const [isLoading, setIsLoading] = useState(true)
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
-  
-  const headerRef = useRef<HTMLDivElement>(null);
+
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const savedData = localStorage.getItem('estimateFormData')
@@ -102,21 +102,20 @@ function Estimate() {
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors) // on stocke les erreurs pour affichage
-      headerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      headerRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
       return
     }
 
     // Tout est ok
     setFormErrors({})
-    headerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    headerRef.current?.scrollIntoView({behavior: 'instant', block: 'start'})
     localStorage.setItem('estimateFormData', JSON.stringify(formData))
     setSubmitted(true)
-    
   }
 
   function handleReset() {
     localStorage.removeItem('estimateFormData')
-    headerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    headerRef.current?.scrollIntoView({behavior: 'instant', block: 'start'})
     setFormData({
       natureProjet: '',
       typeTravaux: '',

@@ -6,10 +6,10 @@ import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import {Page, Post} from '../../lib/types'
+import { Page, Post } from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -59,27 +59,64 @@ function RenderPage({page}: {page: Page}) {
  */
 function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
   return (
-    <main className="flex flex-col gap-8">
-      <h1 className="capitalize">Latest {context}</h1>
+    <main className="flex flex-col gap-8 px-32 max-w-[1500px] my-60">
+      <div className="flex gap-8">
+        <div className="w-1/2">
+          <h1 className="capitalize flex flex-col text-[128px] font-fontBold mb-0">
+            <span>Le</span>
+            <span>Blog</span>{' '}
+          </h1>
+          <div className="mt-10">
+            <p className="bg-primary text-white text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
+              Inspirez-vous,
+            </p>
+            <p className="bg-primary text-white text-4xl w-fit max-w-[650px] my-0 p-1 mb-5 font-bold">
+              découvrez notre univers.
+            </p>
+          </div>
+        </div>
+
+        <div className="p-10 w-1/2">
+          <img
+            className="my-0 mx-auto"
+            src={posts[0].featuredImage.node.sourceUrl}
+            alt={posts[0].featuredImage.node.sourceUrl}
+          />{' '}
+        </div>
+      </div>
+
       <div className="flex flex-wrap gap-8">
         {posts.map((post: Post) => (
           <article className="w-72" key={post.databaseId}>
-            <Image
-              alt={post.featuredImage.node.altText}
-              height={post.featuredImage.node.mediaDetails.height}
-              src={post.featuredImage.node.sourceUrl}
-              width={post.featuredImage.node.mediaDetails.width}
-              priority={true}
-            />
+            {post.featuredImage && (
+              <Image
+                alt={post.featuredImage.node.altText}
+                height={post.featuredImage.node.mediaDetails.height}
+                src={post.featuredImage.node.sourceUrl}
+                width={post.featuredImage.node.mediaDetails.width}
+                priority={true}
+              />
+            )}
             <Link href={`/${context}/${post.slug}`}>
-              <h2 dangerouslySetInnerHTML={{__html: post.title}} />
+              <h2
+                className="mt-0"
+                dangerouslySetInnerHTML={{__html: post.title}}
+              />
             </Link>
-            <p className="text-sm text-gray-500">
+            {/* <p className="text-sm text-gray-500 mt-0">
               {post.commentCount} Comments
-            </p>
-            <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
-            <Link className="button" href={`/${context}/${post.slug}`}>
-              View Post
+            </p> */}
+            <div
+              className="mt-0"
+              dangerouslySetInnerHTML={{
+                __html: post.excerpt.slice(0, 130) + '...'
+              }}
+            />
+            <Link
+              className="button hover:bg-primary hover:text-white font-fontBold"
+              href={`/${context}/${post.slug}`}
+            >
+              {"Voir l'article"}
             </Link>
           </article>
         ))}
@@ -168,6 +205,8 @@ export default async function Archive({params}: {params: {slug: string}}) {
 
   // Otherwise, this must be an archive. Render the posts list.
   if (data.posts && data.posts.length > 0) {
+    console.log(data)
+
     return <RenderPostsList posts={data.posts} context={data.context} />
   }
 

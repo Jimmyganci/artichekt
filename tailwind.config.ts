@@ -20,7 +20,14 @@ const config: Config = {
     'text-3',
     'text-4xl',
     'text-6xl',
-    '-z-10'
+    'pl-40',
+    'pr-60',
+    'text-[150px]',
+    '-z-10',
+    'pl-60',
+    'italic',
+    'leading-[0.6]',
+    'text-[350px]'
   ],
   theme: {
     extend: {
