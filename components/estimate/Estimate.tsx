@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState} from 'react'
-import Spacer from '../Spacer'
+import { useEffect, useState } from 'react';
+import Spacer from '../Spacer';
 
 const projectTimes: Record<
   string,
@@ -127,8 +127,8 @@ function Estimate() {
   }
 
   function getSurfaceCoefficient(surface: string): number {
-    if (surface === '0-50m²') return 1.1
-    if (surface === '50-100m²') return 1.2
+    if (surface === '20-60m²') return 1.1
+    if (surface === '60-100m²') return 1.2
     if (surface === '100-150m²') return 1.3
     if (surface === '>150m²') return 1.4
     return 1
@@ -153,7 +153,7 @@ function Estimate() {
     const coefSurfaceAmenager = getSurfaceCoefficient(surfaceAmenager)
 
     let tempsTotal = tempsBase * coefSurfaceRenover * coefSurfaceAmenager
-    if (finitions === 'Haut de gamme') tempsTotal *= 1.2
+    if (finitions === 'Haut de gamme') tempsTotal *= 1.1
 
     const tarifHoraire = 90
     const estimationEuros = tempsTotal * tarifHoraire
@@ -233,7 +233,7 @@ function Estimate() {
             <p className="text-9xl my-0 font-number">
               {Math.round(tempsTotal)}
             </p>
-            <p className="text-xl font-fontBold">heures</p>
+            <p className="text-2xl text-white font-fontBold mt-0">heures</p>
             <p className="text-sm text-left mt-2">
               Il s’agit du temps total approximatif nécessaire pour réaliser le
               projet d’étude
