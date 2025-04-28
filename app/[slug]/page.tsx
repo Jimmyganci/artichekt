@@ -6,10 +6,10 @@ import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import {notFound} from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import { Page, Post } from '../../lib/types'
+import {Page, Post} from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -147,12 +147,12 @@ export default async function Archive({params}: {params: {slug: string}}) {
           <Estimate />
         </div>
         <div className="bg-grey px-40 pt-10 pb-64">
-          <p className="mt-0 text-sm max-w-4xl">
+          <p className="mt-0 text-sm max-w-4xl m-auto">
             ARTICHEKT a développé un outil qui vous permet d’estimer
             approximativement le montant de vos prestations en fonction de la
             nature de votre projet et sa typologie.
           </p>
-          <p className="mt-0 text-sm max-w-4xl">
+          <p className="text-sm max-w-4xl mx-auto">
             Cette estimation n’est évidemment pas contractuelle et ne peut se
             substituer a
           </p>
