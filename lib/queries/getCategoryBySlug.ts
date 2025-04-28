@@ -9,38 +9,51 @@ export default async function getCategoryBySlug(
   limit: number = 10
 ) {
   const query = `
-    query GetCategoryBySlug($slug: String!) {
-      posts(where: {categoryName: $slug, status: PUBLISH}, first: ${limit}) {
-        nodes {
-          databaseId
-          date
-          excerpt(format: RENDERED)
-          title(format: RENDERED)
-          featuredImage {
-            node {
-              altText
-              sourceUrl
-              mediaDetails {
-                  height
-                  width
-              }
+    query GetCategoryBySlug($slug: ID!) {
+  category(id: $slug, idType: SLUG) {
+    name
+    description
+    posts(first: 100) {
+      nodes {
+        databaseId
+        date
+        excerpt(format: RENDERED)
+        title(format: RENDERED)
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+            mediaDetails {
+              width
+              height
             }
           }
-          seo {
-            metaDesc
-            title
-          }
-          slug
         }
+        seo {
+          metaDesc
+          title
+        }
+        slug
       }
     }
+  }
+}
+
   `
 
-  const variables = {
-    slug: slug
-  }
+  const variables = {slug}
 
   const response = await fetchGraphQL(query, variables)
 
-  return response.data.posts.nodes as Post[]
+  if (!response.data.category) {
+    return null
+  }
+
+  return {
+    category: {
+      name: response.data.category.name as string,
+      description: response.data.category.description as string
+    },
+    posts: response.data.category.posts.nodes as Post[]
+  }
 }
