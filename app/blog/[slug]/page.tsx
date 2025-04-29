@@ -69,7 +69,7 @@ export default async function Post({params}: {params: {slug: string}}) {
   )
 
   return (
-    <article className="px-32 max-w-screen-2xl my-60">
+    <article className="px-32 max-w-screen-2xl mx-auto my-60">
       <header>
         <div className="flex gap-8">
           <div className="w-1/2 ">

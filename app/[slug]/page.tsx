@@ -59,7 +59,7 @@ function RenderPage({page}: {page: Page}) {
  */
 function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
   return (
-    <main className="flex flex-col gap-8 px-32 max-w-[1500px] my-60">
+    <main className="flex flex-col gap-8 px-32 max-w-[1500px] mx-auto my-60">
       <div className="flex gap-8">
         <div className="w-1/2">
           <h1 className="capitalize flex flex-col text-[128px] font-fontBold mb-0">
@@ -132,8 +132,6 @@ export default async function Archive({params}: {params: {slug: string}}) {
   // Get the slug from the params.
   const {slug} = params
 
-  console.log(slug)
-
   // Fetch data from WordPress.
   const data = await fetchData(slug)
 
@@ -205,7 +203,6 @@ export default async function Archive({params}: {params: {slug: string}}) {
 
   // Otherwise, this must be an archive. Render the posts list.
   if (data.posts && data.posts.length > 0) {
-    console.log(data)
 
     return <RenderPostsList posts={data.posts} context={data.context} />
   }
