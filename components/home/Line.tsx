@@ -1,7 +1,7 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react'
-import {gsap} from 'gsap'
-import {MotionPathPlugin, ScrollTrigger} from 'gsap/all'
+import { gsap } from 'gsap'
+import { MotionPathPlugin, ScrollTrigger } from 'gsap/all'
+import { useEffect, useRef, useState } from 'react'
 
 // Enregistrer les plugins GSAP
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger)
@@ -213,64 +213,6 @@ function Line() {
         />
         <p className="font-fontBold text-primary">ÉVÈNEMENTIELS</p>
       </div>
-      {/* {circles.current.map((circle, index) => {
-        if (!circle) return null
-
-        const rect = circle.getBoundingClientRect()
-        console.log(rect)
-
-        const isRightSide = index % 2 !== 0
-        let label = ''
-        let image = ''
-
-        if (index === 0) {
-          label = 'CONCEPTION'
-          image = 'architecture'
-        }
-        if (index === 1) {
-          label = 'SUIVI DE CHANTIER'
-          image = 'casque'
-        }
-        if (index === 2) {
-          label = "DEMANDE D'AUTORISATION"
-          image = 'autorisation'
-        }
-        if (index === 3) {
-          label = 'CONSEIL EN RENOVATION SOBRE'
-          image = 'maison-ecologique'
-        }
-        if (index === 4) {
-          label = 'CLIENTS'
-          image = 'casque'
-        }
-        if (index === 5) {
-          label = 'ÉVÈNEMENTIELS'
-          image = 'architecture'
-        }
-
-        console.log(label)
-
-        return (
-          <div
-            key={index}
-            className={`absolute flex ${isRightSide ? 'flex-row-reverse' : ''} items-center gap-6 duration-500 transition-all opacity-0 ${pointToAppear.includes(String(index)) && 'opacity-100'}`}
-            style={{
-              top: `calc(${rect.top}px + ${rect.height / 2}px)`,
-              left: isRightSide
-                ? `calc(${rect.left}px + ${rect.width}px + 20px)`
-                : `calc(${rect.left}px - 20px)`,
-              transform: 'translateY(-50%)'
-            }}
-          >
-            <img
-              className="w-16"
-              src={`/assets/icons/${image}.svg`}
-              alt="icon"
-            />
-            <p className="font-fontBold text-primary">{label}</p>
-          </div>
-        )
-      })} */}
     </div>
   )
 }
