@@ -52,7 +52,7 @@ export default async function CategoryArchive({
   const secondPart = description.slice(before + 1)
 
   return (
-    <main className="flex flex-col gap-8 mt-60 px-32 max-w-screen-2xl mb-60">
+    <main className="flex flex-col gap-8 mt-60 px-32 max-w-screen-2xl mx-auto mb-60">
       <h1 className="capitalize text-primary text-8xl mb-0">
         {category.category.name}
       </h1>
