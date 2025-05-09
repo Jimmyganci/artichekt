@@ -7,10 +7,10 @@ import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import {notFound} from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import { Page, Post } from '../../lib/types'
+import {Page, Post} from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -46,8 +46,8 @@ function RenderPage({page}: {page: Page}) {
     <main className="flex flex-col gap-8 mt-60 max-w-[1500px] mx-auto">
       <article>
         {/* <h1 dangerouslySetInnerHTML={{__html: page.title}} /> */}
-        <div className='px-32'>
-                  <Breadcrumb />
+        <div className="px-32">
+          <Breadcrumb />
         </div>
 
         <div
@@ -175,15 +175,15 @@ export default async function Archive({params}: {params: {slug: string}}) {
     const targetedLocations = await getAllTargetedLocations()
     return (
       <div className="mt-40 px-20 max-w-screen-2xl mx-auto">
-                <div className='max-w-screen-2xl mx-auto'>
-              <Breadcrumb />
-          </div>
+        <div className="max-w-screen-2xl mx-auto">
+          <Breadcrumb />
+        </div>
         <TargetedLocations targetedLocations={targetedLocations} />
       </div>
     )
   }
 
-  if (slug === 'estimer') {
+  if (slug === 'estimez-le-cout-de-nos-services') {
     return (
       <div>
         <div className="mt-40 px-32">
@@ -217,46 +217,46 @@ export default async function Archive({params}: {params: {slug: string}}) {
               </p>
             </div>
           </div>
-          <div className='max-w-screen-2xl mx-auto'>
-              <Breadcrumb />
+          <div className="max-w-screen-2xl mx-auto">
+            <Breadcrumb />
           </div>
 
           <Estimate />
         </div>
         <div className="bg-grey px-32 pt-10 pb-64 text-xl">
-          <div className='max-w-screen-2xl mx-auto'>
-          <p className="mt-0  m-auto">
-            Le détail de chaque prestation est expliqué dans l’onglet
-            conception.
-          </p>
-          <p className=" mx-auto">
-            Le calcul de nos honoraires diffère selon la nature de la
-            prestation. Nos honoraires pour la phase de conception ne dépendent
-            d’aucune façon du montant des travaux, ils sont calculés à partir
-            d’une estimation du temps affecté à chaque phase de conception. En
-            revanche, nos honoraires pour la direction des opérations de
-            chantier sont ajustés en fonction du coût réel des travaux et leur
-            complexité.
-          </p>
-          <p className=" mx-auto">
-            Pour toute demande particulière, vous pouvez nous adresser un mail
-            via le formulaire de contact ci-dessous. Chaque demande fait l’objet
-            d’une réponse attentive dans un délai raisonnable.
-          </p>
-          <p className=" mx-auto">
-            Nous refusons tout projet dont la demande porte uniquement sur des
-            missions de décoration intérieure. Le traitement esthétique des
-            volumes fait partie intégrante de nos propositions d’aménagement
-            dans le cadre des prestations de niveau 2 et 3.
-          </p>
-          <p className="mx-auto">
-            Egalement, il est important de noter que les niveaux 2 et 3
-            nécessitent une gestion de projet méthodique et rigoureuse dès le
-            démarrage de votre projet d’architecture intérieure. Pour nous aider
-            dans cette tâche, nous avons élaboré des outils méthodologiques
-            uniques et performants que nous prenons en compte dans le calcul des
-            prestations.
-          </p>
+          <div className="max-w-screen-2xl mx-auto">
+            <p className="mt-0  m-auto">
+              Le détail de chaque prestation est expliqué dans l’onglet
+              conception.
+            </p>
+            <p className=" mx-auto">
+              Le calcul de nos honoraires diffère selon la nature de la
+              prestation. Nos honoraires pour la phase de conception ne
+              dépendent d’aucune façon du montant des travaux, ils sont calculés
+              à partir d’une estimation du temps affecté à chaque phase de
+              conception. En revanche, nos honoraires pour la direction des
+              opérations de chantier sont ajustés en fonction du coût réel des
+              travaux et leur complexité.
+            </p>
+            <p className=" mx-auto">
+              Pour toute demande particulière, vous pouvez nous adresser un mail
+              via le formulaire de contact ci-dessous. Chaque demande fait
+              l’objet d’une réponse attentive dans un délai raisonnable.
+            </p>
+            <p className=" mx-auto">
+              Nous refusons tout projet dont la demande porte uniquement sur des
+              missions de décoration intérieure. Le traitement esthétique des
+              volumes fait partie intégrante de nos propositions d’aménagement
+              dans le cadre des prestations de niveau 2 et 3.
+            </p>
+            <p className="mx-auto">
+              Egalement, il est important de noter que les niveaux 2 et 3
+              nécessitent une gestion de projet méthodique et rigoureuse dès le
+              démarrage de votre projet d’architecture intérieure. Pour nous
+              aider dans cette tâche, nous avons élaboré des outils
+              méthodologiques uniques et performants que nous prenons en compte
+              dans le calcul des prestations.
+            </p>
           </div>
         </div>
       </div>
