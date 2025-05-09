@@ -1,7 +1,7 @@
 import getRelatedPosts from '@/lib/queries/getRelatedPosts'
-import { Metadata } from 'next'
+import {Metadata} from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import {notFound} from 'next/navigation'
 import getAllPosts from '../../../lib/queries/getAllPosts'
 import getPostBySlug from '../../../lib/queries/getPostBySlug'
 
@@ -124,7 +124,9 @@ export default async function Post({params}: {params: {slug: string}}) {
       />
       {relatedPosts.length > 0 && (
         <section className="mt-20 px-10">
-          <h2 className="text-2xl bg-primary text-center text-white w-fit mx-auto mt-0 mb-1 p-1 px-2 font-fontBold">Articles liés à cet catégorie</h2>
+          <h2 className="text-2xl bg-primary text-center text-white w-fit mx-auto mt-0 mb-1 p-1 px-2 font-fontBold">
+            Articles liés à cet catégorie
+          </h2>
           <div className="flex gap-8 flex-wrap">
             {relatedPosts.map((related) => (
               <article key={related.databaseId} className="w-80">
