@@ -206,12 +206,12 @@ export default function Header() {
               <Link
                 onClick={() => handleOpenMenu()}
                 className={`  text-[20px] max-[640px]:text-[18px] max-[872px]:text-[12px] 2xl:text-2xl flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
-                href={'/estimer'}
+                href={'/estimez-le-cout-de-nos-services'}
               >
                 <p
                   className={`hover:text-black duration-300 m-0 ${subMenu?.length ? 'text-primary' : 'text-white'} `}
                 >
-                  Estimez votre budget
+                  Estimez le coût de nos services
                 </p>
               </Link>
             </div>

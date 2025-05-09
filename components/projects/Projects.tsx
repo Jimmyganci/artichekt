@@ -10,9 +10,9 @@ import {
   useGLTF,
   useScroll
 } from '@react-three/drei'
-import { Canvas, createPortal, useFrame, useThree } from '@react-three/fiber'
-import { easing } from 'maath'
-import { useRef, useState } from 'react'
+import {Canvas, createPortal, useFrame, useThree} from '@react-three/fiber'
+import {easing} from 'maath'
+import {useRef, useState} from 'react'
 import * as THREE from 'three'
 
 export default function Projects({projects}: any) {

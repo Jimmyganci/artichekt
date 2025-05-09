@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
@@ -39,30 +39,13 @@ function ScrollTitle() {
       const timeline2 = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: 'top 5%',
+          start: 'top 2%',
           end: '+=800',
           scrub: 2,
           pin: true,
           markers: false
         }
       })
-      timeline.to('.scrollTitleContainer .text', {opacity: 0, duration: 50})
-      timeline.to(
-        '.image',
-        {
-          xPercent: -50,
-          yPercent: -50,
-          scale: 1.5,
-          rotationX: 0,
-          rotationY: 0,
-          rotationZ: 0,
-          duration: 100,
-          top: '50%',
-          left: '50%',
-          ease: 'power1.out'
-        }
-        //   '<'
-      )
     }
 
     return () => {
@@ -80,8 +63,8 @@ function ScrollTitle() {
           width={1000}
           height={800}
           alt="test"
-          src={'/images/golden_hour.png'}
-          className="absolute -z-10 top-[30%] scale-50 will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-[30%] image scrollFromRight"
+          src={'/images/golden_hours.png'}
+          className="absolute -z-10 top-[50%] scale-50 will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-[30%] image scrollFromRight"
         />
         <span className="text-9xl font-fontMedium text-black whitespace-nowrap scrollFromRight text">
           {'UN LIEU'}

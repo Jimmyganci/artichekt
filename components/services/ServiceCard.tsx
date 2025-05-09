@@ -1,10 +1,9 @@
 import {Post} from '@/lib/types'
 import Image from 'next/image'
-import React from 'react'
 
 function ServiceCard({title, featuredImage}: Post) {
   return (
-    <div className="relative h-[60vh] w-[30vw] overflow-hidden cursor-pointer">
+    <div className="relative h-[600px] w-[400px] overflow-hidden cursor-pointer">
       <div className="absolute top-0 left-0 w-full h-full mt-0 mn-0 transform transition-transform duration-300 hover:scale-110">
         <Image
           className="object-cover w-full h-full mt-0 mb-0 grayscale hover:grayscale-0"

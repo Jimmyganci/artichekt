@@ -11,6 +11,7 @@ import {notFound} from 'next/navigation'
 import getPageBySlug from '../lib/queries/getPageBySlug'
 
 import Engagment from '@/components/home/Engagment'
+import GoogleReview from '@/components/home/GoogleReview'
 import Guarantee from '@/components/home/Guarantee'
 import Laboratory from '@/components/home/Laboratory'
 import Method from '@/components/home/Method'
@@ -72,6 +73,8 @@ export default async function Home() {
       <SeeAll path="/projects" />
       <Spacer h={150} />
       <Laboratory />
+      <Spacer h={250} />
+      <GoogleReview />
     </main>
   )
 }
