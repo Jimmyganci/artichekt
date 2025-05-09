@@ -1,9 +1,9 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react'
 import getLogo from '@/lib/queries/getLogo'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+import {useEffect, useRef, useState} from 'react'
 
 interface Images {
   imageLeft: {
@@ -102,13 +102,6 @@ function Team() {
           </div>
           <div className="flex w-full overflow-hidden">
             <div className="textContent w-full relative">
-              <Image
-                width={300}
-                height={400}
-                src="/images/artichaut_left.png"
-                alt="bloc haut gauche d'un artichaut"
-                className="absolute w-full -z-10 max-h-full opacity-50"
-              />
               <p className="text-[20px] px-8">
                 Amandine cumule 6 années d’activités dans le domaine de
                 l’architecture intérieure acquises par le biais d’une première
@@ -122,7 +115,7 @@ function Team() {
                 lui a permis de consolider ses compétences dans la gestion
                 globale de projet d’architecture intérieure.
                 <span>
-                  <a href="#" className="text-[20px] pl-1">
+                  <a href="/lequipe" className="text-[20px] pl-1">
                     <strong>Lire plus</strong>
                   </a>
                 </span>
@@ -166,13 +159,6 @@ function Team() {
             </div>
           </div>
           <div className="textContent2 w-full relative">
-            <Image
-              width={300}
-              height={400}
-              src="/images/artichaut_right.png"
-              alt="bloc haut gauche d'un artichaut"
-              className="absolute w-full m-0 -z-10 max-h-full opacity-50"
-            />
             <p className="text-[20px] px-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
@@ -185,7 +171,7 @@ function Team() {
               capacités relationnelles, d’adaptation et de gestion de ses
               propres ressources afin de garantir le succès de son projet.
               <span>
-                <a href="#" className="text-[20px] pl-1">
+                <a href="/lequipe" className="text-[20px] pl-1">
                   <strong>Lire plus</strong>
                 </a>
               </span>

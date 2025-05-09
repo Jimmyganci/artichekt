@@ -1,10 +1,10 @@
 'use client'
-import React, {useEffect, useRef} from 'react'
-import TitleSection from '../TitleSection'
-import Image from 'next/image'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import Image from 'next/image'
+import {useEffect, useRef} from 'react'
 import SeeAll from '../layouts/SeeAll'
+import TitleSection from '../TitleSection'
 
 function Approch() {
   const containerRef = useRef(null)
@@ -23,7 +23,7 @@ function Approch() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container, // L'élément déclencheur
-          start: 'top 15%', // Début de l'animation
+          start: 'top 10%', // Début de l'animation
           end: '+=500', // Fin de l'animation
           // end: 'top top', // Fin de l'animation
           scrub: true, // Synchronisé avec le scroll
@@ -54,17 +54,14 @@ function Approch() {
   }, [])
 
   return (
-    <div className="approch-container pt-7">
+    <div className="approch-container pt-7" ref={containerRef}>
       <TitleSection
         title={"L'approche artichekt"}
         primary={false}
         position="right"
       />
 
-      <div
-        ref={containerRef}
-        className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-[1fr_auto] gap-4 p-10"
-      >
+      <div className="grid grid-cols-[0.5fr_1fr_0.5fr] grid-rows-[1fr_auto] gap-4 p-10">
         <div className="text-end flex flex-col justify-center items-end mr-0">
           <p className="max-w-52">
             Restructuration et agencement des espaces de vie, de travail et de

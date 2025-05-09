@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react';
-import Spacer from '../Spacer';
+import {useEffect, useRef, useState} from 'react'
+import Spacer from '../Spacer'
 
 const projectTimes: Record<
   string,
@@ -71,11 +71,11 @@ const niveauDetails: {[key: string]: string[]} = {
 }
 
 interface NiveauListes {
-  [key: string] : {
-    icon: string,
-    title: string,
-    description: string,
-    list: {icon: string, label: string}[]
+  [key: string]: {
+    icon: string
+    title: string
+    description: string
+    list: {icon: string; label: string}[]
   }
 }
 
@@ -83,7 +83,8 @@ const niveauxListes: NiveauListes = {
   'Niveau 1': {
     icon: '/images/niveau_1.svg',
     title: 'Les indispensables',
-    description: 'Ce premier niveau réunit les prestations indispensables à toute mission d’architecture intérieure ou aménagement d’espace pluriel.',
+    description:
+      'Ce premier niveau réunit les prestations indispensables à toute mission d’architecture intérieure ou aménagement d’espace pluriel.',
     list: [
       {
         icon: '/images/edl.svg',
@@ -102,7 +103,8 @@ const niveauxListes: NiveauListes = {
   'Niveau 2': {
     icon: '/images/niveau_2.svg',
     title: 'Intermédiaire',
-    description: 'Ce deuxième niveau comprend toutes les phases de conception et la direction des opérations de travaux.',
+    description:
+      'Ce deuxième niveau comprend toutes les phases de conception et la direction des opérations de travaux.',
     list: [
       {
         icon: '/images/conception.svg',
@@ -117,7 +119,8 @@ const niveauxListes: NiveauListes = {
   'Niveau 3': {
     icon: '/images/niveau_3.svg',
     title: 'Premium',
-    description: 'Ce dernier niveau comprend l’intégralité d’une niveau 2 auquel s’ajoute une analyse des besoins rigoureuse et méthodique.',
+    description:
+      'Ce dernier niveau comprend l’intégralité d’une niveau 2 auquel s’ajoute une analyse des besoins rigoureuse et méthodique.',
     list: [
       {
         icon: '/images/analyse.svg',
@@ -319,9 +322,13 @@ function Estimate() {
             <p className="mt-0 text-center ">
               <strong className="font-fontBold">Contenu de la mission</strong>
             </p>
-            {niveauDetails[formData.niveauPrestation].map((prestation, index) => (
-              <p key={index} className="mt-2 mb-0 text-center">{prestation}</p>
-            ))}
+            {niveauDetails[formData.niveauPrestation].map(
+              (prestation, index) => (
+                <p key={index} className="mt-2 mb-0 text-center">
+                  {prestation}
+                </p>
+              )
+            )}
           </div>
         </div>
 
@@ -340,27 +347,25 @@ function Estimate() {
           </p>
         </div>
 
-        <div className='flex justify-center items-center'>
+        <div className="flex justify-center items-center">
+          <div className="text-center">
+            <button
+              onClick={handleReset}
+              className="bg-primary text-white p-2 text-xl border-primary font-bold border hover:bg-white hover:text-primary hover:border-primary"
+            >
+              Recommencer
+            </button>
+          </div>
+          <div className="text-center">
+            <button
+              onClick={() => setSubmitted(false)}
+              className="border-grey text-white p-2 text-xl font-bold border hover:bg-white hover:text-primary"
+            >
+              Modifier
+            </button>
+          </div>
+        </div>
 
-            <div className="text-center">
-          <button
-            onClick={handleReset}
-            className="bg-primary text-white p-2 text-xl border-primary font-bold border hover:bg-white hover:text-primary hover:border-primary"
-          >
-            Recommencer
-          </button>
-        </div>
-        <div className="text-center">
-          <button
-            onClick={() => setSubmitted(false)}
-            className="border-primary text-primary p-2 text-xl font-bold border hover:bg-white"
-          >
-            Modifier
-          </button>
-        </div>
-        </div>
-
-        
         <Spacer h={55} />
       </div>
     )
@@ -528,7 +533,7 @@ function Estimate() {
             const niveauKey = `niveau${niveau}` as keyof typeof selectedProject
             const isAvailable =
               selectedProject && selectedProject[niveauKey] !== undefined
-              const detail = niveauxListes['Niveau ' + niveau]
+            const detail = niveauxListes['Niveau ' + niveau]
 
             return (
               <div className="w-1/3" key={niveau}>
@@ -544,15 +549,27 @@ function Estimate() {
                     handleChange('niveauPrestation', `Niveau ${niveau}`)
                   }
                 >
-                  <div className='flex flex-col items-center h-full gap-3'>
-                    <img className='w-16 my-0 mt-2' src={detail.icon} alt={detail.title} />
-                    <p className='font-fontBold my-0 text-2xl'>{detail.title}</p>
-                    <p className='my-0 text-lg text-left pl-4 leading-tight'>{detail.description}</p>
-                    <ul className='my-0 w-full p-0 pl-2'>
+                  <div className="flex flex-col items-center h-full gap-3">
+                    <img
+                      className="w-16 my-0 mt-2"
+                      src={detail.icon}
+                      alt={detail.title}
+                    />
+                    <p className="font-fontBold my-0 text-2xl">
+                      {detail.title}
+                    </p>
+                    <p className="my-0 text-lg text-left pl-4 leading-tight">
+                      {detail.description}
+                    </p>
+                    <ul className="my-0 w-full p-0 pl-2">
                       {detail.list.map((ele, index) => (
-                        <li key={index} className='flex items-center gap-3'>
-                          <img className='my-0' src={ele.icon} alt={ele.label} />
-                          <p className='my-0'>{ele.label}</p>
+                        <li key={index} className="flex items-center gap-3">
+                          <img
+                            className="my-0"
+                            src={ele.icon}
+                            alt={ele.label}
+                          />
+                          <p className="my-0">{ele.label}</p>
                         </li>
                       ))}
                     </ul>

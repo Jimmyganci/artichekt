@@ -1,128 +1,116 @@
-import React from 'react'
-import TitleSection from '../TitleSection'
+'use client'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Image from 'next/image'
+import {useEffect, useRef} from 'react'
+import TitleSection from '../TitleSection'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Laboratory() {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const cards = gsap.utils.toArray<HTMLDivElement>('.panel')
+
+    // const cards = gsap.utils.toArray(".panel");
+    const spacer = 20
+    const minScale = 0.7
+
+    const distributor = gsap.utils.distribute({base: minScale, amount: 0.2})
+
+    cards.forEach((card, index) => {
+      const scaleVal = distributor(index, cards[index], cards)
+
+      const tween = gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: `top top`,
+          scrub: true,
+          markers: false,
+          invalidateOnRefresh: true
+        },
+        ease: 'none',
+        scale: scaleVal
+      })
+
+      ScrollTrigger.create({
+        trigger: card,
+        start: `top 20%`,
+        endTrigger: '.cards',
+        end: `bottom top+=${200 + cards.length * spacer}`,
+        pin: true,
+        pinSpacing: false,
+        markers: true,
+        id: 'pin',
+        invalidateOnRefresh: true
+      })
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
+
+  const cards = [
+    {
+      icon: '/images/statistiques.svg',
+      title: 'Recueil de données',
+      text: "à partir de nos observations in situ et entretiens menés par ARTICHEKT lors des projets d’architecture intérieure ou auprès de panels d’usagers ciblés dans le but de tendre vers une définition commune des phénomènes d'habitation et de consommation."
+    },
+    {
+      icon: '/images/connaissances.svg',
+      title: 'Pédagogie',
+      text: 'en proposant des ateliers à destination du grand public sur des thématiques en lien avec des questions autour des espaces investis et leurs usages dans le but de sensibiliser les individus aux problématiques qui y sont liées.'
+    },
+    {
+      icon: '/images/travailler-ensemble.svg',
+      title: 'Accompagnement des pouvoirs publics',
+      text: 'sur les thématiques du logement collectif et de l’habitat. Proposer notre expertise pour des projets d’aménagement d’espace dédié au public.'
+    },
+    {
+      icon: '/images/maison-ecologique.svg',
+      title: 'Création d’une maison des habitants',
+      text: 'un lieu chaleureux pour favoriser les rencontres et créer des liens entre les différents acteurs de l’habitat et celles et ceux qui habitent...'
+    }
+  ]
+
   return (
-    <div className="mb-80">
+    <div className="mb-20 cards" ref={containerRef}>
       <TitleSection
-        title={'LE LABORATOIRE ARTICHEKT'}
+        title="LE LABORATOIRE ARTICHEKT"
         primary={false}
         position="right"
       />
 
-      <div className="px-[12%]">
-        <p className="w-1/2 ml-auto text-end text-3xl">
-          Le laboratoire ARTICHEKT doit permettre de définir une stratégie et
-          apporter des éléments de réponse à la question suivante : Comment
-          inscrire les manières d’habiter un espace de vie, de travail et de
-          consommation dans une démarche éco-responsable et durable en tenant
-          compte du bien-être des personnes ?
-        </p>
-
-        <div className="grid grid-cols-2 grid-rows-3 gap-4 p-4">
-          <div className="flex justify-end flex-col relative">
-            <div className="text-center flex items-center flex-col p-16">
+      <div>
+        <div className="flex flex-col gap-24 mt-10 mx-auto items-center">
+          {cards.map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-grey p-12 w-[450px] flex text-xl flex-col items-center text-center panel"
+            >
+              <div
+                className={`absolute w-10 h-20 z-10 bg-primary top-0 ${
+                  index % 2 !== 0 ? 'left-6' : 'right-6'
+                } translate-y-[-50%]`}
+              ></div>
               <Image
-                width={100}
-                height={100}
-                src={'/images/connaissances.svg'}
-                alt="connaissance"
+                width={80}
+                height={80}
+                src={item.icon}
+                alt={item.title}
+                className="my-0 w-24"
               />
-              <p className="font-fontBold text-primary text-2xl m-0">
-                Pédagogie
+              <p className="font-fontBold text-primary mt-4 mb-0">
+                {item.title}
               </p>
-              <p className="text-2xl">
-                en proposant des ateliers autour de pratiques artistiques à
-                destination du grand public
-              </p>
-              <Image
-                width={130}
-                height={130}
-                src={'/images/arrow.svg'}
-                alt="connaissance"
-                className="absolute top-full"
-              />
+              <p className="mt-2">{item.text}</p>
             </div>
-          </div>
-          <div className="flex justify-center flex-col relative">
-            <div className="p-16 text-center flex items-center justify-center flex-col">
-              <Image
-                width={100}
-                height={100}
-                src={'/images/travailler-ensemble.svg'}
-                alt="travailler ensemble"
-              />
-              <p className="font-fontBold text-primary text-2xl m-0">
-                Accompagnement des pouvoirs publics
-              </p>
-              <Image
-                width={130}
-                height={130}
-                src={'/images/arrow2.svg'}
-                alt="connaissance"
-                className="absolute top-full"
-              />
-            </div>
-          </div>
-          <div className="text-center col-span-2 flex justify-center items-center flex-col">
-            <Image
-              width={100}
-              height={100}
-              src={'/images/oeil.svg'}
-              alt="oeil"
-              className="w-1/2"
-            />
-          </div>
-          <div className="flex justify-start flex-col relative">
-            <div className="p-16 text-center flex justify-start items-center flex-col">
-              <Image
-                width={100}
-                height={100}
-                src={'/images/statistiques.svg'}
-                alt="statistiques"
-              />
-              <p className="font-fontBold text-primary text-2xl m-0">
-                Recueil de données
-              </p>
-              <p className="text-2xl">
-                à partir d’enquêtes qualitatives (voire quantitative) menées par
-                ARTICHEKT sur des panels d’usagers habitants, personnes en
-                activité et consommateurs
-              </p>
-              <Image
-                width={150}
-                height={150}
-                src={'/images/arrow3.svg'}
-                alt="connaissance"
-                className="absolute bottom-full"
-              />
-            </div>
-          </div>
-          <div className="flex justify-start flex-col relative">
-            <div className="p-16 text-center flex justify-start items-center flex-col">
-              <Image
-                width={100}
-                height={100}
-                src={'/images/maison-ecologique.svg'}
-                alt="maison ecologique"
-              />
-              <p className="font-fontBold text-primary text-2xl m-0">
-                Création d’une maison des habitants
-              </p>
-              <p className="text-2xl">
-                un lieu chaleureux, de rencontre et d’échange entre les
-                différents acteurs de l’habitat
-              </p>
-              <Image
-                width={130}
-                height={130}
-                src={'/images/arrow4.svg'}
-                alt="connaissance"
-                className="absolute bottom-full"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

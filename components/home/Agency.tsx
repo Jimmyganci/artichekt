@@ -1,6 +1,4 @@
 'use client'
-import React from 'react'
-import ScrollTextAppear from '../ScrollTextAppear'
 import Scroll2 from '../Scroll2'
 
 function Agency() {
@@ -8,7 +6,14 @@ function Agency() {
     un réseau de professionnels compétents tout en développant une
     approche innovante et pluridisciplinaire.`
 
-  return <Scroll2 primary={false} name={"L'agence"} content={content} />
+  return (
+    <Scroll2
+      primary={false}
+      name={"L'agence"}
+      position="left"
+      content={content}
+    />
+  )
 }
 
 export default Agency

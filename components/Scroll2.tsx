@@ -1,10 +1,10 @@
 'use client'
 
-import React, {useEffect, useRef} from 'react'
 import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import {useEffect, useRef} from 'react'
 import TitleSection from './TitleSection'
 import SeeAll from './layouts/SeeAll'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 function Scroll2({
   name,
@@ -24,7 +24,7 @@ function Scroll2({
 
   if (position === 'left') {
     test = 'text-left'
-    test2 = 'left-0'
+    test2 = 'left-full'
   }
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function Scroll2({
         {name && <TitleSection title={name} primary={false} />}
 
         <p
-          className={`relative text-2xl w-full ${test} sm:w-2/3 pl-28 sm:text-3xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`relative text-4xl w-full ${test} sm:w-2/3 mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
@@ -80,9 +80,9 @@ function Scroll2({
           ))}
           <em className="opacity-50">
             <span
-              className={`absolute text-primary text-[300px] ${test2} bottom-[20%] -z-10`}
+              className={`absolute text-primary text-[300px] ${test2} bottom-[20%] scale-x-[-1] -z-10`}
             >
-              {'"'}
+              {'“'}
             </span>
           </em>
         </p>

@@ -1,5 +1,5 @@
 'use client'
-import { useCallback, useRef, useState } from 'react'
+import {useCallback, useRef, useState} from 'react'
 import HTMLFlipBook from 'react-pageflip'
 
 function Book() {
