@@ -1,7 +1,7 @@
 'use client'
-import { gsap } from 'gsap'
-import { MotionPathPlugin, ScrollTrigger } from 'gsap/all'
-import { useEffect, useRef, useState } from 'react'
+import {gsap} from 'gsap'
+import {MotionPathPlugin, ScrollTrigger} from 'gsap/all'
+import {useEffect, useRef, useState} from 'react'
 
 // Enregistrer les plugins GSAP
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger)

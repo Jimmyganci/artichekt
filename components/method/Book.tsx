@@ -1,5 +1,5 @@
 'use client'
-import React, {useCallback, useRef, useState} from 'react'
+import { useCallback, useRef, useState } from 'react'
 import HTMLFlipBook from 'react-pageflip'
 
 function Book() {
@@ -26,7 +26,7 @@ function Book() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen p-4 relative transition-all duration-500"
+      className="flex flex-col items-center mt-20 justify-center min-h-screen p-4 relative transition-all duration-500"
       style={{marginLeft: marginLeft}} // Transition fluide ici
     >
       <div className="absolute flex flex-col space-y-12 z-10">
