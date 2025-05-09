@@ -1,19 +1,19 @@
 'use client'
-import * as THREE from 'three'
-import {useEffect, useRef, useState} from 'react'
-import {Canvas, createPortal, useFrame, useThree} from '@react-three/fiber'
 import {
+  Image,
+  MeshTransmissionMaterial,
+  Preload,
+  Scroll,
+  ScrollControls,
+  Text,
   useFBO,
   useGLTF,
-  useScroll,
-  Text,
-  Image,
-  Scroll,
-  Preload,
-  ScrollControls,
-  MeshTransmissionMaterial
+  useScroll
 } from '@react-three/drei'
-import {easing} from 'maath'
+import { Canvas, createPortal, useFrame, useThree } from '@react-three/fiber'
+import { easing } from 'maath'
+import { useRef, useState } from 'react'
+import * as THREE from 'three'
 
 export default function Projects({projects}: any) {
   const [isEnter, setIsEnter] = useState(false)
