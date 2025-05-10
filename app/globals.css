@@ -162,3 +162,28 @@ html {
   color: #7da365;
   font-weight: bold;
 }
+
+.css-1uyvnff img {
+  margin: 0;
+}
+
+.css-hzpebr, .css-1en7e4i {
+padding: 10px;
+}
+
+
+.line-garuantees {
+  position: relative;
+}
+
+.line-garuantees::before {
+content: '';
+position: absolute;
+top: 25px;
+left: 240px;
+width: 3px;
+height: 85%;
+background-color: rgb(217 217 217 / var(--tw-bg-opacity));
+z-index: -1;
+
+}

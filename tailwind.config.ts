@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -11,6 +11,9 @@ const config: Config = {
     'self-end',
     'text-center',
     'right-52',
+    'mr-20',
+    'mt-10',
+    'mt-20',
     // Couleur & effet
     'bg-grey',
     'grayscale',
@@ -67,10 +70,13 @@ const config: Config = {
     'text-[600px]',
     'text-[180px]',
     'font-number',
+    "text-whitePure",
+    'h-24',
     '-z-10',
     'pl-60',
     'italic',
     'leading-[0.6]',
+    'text-neutral',
     'text-[350px]'
   ],
   theme: {
@@ -83,6 +89,7 @@ const config: Config = {
         primary: '#7DA365',
         secondary: '#161819',
         white: '#f0f0f0',
+        whitePure: '#ffffff',
         grey: '#D9D9D9'
       },
       fontFamily: {
