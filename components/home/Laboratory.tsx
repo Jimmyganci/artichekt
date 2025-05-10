@@ -44,7 +44,7 @@ function Laboratory() {
         end: `bottom top+=${200 + cards.length * spacer}`,
         pin: true,
         pinSpacing: false,
-        markers: true,
+        markers: false,
         id: 'pin',
         invalidateOnRefresh: true
       })

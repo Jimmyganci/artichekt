@@ -7,10 +7,10 @@ import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import {Page, Post} from '../../lib/types'
+import { Page, Post } from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -133,19 +133,20 @@ function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
 /**
  * Catch-all Archive Page route.
  */
-export default async function Archive({params}: {params: {slug: string}}) {
+export default async function Archive({params}: {params: {slug: string[]}}) {
   // Get the slug from the params.
-  const {slug} = params
+  const slugPath = params.slug.join('/') // 'a-propos/lequipe'
+  const lastSlug = params.slug.at(-1)
 
   // Fetch data from WordPress.
-  const data = await fetchData(slug)
+  const data = await fetchData(lastSlug!)
 
   // If there's an error, return a 404 page.
   if (data.error) {
     notFound()
   }
 
-  if (slug === 'projets') {
+  if (lastSlug === 'projets') {
     const projects = await getAllProjects()
     return (
       <div
@@ -158,7 +159,7 @@ export default async function Archive({params}: {params: {slug: string}}) {
       </div>
     )
   }
-  if (slug === 'la-methode-artichekt') {
+  if (lastSlug === 'la-methode-artichekt') {
     return (
       <div
         className="min-h-screen w-screen h-screen"
@@ -171,7 +172,7 @@ export default async function Archive({params}: {params: {slug: string}}) {
     )
   }
 
-  if (slug === 'les-lieux-cibles') {
+  if (lastSlug === 'les-lieux-cibles') {
     const targetedLocations = await getAllTargetedLocations()
     return (
       <div className="mt-40 px-20 max-w-screen-2xl mx-auto">
@@ -183,7 +184,7 @@ export default async function Archive({params}: {params: {slug: string}}) {
     )
   }
 
-  if (slug === 'estimez-le-cout-de-nos-services') {
+  if (lastSlug === 'estimez-le-cout-de-nos-services') {
     return (
       <div>
         <div className="mt-40 px-32">
