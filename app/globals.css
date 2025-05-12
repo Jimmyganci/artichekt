@@ -87,9 +87,10 @@ h3 {
   display: flex;
 }
 
-.wp-block-columns-is-layout-flex > div {
+/* .wp-block-columns-is-layout-flex > div {
   width: 50%;
-}
+} */
+
 
 .image-cover-container figure {
   height: 500px;
@@ -186,4 +187,26 @@ height: 85%;
 background-color: rgb(217 217 217 / var(--tw-bg-opacity));
 z-index: -1;
 
+}
+
+.wpcf7-form p span {
+  display: flex;
+  flex-direction: column;
+}
+
+.wpcf7-form button, .button, [type='submit']{
+  background-color: #7da365;
+  border: 1px solid #7da365  ;
+  color: white;
+  cursor: pointer;
+}
+
+.wpcf7-form button, .button, [type='submit']:hover{
+  background-color: white;
+  color: #7da365;
+  border: 1px solid #7da365  ;
+}
+
+.text-primary a {
+  color: #7da365;
 }
