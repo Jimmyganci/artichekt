@@ -200,6 +200,7 @@ z-index: -1;
   color: white;
   cursor: pointer;
 }
+
 .wpcf7-form button, .button, [type='submit']:hover{
   background-color: white;
   color: #7da365;
