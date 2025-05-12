@@ -1,8 +1,8 @@
 'use client'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react'
 import TitleSection from '../TitleSection'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -91,7 +91,7 @@ function Laboratory() {
           {cards.map((item, index) => (
             <div
               key={index}
-              className="relative bg-grey p-12 w-[450px] flex text-xl flex-col items-center text-center panel"
+              className="relative  bg-grey p-12 w-[450px] flex text-xl flex-col items-center text-center panel"
             >
               <div
                 className={`absolute w-10 h-20 z-10 bg-primary top-0 ${
