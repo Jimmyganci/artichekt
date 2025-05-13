@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import {useEffect, useRef, useState} from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Breadcrumb from '../Breadcrumb'
 import CarouselContact from './CarouselContact'
@@ -98,7 +98,7 @@ function Contact() {
   }
 
   return (
-    <main className="pt-60 px-32 max-w-screen-xl mx-auto">
+    <main className="pt-60 px-32 max-w-screen-xl mx-auto mb-60">
       <Breadcrumb />
       <section className="flex gap-20">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/2">
