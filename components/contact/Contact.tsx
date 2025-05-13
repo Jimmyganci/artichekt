@@ -98,7 +98,7 @@ function Contact() {
   }
 
   return (
-    <main className="pt-60 px-32 max-w-screen-xl mx-auto mb-60">
+    <main className="w- pt-60 px-32 max-w-screen-xl mx-auto mb-60">
       <Breadcrumb />
       <section className="flex gap-20">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/2">
