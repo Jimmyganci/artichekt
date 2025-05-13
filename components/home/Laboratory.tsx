@@ -1,8 +1,8 @@
 'use client'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import {useEffect, useRef} from 'react'
 import TitleSection from '../TitleSection'
 
 gsap.registerPlugin(ScrollTrigger)
