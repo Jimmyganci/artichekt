@@ -1,15 +1,20 @@
 'use client'
 import Link from 'next/link'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
+import Breadcrumb from '../Breadcrumb'
 import CarouselContact from './CarouselContact'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function Contact() {
+  const [responseMessage, setResponseMessage] = useState<string | null>(null)
+  const [responseType, setResponseType] = useState<'success' | 'error' | null>(
+    null
+  )
   const containerRef = useRef<HTMLDivElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
 
@@ -28,7 +33,7 @@ function Contact() {
         start: 'top 40%',
         end: '+=400',
         scrub: false,
-        markers: true
+        markers: false
       }
     })
 
@@ -53,10 +58,60 @@ function Contact() {
     }
   }, [])
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form: any = e.currentTarget
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      object: form.object.value,
+      budget: form.budget.value,
+      message: form.message.value,
+      website: form.website.value // honeypot
+    }
+
+    try {
+      const res = await fetch(
+        'https://preprod.artichekt.com/wp-json/custom/v1/contact',
+        {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        }
+      )
+
+      const json = await res.json()
+      if (json.success) {
+        setResponseMessage('Votre message a bien été envoyé.')
+        setResponseType('success')
+        form.reset()
+      } else {
+        setResponseMessage(json.error || 'Erreur lors de l’envoi.')
+        setResponseType('error')
+      }
+    } catch (err) {
+      console.error(err)
+      setResponseMessage("Une erreur s'est produite.")
+      setResponseType('error')
+    }
+  }
+
   return (
     <main className="pt-60 px-32 max-w-screen-xl mx-auto">
+      <Breadcrumb />
       <section className="flex gap-20">
-        <form action="" className="flex flex-col gap-4 w-1/2">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/2">
+          <label htmlFor="website" className="hidden">
+            Website
+            <input
+              type="text"
+              name="website"
+              id="website"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </label>
           <label htmlFor="name" className="flex flex-col">
             Votre nom :
             <input type="text" name="name" id="name" />
@@ -77,6 +132,15 @@ function Contact() {
             Votre message :
             <textarea name="message" id="message" rows={10}></textarea>
           </label>
+          {responseMessage && (
+            <p
+              className={`mt-4 text-lg ${
+                responseType === 'success' ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
+              {responseMessage}
+            </p>
+          )}
           <input className="w-fit mt-20" type="submit" value="Envoyer" />
         </form>
         <div className="w-1/2">
