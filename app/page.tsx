@@ -7,7 +7,7 @@ import TitleHome from '@/components/TitleHome'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllServices from '@/lib/queries/getAllServices'
 import getLogo from '@/lib/queries/getLogo'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 import getPageBySlug from '../lib/queries/getPageBySlug'
 
 import Engagment from '@/components/home/Engagment'
@@ -15,14 +15,15 @@ import GoogleReview from '@/components/home/GoogleReview'
 import Guarantee from '@/components/home/Guarantee'
 import Laboratory from '@/components/home/Laboratory'
 import Method from '@/components/home/Method'
+import Projects from '@/components/home/Projects'
 import ScrollTitle from '@/components/home/ScrollTitle'
 import TargetedLocations from '@/components/home/TargetedLocations'
 import Team from '@/components/home/Team'
 import SeeAll from '@/components/layouts/SeeAll'
 import Spacer from '@/components/Spacer'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -68,7 +69,7 @@ export default async function Home() {
       <Spacer h={150} />
       <Engagment />
       <Spacer h={150} />
-      {/* <Projects project={projects[0]} /> */}
+      <Projects project={projects[0]} />
       <SeeAll path="/projects" />
       <Spacer h={150} />
       <Laboratory />
