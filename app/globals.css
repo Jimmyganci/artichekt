@@ -91,7 +91,6 @@ h3 {
   width: 50%;
 } */
 
-
 .image-cover-container figure {
   height: 500px;
 }
@@ -168,25 +167,24 @@ html {
   margin: 0;
 }
 
-.css-hzpebr, .css-1en7e4i {
-padding: 10px;
+.css-hzpebr,
+.css-1en7e4i {
+  padding: 10px;
 }
-
 
 .line-garuantees {
   position: relative;
 }
 
 .line-garuantees::before {
-content: '';
-position: absolute;
-top: 25px;
-left: 240px;
-width: 3px;
-height: 85%;
-background-color: rgb(217 217 217 / var(--tw-bg-opacity));
-z-index: -1;
-
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 240px;
+  width: 3px;
+  height: 85%;
+  background-color: rgb(217 217 217 / var(--tw-bg-opacity));
+  z-index: -1;
 }
 
 .wpcf7-form p span {
@@ -194,17 +192,21 @@ z-index: -1;
   flex-direction: column;
 }
 
-.wpcf7-form button, .button, [type='submit']{
+.wpcf7-form button,
+.button,
+[type='submit'] {
   background-color: #7da365;
-  border: 1px solid #7da365  ;
+  border: 1px solid #7da365;
   color: white;
   cursor: pointer;
 }
 
-.wpcf7-form button, .button, [type='submit']:hover{
+.wpcf7-form button,
+.button,
+[type='submit']:hover {
   background-color: white;
   color: #7da365;
-  border: 1px solid #7da365  ;
+  border: 1px solid #7da365;
 }
 
 .text-primary a {

@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb'
+import Contact from '@/components/contact/Contact'
 import Estimate from '@/components/estimate/Estimate'
 import Book from '@/components/method/Book'
 import Projects from '@/components/projects/Projects'
@@ -7,10 +8,10 @@ import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import {notFound} from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import { Page, Post } from '../../lib/types'
+import {Page, Post} from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -262,6 +263,10 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
         </div>
       </div>
     )
+  }
+
+  if (lastSlug === 'contact') {
+    return <Contact />
   }
 
   // If this is a single page, render the page.

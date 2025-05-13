@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type {Config} from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -70,7 +70,7 @@ const config: Config = {
     'text-[600px]',
     'text-[180px]',
     'font-number',
-    "text-whitePure",
+    'text-whitePure',
     'font-fontRegular',
     'pt-20',
     'text-[90px]',
