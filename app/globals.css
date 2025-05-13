@@ -87,9 +87,9 @@ h3 {
   display: flex;
 }
 
-/* .wp-block-columns-is-layout-flex > div {
+.wp-block-columns-is-layout-flex > div {
   width: 50%;
-} */
+}
 
 .image-cover-container figure {
   height: 500px;
@@ -211,4 +211,8 @@ html {
 
 .text-primary a {
   color: #7da365;
+}
+
+.agency-image-footer img {
+  width: 100%!important;
 }

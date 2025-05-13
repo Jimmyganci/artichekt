@@ -10,9 +10,9 @@ import {
   useGLTF,
   useScroll
 } from '@react-three/drei'
-import {Canvas, createPortal, useFrame, useThree} from '@react-three/fiber'
-import {easing} from 'maath'
-import {useRef, useState} from 'react'
+import { Canvas, createPortal, useFrame, useThree } from '@react-three/fiber'
+import { easing } from 'maath'
+import { useRef, useState } from 'react'
 import * as THREE from 'three'
 
 export default function Projects({projects}: any) {
@@ -152,6 +152,7 @@ function Images({images}: any) {
     group.current.children[6].material.zoom =
       1 + (1 - data.range(2 / 3, 1 / 3)) / 3
   })
+  
   return (
     <group ref={group} position={[0, -1.5, 0]}>
       <Image
