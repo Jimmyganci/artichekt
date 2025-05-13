@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -62,6 +62,7 @@ const config: Config = {
     '-mt-[28rem]',
     'pl-40',
     'pl-10',
+    'w-20',
     'pr-60',
     'justify-self-end',
     'mr-12',
