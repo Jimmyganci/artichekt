@@ -1,11 +1,11 @@
 'use client'
 import {useEffect, useRef, useState} from 'react'
-import TitleSection from '../TitleSection'
 
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import guarantees from '@/public/data/guarantees.json'
+import Skew from '../layouts/Skew'
 
 function Guarantee() {
   const containerRef = useRef<any>()
@@ -38,7 +38,6 @@ function Guarantee() {
 
     if (container && progressBar) {
       // Récupérer les mots à animer
-      const letters = container.querySelectorAll('#guaranteeContainer .letter')
 
       window.addEventListener('resize', handleResize)
 
@@ -46,7 +45,7 @@ function Guarantee() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: 'center center',
+          start: 'center 45%',
           end: '+=500',
           scrub: true,
           pin: true,
@@ -85,7 +84,14 @@ function Guarantee() {
 
   return (
     <div id="guaranteeContainer" ref={containerRef}>
-      <TitleSection title={'Les garanties artichekt'} primary={false} />
+      <div className={`flex flex-row-reverse justify-end`}>
+        <h2 className={`text-black mt-0 mb-0 uppercase text-6xl -ml-5`}>
+          LES GARANTIES
+          <br />
+          ARTICHEKT
+        </h2>
+        <Skew style="mt-16" />
+      </div>
       <div className="flex justify-center items-center mt-20">
         <ul className="flex flex-col gap-0 max-w-[700px] relative">
           <span

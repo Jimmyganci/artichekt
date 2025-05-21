@@ -1,10 +1,10 @@
 'use client'
 
-import * as THREE from 'three'
+import {context as fiberContext, useFrame, useThree} from '@react-three/fiber'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
-import {context as fiberContext, useFrame, useThree} from '@react-three/fiber'
 import {mergeRefs} from 'react-merge-refs'
+import * as THREE from 'three'
 
 export type ScrollControlsProps = {
   eps?: number
@@ -92,7 +92,7 @@ export function ScrollControls({
     el.style.position = 'absolute'
     el.style.width = '100%'
     el.style.height = '100%'
-    el.style[horizontal ? 'overflowX' : 'overflowY'] = 'auto'
+    el.style[horizontal ? 'overflowX' : 'overflowY'] = 'hidden'
     el.style[horizontal ? 'overflowY' : 'overflowX'] = 'hidden'
     el.style.top = '0px'
     el.style.left = '0px'
