@@ -1,4 +1,3 @@
-import React from 'react'
 import Skew from './layouts/Skew'
 
 function TitleSection({
@@ -18,22 +17,25 @@ function TitleSection({
     topSkew = '-top-8'
     textAlign = 'text-end'
   }
+
+  const titleSplitted = title.split(' ')
   return (
     <div className={`flex ${row} justify-end`}>
       <h2
-        className={`${primary ? 'text-primary' : 'text-black'} mt-0 mb-0 uppercase ${textAlign}`}
+        className={`${primary ? 'text-primary' : 'text-black'} ${titleSplitted.length > 1 ? '-mr-5' : '-ml-5'}  mt-0 mb-0 uppercase text-6xl ${textAlign}`}
       >
         <span>
-          {title && (
-            <>
-              {title.split(' ').slice(0, -1).join(' ')}
-              <br />
-              {title.split(' ').slice(-1)}
-            </>
-          )}
+          {titleSplitted.length > 1
+            ? titleSplitted.map((word) => (
+                <>
+                  {word}
+                  <br />
+                </>
+              ))
+            : title}
         </span>
       </h2>
-      <Skew />
+      <Skew style={titleSplitted.length > 1 ? '-mt-5' : 'mt-[38px]'} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 'use client'
-import {useEffect, useRef, useState} from 'react'
+import data from '@/public/data/method.json'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import data from '@/public/data/method.json'
+import {useEffect, useRef, useState} from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -136,9 +136,7 @@ function Method() {
         <span className="letter text-[16vw]">E</span>
       </div>
       {data && data.length > 0 && (
-        <ul
-          className={`flex w-[95vw] justify-between relative gap-6 p-0 mx-auto`}
-        >
+        <ul className={`flex w-4/5 justify-between relative gap-6 p-0 mx-auto`}>
           <span
             ref={progressBarRef}
             className="w-0 h-1 bg-[#B9B9B9] absolute top-6"

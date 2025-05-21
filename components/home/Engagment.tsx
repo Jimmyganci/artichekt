@@ -2,9 +2,9 @@ import engagments from '@/public/data/engagments.json'
 
 function Engagment() {
   return (
-    <div className="px-[10%] bg-white max-w-7xl mx-auto" id="engagment">
-      <h4 className="font-fontMedium text-black leading-[0.7] text-9xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
-        LES VALEURS ARCHITEKT
+    <div className="px-[10%] bg-white max-w-8xl mx-auto" id="engagment">
+      <h4 className="font-fontBold text-black leading-[0.7] text-9xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
+        LES VALEURS ARTICHEKT
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-center items-center mx-auto">
         {engagments.map((engagment, index) => (

@@ -101,15 +101,15 @@ function Team() {
             </h3>
           </div>
           <div className="flex w-full overflow-hidden">
-            <div className="textContent w-full relative">
-              <p className="text-[20px] px-8">
+            <div className="textContent w-full relative text-right leading-none">
+              <p className="text-xl px-8">
                 Amandine cumule 6 années d’activités dans le domaine de
                 l’architecture intérieure acquises par le biais d’une première
                 expérience réussie en tant qu’auto-entrepreneur durant laquelle
                 elle a dirigé, entre autres, la conception et la rénovation du
                 restaurant Le Katana.
               </p>
-              <p className="text-[20px] px-8">
+              <p className="text-xl px-8">
                 Architecte d’intérieur cheffe de projet pour la société darroman
                 design d’octobre 2022 à janvier 2024, cette seconde expérience
                 lui a permis de consolider ses compétences dans la gestion
@@ -158,14 +158,14 @@ function Team() {
               <p className="my-0 font-fontBold ">Dirigeant associé</p>
             </div>
           </div>
-          <div className="textContent2 w-full relative">
-            <p className="text-[20px] px-8">
+          <div className="textContent2 w-full relative leading-none">
+            <p className="text-xl px-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
               C’est celui qui a une solution pour chaque problème mais qui ne
               sera pas à l’aise qu’on écrive cela à propos de lui.
             </p>
-            <p className="text-[20px] px-8">
+            <p className="text-xl px-8">
               Les 5 années qu’il a passées à sillonner l’Europe dans plus de 15
               pays et 3 états des États-Unis lui ont permis de développer des
               capacités relationnelles, d’adaptation et de gestion de ses

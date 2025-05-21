@@ -214,5 +214,11 @@ html {
 }
 
 .agency-image-footer img {
-  width: 100%!important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }

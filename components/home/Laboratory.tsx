@@ -3,7 +3,7 @@ import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import {useEffect, useRef} from 'react'
-import TitleSection from '../TitleSection'
+import Skew from '../layouts/Skew'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -80,14 +80,19 @@ function Laboratory() {
 
   return (
     <div className="mb-20 cards" ref={containerRef}>
-      <TitleSection
-        title="LE LABORATOIRE ARTICHEKT"
-        primary={false}
-        position="right"
-      />
+      <div className={`flex  justify-end`}>
+        <h2
+          className={`text-black -mr-5  mt-0 mb-0 uppercase text-6xl text-right`}
+        >
+          LE LABORATOIRE
+          <br />
+          ARTICHEKT
+        </h2>
+        <Skew style={'-mt-5'} />
+      </div>
 
       <div>
-        <div className="flex flex-col gap-24 mt-10 mx-auto items-center">
+        <div className="flex flex-col gap-24 mt-20 mx-auto items-center">
           {cards.map((item, index) => (
             <div
               key={index}
