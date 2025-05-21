@@ -1,7 +1,6 @@
 import {Post} from '@/lib/types'
-import React from 'react'
-import ServiceCard from '../services/ServiceCard'
 import SeeAll from '../layouts/SeeAll'
+import TLCard from '../targeted-locations/TLCard'
 
 function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
   return (
@@ -12,7 +11,7 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
       {targetedLocations && targetedLocations.length > 0 && (
         <div className="flex gap-12 pl-28 -mt-10">
           {targetedLocations.slice(0, 3).map((targetedLocation) => (
-            <ServiceCard key={targetedLocation.slug} {...targetedLocation} />
+            <TLCard key={targetedLocation.slug} {...targetedLocation} />
           ))}
         </div>
       )}

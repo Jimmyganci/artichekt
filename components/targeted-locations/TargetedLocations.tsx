@@ -1,6 +1,5 @@
 import {Post} from '@/lib/types'
 import Image from 'next/image'
-import React from 'react'
 
 function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
   function displayTagName(name: string) {
@@ -39,7 +38,7 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
                   <Image
                     width={600}
                     height={400}
-                    className="h-[600px] object-cover"
+                    className="h-[600px] object-cover filter grayscale"
                     alt={featuredImage.node.altText}
                     src={featuredImage.node.sourceUrl}
                   />
@@ -51,9 +50,9 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
                 />
               </div>
               <div
-                className={`flex gap-5  ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`flex gap-8  ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
               >
-                <div className="w-1/2">
+                <div className="w-1/2 pr-8">
                   <h3
                     className={`text-7xl m-0  ${index % 2 === 0 ? 'text-end' : 'text-start'}`}
                   >
@@ -94,9 +93,6 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
                             ))
                           )}
                         </div>
-                        {/* <p className="text-center bg-primary font-fontBold text-white px-1 text-xl">
-                        {tag.name}
-                      </p> */}
                       </div>
                     ))}
                 </div>

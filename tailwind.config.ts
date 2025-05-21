@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type {Config} from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -38,6 +38,7 @@ const config: Config = {
     'mb-60',
     'text-4xl',
     'pt-60',
+    'mt-52',
     'px-40',
     'mb-20',
     '-mt-64',

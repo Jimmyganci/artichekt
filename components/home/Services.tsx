@@ -1,9 +1,9 @@
 'use client'
 import {Post} from '@/lib/types'
-import React, {useEffect, useRef, useState} from 'react'
-import ServiceCard from '../services/ServiceCard'
 import {gsap} from 'gsap'
+import {useEffect, useRef} from 'react'
 import SeeAll from '../layouts/SeeAll'
+import ServiceCard from '../services/ServiceCard'
 
 function Services({services}: {services: Post[]}) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -72,8 +72,8 @@ function Services({services}: {services: Post[]}) {
         className=" pl-20 flex relative whitespace-nowrap will-change-transform"
       >
         <div>
-          <div className="w-60 z-10 absolute top-0">
-            <h3 className="text-[108px] flex flex-col leading-tight mt-0 mb-0">
+          <div className="w-60 z-10 absolute -top-10">
+            <h3 className="text-[150px] flex flex-col leading-tight mt-0 mb-0">
               <span>SER</span>
               <span>VIC</span>
               <span>ES</span>

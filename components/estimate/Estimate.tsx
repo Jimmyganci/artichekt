@@ -120,11 +120,11 @@ const niveauxListes: NiveauListes = {
     icon: '/images/niveau_3.svg',
     title: 'Premium',
     description:
-      'Ce dernier niveau comprend l’intégralité d’une niveau 2 auquel s’ajoute une analyse des besoins rigoureuse et méthodique.',
+      'Ce dernier niveau comprend l’intégralité d’une niveau 2 auquel s’ajoute une étude des usages au sein des espaces à concevoir.',
     list: [
       {
         icon: '/images/analyse.svg',
-        label: 'analyse des besoins'
+        label: 'Etude des usages '
       },
       {
         icon: '/images/suivi_chantier.svg',
@@ -430,6 +430,22 @@ function Estimate() {
               <sup className="text-xs absolute top-0 right-2">{i + 1}</sup>
             </button>
           ))}
+        </div>
+
+        <div className="mt-10 mb-10">
+          <p className="mb-0 text-xs">
+            <strong className="font-fontBold">1.</strong> Est considéré comme
+            <strong className="font-fontBold">marché privé</strong>:
+            particuliers résidents, professionnels du secteur tertiaire, secteur
+            industriel, professionnels de {"l'hôtellerie"}, restauration et/ou
+            bar, etc.
+          </p>
+          <p className="mt-0 text-xs">
+            <strong className="font-fontBold">2.</strong> Est considéré comme{' '}
+            <strong className="font-fontBold">marché public</strong> toutes
+            collectivité et administration publique telles que les bibliothèques
+            communales, musées, établissements scolaires, Mairie, etc.
+          </p>
         </div>
 
         <label htmlFor="typeProjet">

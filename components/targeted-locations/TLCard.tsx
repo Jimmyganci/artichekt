@@ -1,7 +1,7 @@
 import {Post} from '@/lib/types'
 import Image from 'next/image'
 
-function ServiceCard({title, featuredImage}: Post) {
+function TLCard({title, featuredImage}: Post) {
   return (
     <div className="relative h-[500px] w-[400px] overflow-hidden cursor-pointer">
       <div className="absolute top-0 left-0 w-full h-full mt-0 mn-0 transform transition-transform duration-300 hover:scale-110">
@@ -13,11 +13,11 @@ function ServiceCard({title, featuredImage}: Post) {
           alt={featuredImage.node.altText}
         />
       </div>
-      <h6 className="absolute text-[26px] px-20 leading-tight flex flex-col bottom-2 text-center w-full text-white font-bold whitespace-normal">
+      <h6 className="absolute left-1/2 -translate-x-1/2 text-[24px] p-1 bg-white bg-opacity-60 leading-tight bottom-0 text-center w-full text-white font-bold">
         {title}
       </h6>
     </div>
   )
 }
 
-export default ServiceCard
+export default TLCard

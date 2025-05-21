@@ -20,11 +20,11 @@ function Scroll2({
   const containerRef = useRef<any>()
   const textRef = useRef<any>()
   let test = 'text-right'
-  let test2 = 'left-[92%]'
+  let test2 = 'left-[95%]'
 
   if (position === 'left') {
     test = 'text-left'
-    test2 = 'left-full'
+    test2 = 'left-[88%]'
   }
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function Scroll2({
         {name && <TitleSection title={name} primary={false} />}
 
         <p
-          className={`relative text-4xl w-full ${test} sm:w-2/3 mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`relative max-w-7xl text-4xl w-full ${test} sm:w-2/3 mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
@@ -80,7 +80,7 @@ function Scroll2({
           ))}
           <em className="opacity-50">
             <span
-              className={`absolute text-primary text-[300px] ${test2} bottom-[20%] scale-x-[-1] -z-10`}
+              className={`absolute font-number text-primary text-[300px] ${test2} top-10 -z-10`}
             >
               {'“'}
             </span>
