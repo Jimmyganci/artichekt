@@ -20,7 +20,7 @@ function ApprochMobile() {
           height={250}
         />
       </div>
-      <div className="text-lg px-20 mt-20">
+      <div className="text-lg px-14 mt-20">
         <h5 className="text-primary font-fontBold">
           ARCHITECTURE INTÉRIEURE :
         </h5>
