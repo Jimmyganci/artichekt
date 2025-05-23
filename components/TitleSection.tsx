@@ -10,11 +10,9 @@ function TitleSection({
   position?: 'left' | 'right'
 }) {
   let row = 'flex-row-reverse'
-  let topSkew = 'top-8'
   let textAlign = 'text-start'
   if (position === 'right') {
     row = 'flex-row'
-    topSkew = '-top-8'
     textAlign = 'text-end'
   }
 
@@ -22,7 +20,7 @@ function TitleSection({
   return (
     <div className={`flex ${row} justify-end`}>
       <h2
-        className={`${primary ? 'text-primary' : 'text-black'} ${titleSplitted.length > 1 ? '-mr-5' : '-ml-5'}  mt-0 mb-0 uppercase tex-5xl sm:text-6xl ${textAlign}`}
+        className={`${primary ? 'text-primary' : 'text-black'} ${titleSplitted.length > 1 ? '-mr-5' : '-ml-5 mt-6'}  mt-0 mb-0 uppercase tex-5xl sm:text-6xl ${textAlign}`}
       >
         <span>
           {titleSplitted.length > 1

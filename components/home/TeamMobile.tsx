@@ -40,7 +40,7 @@ function TeamMobile() {
   }, [])
 
   return (
-    <div className="relative px-20 sm:hidden min-h-[200vh]">
+    <div className="relative px-14 sm:px-0 sm:hidden min-h-[200vh]">
       <div className="relative sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
         <div>
           <div className="z-10 absolute -top-28 text-end right-0">
@@ -52,14 +52,14 @@ function TeamMobile() {
           </div>
           <div className="flex w-full overflow-hidden flex-col-reverse">
             <div className=" w-full relative leading-none">
-              <p className="text-xl lg:text-2xl pr-8 leading-[1.1]">
+              <p className="text-xl lg:text-2xl sm:pr-8 leading-[1.1]">
                 Amandine cumule 6 années d’activités dans le domaine de
                 l’architecture intérieure acquises par le biais d’une première
                 expérience réussie en tant qu’auto-entrepreneur durant laquelle
                 elle a dirigé, entre autres, la conception et la rénovation du
                 restaurant Le Katana.
               </p>
-              <p className="text-xl lg:text-2xl pr-8 leading-[1.1]">
+              <p className="text-xl lg:text-2xl sm:pr-8 leading-[1.1]">
                 Architecte d’intérieur cheffe de projet pour la société darroman
                 design d’octobre 2022 à janvier 2024, cette seconde expérience
                 lui a permis de consolider ses compétences dans la gestion
@@ -109,13 +109,13 @@ function TeamMobile() {
             </div>
           </div>
           <div className="w-full relative leading-none">
-            <p className="text-xl lg:text-2xl pl-8">
+            <p className="text-xl lg:text-2xl sm:pl-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
               C’est celui qui a une solution pour chaque problème mais qui ne
               sera pas à l’aise qu’on écrive cela à propos de lui.
             </p>
-            <p className="text-xl lg:text-2xl pl-8">
+            <p className="text-xl lg:text-2xl sm:pl-8">
               Les 5 années qu’il a passées à sillonner l’Europe dans plus de 15
               pays et 3 états des États-Unis lui ont permis de développer des
               capacités relationnelles, d’adaptation et de gestion de ses
