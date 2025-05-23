@@ -5,7 +5,7 @@ import TLCard from '../targeted-locations/TLCard'
 function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
   return (
     <div className="px-10 sm:px-28">
-      <h4 className="font-fontMedium text-8xl my-0 z-[2] relative">
+      <h4 className="font-fontMedium text-7xl sm:text-8xl my-0 z-[2] relative">
         LES ESPACES <br /> CIBLES
       </h4>
       {targetedLocations && targetedLocations.length > 0 && (

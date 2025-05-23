@@ -32,7 +32,7 @@ function GoogleReview() {
 
   return (
     <div className="px-6 sm:px-32 mb-80">
-      <h4 className="flex flex-col text-7xl sm:text-8xl font-fontBold">
+      <h4 className="flex flex-col text-6xl sm:text-8xl font-fontBold">
         <span>ILS NOUS</span>
         <span>ONT FAIT</span>
         <span>CONFIANCE</span>

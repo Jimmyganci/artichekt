@@ -58,7 +58,7 @@ function Agency() {
         <TitleSection title={"L'agence"} primary={false} />
 
         <p
-          className={`relative max-w-7xl text-4xl w-full sm:w-2/3 mx-auto text-black text-right mt-12 pr-32 sm:pr-0 pl-4 sm:pl-4`}
+          className={`relative max-w-7xl text-2xl w-full sm:w-2/3 mx-auto text-black text-right mt-12 pr-32 sm:pr-0 pl-4 sm:pl-4`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (

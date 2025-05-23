@@ -66,13 +66,13 @@ function ScrollTitle() {
           src={'/images/golden_hours.png'}
           className="absolute -z-10 top-[50%] scale-75 sm:scale-50 will-change-transform transform-cpu -translate-x-[25%] -translate-y-[50%] left-0 sm:left-[30%] image scrollFromRight"
         />
-        <span className="text-6xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromRight text">
+        <span className="text-4xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromRight text">
           {'UN LIEU'}
         </span>
-        <span className="text-6xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromLeft text">
+        <span className="text-4xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromLeft text">
           {'PHYSIQUE POUR'}
         </span>
-        <span className="text-6xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromRight text">
+        <span className="text-4xl sm:text-8xl lg:text-9xl font-fontBold text-black whitespace-nowrap scrollFromRight text">
           {'VOUS ACCUEILLIR'}
         </span>
       </div>

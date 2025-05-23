@@ -3,7 +3,7 @@ import engagments from '@/public/data/engagments.json'
 function Engagment() {
   return (
     <div className="px-[10%] bg-white max-w-8xl mx-auto" id="engagment">
-      <h4 className="font-fontBold text-black leading-[0.7] text-7xl sm:text-9xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
+      <h4 className="font-fontBold text-black leading-[0.7] text-6xl sm:text-9xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
         LES VALEURS ARTICHEKT
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-center items-center mx-auto">
@@ -18,7 +18,7 @@ function Engagment() {
               {engagment.title}
             </h5>
             <p
-              className=" leading-snug text-center text-2xl"
+              className=" leading-snug text-center text-lg sm:text-2xl"
               dangerouslySetInnerHTML={{__html: engagment.content}}
             ></p>
           </div>

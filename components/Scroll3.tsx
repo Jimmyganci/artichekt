@@ -71,7 +71,7 @@ function Scroll2({
         {name && <TitleSection title={name} primary={false} />}
 
         <p
-          className={`relative text-4xl w-full pl-10 ${test} sm:w-2/3 sm:text-4xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`relative text-2xl w-full pl-10 ${test} sm:w-2/3 sm:text-4xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
@@ -79,7 +79,7 @@ function Scroll2({
           ))}
           <em className="opacity-50">
             <span
-              className={`absolute font-number text-primary text-[300px] sm:right-full right-[80%] -top-10 sm:top-0 -z-10`}
+              className={`absolute font-number text-primary text-[300px] sm:right-full right-[70%] -top-10 sm:top-0 -z-10`}
             >
               {'“'}
             </span>
