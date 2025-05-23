@@ -51,14 +51,14 @@ function Agency() {
     approche innovante et pluridisciplinaire.`
 
   return (
-    <div ref={containerRef} className={`my-8 mt-40`}>
+    <div ref={containerRef} className={`my-8 sm:mt-40 mt-96`}>
       <div
         className={`containerText sm:w-fit min-h-screen flex flex-col justify-evenly`}
       >
         <TitleSection title={"L'agence"} primary={false} />
 
         <p
-          className={`relative max-w-7xl text-4xl w-full sm:w-2/3 mx-auto text-black text-right mt-12`}
+          className={`relative max-w-7xl text-4xl w-full sm:w-2/3 mx-auto text-black text-right mt-12 pr-32 sm:pr-0 pl-4 sm:pl-4`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
@@ -66,7 +66,7 @@ function Agency() {
           ))}
           <em className="opacity-50">
             <span
-              className={`absolute font-number text-primary text-[300px] left-[95%] top-10 -z-10`}
+              className={`absolute font-number text-primary text-[300px] right-[10%] sm:right-0 sm:left-[95%] top-0 sm:top-10 -z-10`}
             >
               {'“'}
             </span>

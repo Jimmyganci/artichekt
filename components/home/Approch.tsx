@@ -54,7 +54,7 @@ function Approch() {
   }, [])
 
   return (
-    <div className="approch-container pt-7" ref={containerRef}>
+    <div className="approch-container hidden sm:block pt-7" ref={containerRef}>
       <TitleSection
         title={"L'approche artichekt"}
         primary={false}

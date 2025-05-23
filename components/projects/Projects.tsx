@@ -10,9 +10,9 @@ import {
   useGLTF,
   useScroll
 } from '@react-three/drei'
-import { Canvas, createPortal, useFrame, useThree } from '@react-three/fiber'
-import { easing } from 'maath'
-import { useRef, useState } from 'react'
+import {Canvas, createPortal, useFrame, useThree} from '@react-three/fiber'
+import {easing} from 'maath'
+import {useRef, useState} from 'react'
 import * as THREE from 'three'
 
 export default function Projects({projects}: any) {
@@ -152,7 +152,7 @@ function Images({images}: any) {
     group.current.children[6].material.zoom =
       1 + (1 - data.range(2 / 3, 1 / 3)) / 3
   })
-  
+
   return (
     <group ref={group} position={[0, -1.5, 0]}>
       <Image
@@ -200,6 +200,7 @@ function Typography({title}: {title: string}) {
     [0, 0, 12]
   )
   const shared = {
+    fontSize: 0.5,
     letterSpacing: -0.1,
     color: '#7da365'
   }
@@ -214,7 +215,7 @@ function Typography({title}: {title: string}) {
       </Text>
       <Text
         anchorX="right"
-        position={[width / 2.5, -height * 2, 12]}
+        position={[(width / 2.5) * 1.2, -height * 2, 12]}
         {...shared}
       >
         {second}

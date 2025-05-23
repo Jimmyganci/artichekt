@@ -79,7 +79,7 @@ function Scroll2({
           ))}
           <em className="opacity-50">
             <span
-              className={`absolute font-number text-primary text-[300px] ${test3}  top-0 -z-10`}
+              className={`absolute font-number text-primary text-[300px] sm:right-full right-[80%] -top-10 sm:top-0 -z-10`}
             >
               {'“'}
             </span>

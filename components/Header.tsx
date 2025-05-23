@@ -144,7 +144,7 @@ export default function Header() {
 
   return (
     <header className="pb-2 px-4 left-0 top-0 fixed w-full z-20 bg-white">
-      <div className="absolute top-28 right-0 flex flex-col gap-16">
+      <div className="absolute top-28 right-0 flex-col gap-16 hidden sm:flex">
         <Skew />
         <Skew />
         <Skew />
