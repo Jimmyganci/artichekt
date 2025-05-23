@@ -6,7 +6,7 @@ import {useEffect, useRef, useState} from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function Method() {
+function MethodMobile() {
   const containerRef = useRef<any>()
   const circleRef = useRef<any>()
   const progressBarRef = useRef<any>()
@@ -74,6 +74,7 @@ function Method() {
           circle.getBoundingClientRect().width / 2,
         scale: 2,
         duration: 5,
+        width: '200px',
         ease: 'power2.out'
       })
 
@@ -105,6 +106,7 @@ function Method() {
       return () => {
         window.removeEventListener('resize', handleResize)
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+        setActivePoint(undefined)
       }
     }
   }, [])
@@ -113,7 +115,7 @@ function Method() {
     <div
       ref={containerRef}
       id="method-container"
-      className="text-center hidden sm:block"
+      className="text-center sm:hidden"
     >
       <div className="m-0 flex justify-center items-center">
         <span className="letter text-[16vw]">M</span>
@@ -123,16 +125,16 @@ function Method() {
         <div
           ref={circleRef}
           id="circle"
-          className="rounded-full h-[10vw] w-[10vw] bg-[#B9B9B9] flex flex-col items-center justify-center p-2"
+          className="rounded-full w-[10vw] aspect-square bg-[#B9B9B9] flex flex-col items-center justify-center p-2"
         >
           {activePoint !== undefined && (
             <span className="text-white font-fontBlack content-circle">
-              {data[0]?.id + 1 || ''}
+              {data[activePoint || 0]?.id + 1 || ''}
             </span>
           )}
           {activePoint !== undefined && (
             <p className="m-0 text-white leading-none font-fontBlack text-[12px] content-circle">
-              {data[0]?.content || ''}
+              {data[activePoint || 0]?.content || ''}
             </p>
           )}
         </div>
@@ -140,12 +142,14 @@ function Method() {
         <span className="letter text-[16vw]">E</span>
       </div>
       {data && data.length > 0 && (
-        <ul className={`flex w-4/5 justify-between relative gap-6 p-0 mx-auto`}>
+        <ul
+          className={`flex w-[98%] justify-between relative gap-6 p-0 mx-auto mt-40 mb-20`}
+        >
           <span
             ref={progressBarRef}
             className="w-0 h-1 bg-[#B9B9B9] absolute top-6"
           ></span>
-          {data.slice(1).map((method, index) => (
+          {data.map((method, index) => (
             <li
               ref={(el) => {
                 pointsRef.current[index] = el // Assigner la référence sans retourner de valeur
@@ -154,12 +158,9 @@ function Method() {
               className={`w-[10vw] transition ease-in-out duration-300 z-10 ${activePoint !== undefined && activePoint >= index ? 'opacity-100' : 'opacity-0'}`}
             >
               <div className="flex flex-col items-center">
-                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-[#B9B9B9] text-white font-fontBlack">
+                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-primary text-white font-fontBlack">
                   {method.id + 1}
                 </span>
-                <p className="uppercase text-primary font-fontBlack text-sm">
-                  {method.content}
-                </p>
               </div>
             </li>
           ))}
@@ -169,4 +170,4 @@ function Method() {
   )
 }
 
-export default Method
+export default MethodMobile

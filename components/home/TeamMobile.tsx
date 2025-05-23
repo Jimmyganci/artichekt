@@ -1,9 +1,7 @@
 'use client'
 import getLogo from '@/lib/queries/getLogo'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useState} from 'react'
 
 interface Images {
   imageLeft: {
@@ -16,7 +14,7 @@ interface Images {
   }
 }
 
-function Team() {
+function TeamMobile() {
   const [images, setImages] = useState<Images>({
     imageLeft: {
       mediaItemUrl: '',
@@ -37,79 +35,31 @@ function Team() {
     })
   }
 
-  const containerRef = useRef(null)
-  const containerRef2 = useRef(null)
-
   useEffect(() => {
     getImages()
-
-    const container = containerRef.current
-    const container2 = containerRef2.current
-
-    if (container) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: 'top 25%',
-          end: '+=500',
-          scrub: true,
-          pin: true,
-          markers: false
-        }
-      })
-
-      timeline.fromTo(
-        '.teamContainer .textContent p',
-        {opacity: 0}, // État initial
-        {opacity: 1, duration: 1, stagger: 0.2}
-      )
-    }
-
-    if (container2) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: container2,
-          start: 'top 25%',
-          end: '+=500',
-          scrub: true,
-          pin: true,
-          markers: false
-        }
-      })
-
-      timeline.fromTo(
-        '.teamContainer .textContent2 p',
-        {opacity: 0},
-        {opacity: 1, duration: 1, stagger: 0.2}
-      )
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
   }, [])
 
   return (
-    <div className="teamContainer relative hidden sm:block" id="team">
-      <div className="relative mt-20 sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
-        <div ref={containerRef}>
-          <div className="z-10 absolute -top-28 text-end -right-12">
+    <div className="relative px-20 sm:hidden min-h-[200vh]">
+      <div className="relative sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
+        <div>
+          <div className="z-10 absolute -top-28 text-end right-0">
             <h3 className="text-[108px] flex flex-col leading-tight mt-0 mb-0 text-primary">
               <span>{"L'EQ"}</span>
               <span>UI</span>
               <span>PE</span>
             </h3>
           </div>
-          <div className="flex w-full overflow-hidden">
-            <div className="textContent w-full relative text-right leading-none">
-              <p className="text-xl lg:text-2xl pr-8 leading-none mt-0">
+          <div className="flex w-full overflow-hidden flex-col-reverse">
+            <div className=" w-full relative leading-none">
+              <p className="text-xl lg:text-2xl pr-8 leading-[1.1]">
                 Amandine cumule 6 années d’activités dans le domaine de
                 l’architecture intérieure acquises par le biais d’une première
                 expérience réussie en tant qu’auto-entrepreneur durant laquelle
                 elle a dirigé, entre autres, la conception et la rénovation du
                 restaurant Le Katana.
               </p>
-              <p className="text-xl lg:text-2xl pr-8 leading-none">
+              <p className="text-xl lg:text-2xl pr-8 leading-[1.1]">
                 Architecte d’intérieur cheffe de projet pour la société darroman
                 design d’octobre 2022 à janvier 2024, cette seconde expérience
                 lui a permis de consolider ses compétences dans la gestion
@@ -122,7 +72,7 @@ function Team() {
               </p>
             </div>
 
-            <div className="sm:w-full w-1/2 sm:relative cursor-pointer">
+            <div className="w-full relative cursor-pointer">
               {/* <div className="sm:w-1/2 sm:relative sm:left-10 cursor-pointer"> */}
               {images.imageLeft && images.imageLeft.mediaItemUrl && (
                 <Image
@@ -141,8 +91,8 @@ function Team() {
           </div>
         </div>
 
-        <div className="flex" ref={containerRef2}>
-          <div className="sm:w-full w-1/2 relative cursor-pointer">
+        <div className="flex flex-col ">
+          <div className="w-full relative cursor-pointer">
             {/* <div className="sm:w-1/2 sm:top-44 sm:right-10 sm:relative cursor-pointer"> */}
             {images.imageRight && images.imageRight.mediaItemUrl && (
               <Image
@@ -158,7 +108,7 @@ function Team() {
               <p className="my-0 font-fontBold ">Dirigeant associé</p>
             </div>
           </div>
-          <div className="textContent2 w-full relative leading-none">
+          <div className="w-full relative leading-none">
             <p className="text-xl lg:text-2xl pl-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
@@ -183,4 +133,4 @@ function Team() {
   )
 }
 
-export default Team
+export default TeamMobile

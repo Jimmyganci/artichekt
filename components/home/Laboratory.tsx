@@ -82,7 +82,7 @@ function Laboratory() {
     <div className="mb-20 cards" ref={containerRef}>
       <div className={`flex  justify-end`}>
         <h2
-          className={`text-black -mr-5  mt-0 mb-0 uppercase text-6xl text-right`}
+          className={`text-black -mr-5  mt-0 mb-0 uppercase text-5xl sm:text-6xl text-right`}
         >
           LE LABORATOIRE
           <br />
