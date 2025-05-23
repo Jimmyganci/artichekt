@@ -1,9 +1,9 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react'
+import {gsapTo} from '@/lib/functions'
+import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import {useGSAP} from '@gsap/react'
-import {gsapTo} from '@/lib/functions'
+import {useEffect, useRef, useState} from 'react'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -17,7 +17,7 @@ function TitleHome() {
 
   useGSAP(
     () => {
-      gsapTo('.title-span', 0.5)
+      gsapTo('.title-span', 0.3)
     },
     {scope: main}
   )

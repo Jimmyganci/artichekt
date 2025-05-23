@@ -1,17 +1,38 @@
-// import { Menu } from '@/lib/types';
-import {Menu, MenuItem} from '@/lib/types'
-import ImgFooter from './footer/ImgFooter'
-import Socials from './Socials'
+'use client' // Indiquer que ce fichier doit être rendu côté client
+
 import getMenuBySlug from '@/lib/queries/getMenuBySlug'
+import {Menu, MenuItem} from '@/lib/types'
 import Link from 'next/link'
+import {usePathname} from 'next/navigation'
+import {useEffect, useState} from 'react'
+import ImgFooter from './footer/ImgFooter'
 import MenuItemWithToggle from './footer/MenuItemWithToggle'
+import Socials from './Socials'
 
 /**
  * Footer component.
  */
+export default function Footer() {
+  const [menu, setMenu] = useState<Menu | null>(null) // State pour stocker le menu
+  const [loading, setLoading] = useState(true) // Indicateur de chargement
+  const pathname = usePathname()
 
-export default async function Footer() {
-  const menu = await getMenuBySlug('footer')
+  // Si l'URL est '/projet', on ne montre pas le footer
+  const showFooter = pathname !== '/projets'
+
+  // Récupère les données du menu
+  useEffect(() => {
+    async function fetchMenu() {
+      const data = await getMenuBySlug('footer')
+      setMenu(data)
+      setLoading(false)
+    }
+
+    fetchMenu()
+  }, []) // Le tableau vide assure que l'effet ne s'exécute qu'une fois, au montage du composant
+
+  // Si le menu est en cours de chargement, on peut afficher un indicateur de chargement ou rien
+  if (loading || !menu) return null
 
   function buildHierarchy(menu: Menu): MenuItem['node'][] {
     // Crée un objet pour un accès rapide aux éléments par leur ID
@@ -45,6 +66,8 @@ export default async function Footer() {
 
   const newEdges = buildHierarchy(menu)
 
+  if (!showFooter) return null
+
   return (
     <footer className="p-0 text-sm text-center border-t-2 pt-8 bg-primary overflow-hidden border-none">
       <div className="flex">
@@ -54,28 +77,26 @@ export default async function Footer() {
         <div className="flex flex-col w-full sm:w-[70%] justify-between">
           <div className="flex flex-col justify-around sm:flex-row items-end pr-6 sm:pr-0 sm:items-start">
             <div className="w-2/3 sm:w-1/3">
-              <p className="text-white text-left size-[24px] font-fontBold w-full relative after:w-48 after:h-12 after:bg-white after:absolute after:top-0 after:left-[80%]  sm:after:-top-20  sm:after:left-[55%] after:skew-y-[-35deg]">
+              <p className="text-white text-left size-[24px] font-fontBold w-full relative after:w-48 after:h-12 after:bg-white after:absolute after:top-0 after:left-[80%] sm:after:-top-20 sm:after:left-[55%] after:skew-y-[-35deg]">
                 NOUS SUIVRE
               </p>
               <Socials />
             </div>
             <div className="w-2/3 sm:w-1/3">
-              <p className="text-white text-left size-[24px] font-fontBold w-full relative after:w-48 after:h-12 after:bg-white after:absolute after:top-0 after:left-[80%]  sm:after:-top-20  sm:after:left-[55%] after:skew-y-[-35deg]">
+              <p className="text-white text-left size-[24px] font-fontBold w-full relative after:w-48 after:h-12 after:bg-white after:absolute after:top-0 after:left-[80%] sm:after:-top-20 sm:after:left-[55%] after:skew-y-[-35deg]">
                 PLAN DU SITE
               </p>
               <ul className="m-0 p-0 flex flex-col gap-2">
-                <ul className="m-0 p-0 flex flex-col gap-2">
-                  {newEdges
-                    .filter((item) => !item.parentId)
-                    .map((children, index) => (
-                      <MenuItemWithToggle
-                        key={children.id}
-                        uri={children.uri}
-                        label={children.label}
-                        subItems={children.children}
-                      />
-                    ))}
-                </ul>
+                {newEdges
+                  .filter((item) => !item.parentId)
+                  .map((children, index) => (
+                    <MenuItemWithToggle
+                      key={children.id}
+                      uri={children.uri}
+                      label={children.label}
+                      subItems={children.children}
+                    />
+                  ))}
               </ul>
             </div>
             <div className="w-2/3 sm:w-1/3">
