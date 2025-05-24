@@ -143,6 +143,7 @@ export function ScrollControls({
     let current = 0
     let disableScroll = true
     let firstRun = true
+    let touchStart = 0
 
     function onScroll(e: any) {
       if (!enabled || firstRun) return
@@ -166,7 +167,24 @@ export function ScrollControls({
         if (disableScroll) setTimeout(() => (disableScroll = false), 40)
       }
     }
+
+    function onTouchStart(e: TouchEvent) {
+      if (!enabled) return
+      touchStart = horizontal ? e.touches[0].clientX : e.touches[0].clientY
+    }
+
+    // Fonction pour gérer le mouvement du touch (mobile)
+    function onTouchMove(e: TouchEvent) {
+      if (!enabled || !touchStart) return
+      const touchMove = horizontal ? e.touches[0].clientX : e.touches[0].clientY
+      const delta = touchMove - touchStart
+      el[horizontal ? 'scrollLeft' : 'scrollTop'] -= delta
+      touchStart = touchMove
+    }
+
     el.addEventListener('scroll', onScroll, {passive: true})
+    el.addEventListener('touchstart', onTouchStart, {passive: true})
+    el.addEventListener('touchmove', onTouchMove, {passive: true})
     requestAnimationFrame(() => (firstRun = false))
 
     function onWheel(e: any) {

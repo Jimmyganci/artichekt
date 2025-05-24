@@ -31,13 +31,13 @@ function GoogleReview() {
   }
 
   return (
-    <div className="px-6 sm:px-32 mb-80">
-      <h4 className="flex flex-col text-6xl sm:text-8xl font-fontBold">
+    <div className=" sm:px-32 mb-80">
+      <h4 className="flex px-6 sm:px-0 flex-col text-5xl sm:text-8xl font-fontBold">
         <span>ILS NOUS</span>
         <span>ONT FAIT</span>
         <span>CONFIANCE</span>
       </h4>
-      <div className="bg-grey px-4 py-6">
+      <div className="bg-grey px-0 sm:px-4 py-6">
         <Image
           src="/images/google.svg"
           alt="Google reviews"

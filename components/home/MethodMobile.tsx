@@ -133,7 +133,7 @@ function MethodMobile() {
             </span>
           )}
           {activePoint !== undefined && (
-            <p className="m-0 text-white leading-none font-fontBlack text-[12px] content-circle">
+            <p className="m-0 text-white leading-none font-fontBlack text-[10px] content-circle">
               {data[activePoint || 0]?.content || ''}
             </p>
           )}
@@ -143,11 +143,11 @@ function MethodMobile() {
       </div>
       {data && data.length > 0 && (
         <ul
-          className={`flex w-[98%] justify-between relative gap-6 p-0 mx-auto mt-40 mb-20`}
+          className={`flex w-[98%] justify-between relative p-0 mx-auto mt-40 mb-20`}
         >
           <span
             ref={progressBarRef}
-            className="w-0 h-1 bg-[#B9B9B9] absolute top-6"
+            className="w-0 h-1 bg-[#B9B9B9] absolute top-5"
           ></span>
           {data.map((method, index) => (
             <li
@@ -155,10 +155,10 @@ function MethodMobile() {
                 pointsRef.current[index] = el // Assigner la référence sans retourner de valeur
               }}
               key={method.id}
-              className={`w-[10vw] transition ease-in-out duration-300 z-10 ${activePoint !== undefined && activePoint >= index ? 'opacity-100' : 'opacity-0'}`}
+              className={`transition ease-in-out duration-300 z-10 ${activePoint !== undefined && activePoint >= index ? 'opacity-100' : 'opacity-0'}`}
             >
               <div className="flex flex-col items-center">
-                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-primary text-white font-fontBlack">
+                <span className="flex items-center justify-center rounded-full h-7 w-7 bg-primary text-white font-fontBlack">
                   {method.id + 1}
                 </span>
               </div>
