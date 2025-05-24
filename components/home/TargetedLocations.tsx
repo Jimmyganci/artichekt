@@ -4,7 +4,7 @@ import TLCard from '../targeted-locations/TLCard'
 
 function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
   return (
-    <div className="px-10 sm:px-28">
+    <div className="px-10 sm:px-28 max-w-screen-2xl mx-auto">
       <h4 className="font-fontMedium text-5xl sm:text-8xl md:text-6xl  my-0 z-[2] relative">
         LES ESPACES <br /> CIBLES
       </h4>

@@ -87,12 +87,16 @@ h3 {
   display: flex;
 }
 
-.wp-block-columns-is-layout-flex > div {
+/* .wp-block-columns-is-layout-flex > div {
   width: 50%;
-}
+} */
 
 .image-cover-container figure {
   height: 500px;
+}
+
+.no-margin-picture img {
+  margin-top: 0;
 }
 
 .image-cover-container img {
