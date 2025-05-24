@@ -20,7 +20,6 @@ function Scroll2({
   const containerRef = useRef<any>()
   const textRef = useRef<any>()
   let test = 'text-right'
-  let test3 = 'right-full'
 
   if (position === 'left') {
     test = 'text-left'
@@ -71,19 +70,17 @@ function Scroll2({
         {name && <TitleSection title={name} primary={false} />}
 
         <p
-          className={`relative text-2xl w-full pl-10 ${test} sm:w-2/3 sm:text-4xl mx-auto ${primary ? 'text-primary' : 'text-black'}  mt-12`}
+          className={`relative text-xl sm:text-2xl w-full pl-10 ${test} sm:w-2/3 md:text-4xl mx-auto ${primary ? 'text-primary' : 'text-black'} mt-20 sm:mt-12`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
             <span key={index}>{word} </span>
           ))}
-          <em className="opacity-50">
-            <span
-              className={`absolute font-number text-primary text-[300px] sm:right-full right-[70%] -top-10 sm:top-0 -z-10`}
-            >
-              {'“'}
-            </span>
-          </em>
+          <span
+            className={`absolute font-number text-primary text-[300px] sm:right-full right-[50%] -top-10 sm:top-0 -z-10`}
+          >
+            {'“'}
+          </span>
         </p>
         <SeeAll path="/lagence" />
       </div>
