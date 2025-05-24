@@ -129,9 +129,11 @@ export function ScrollControls({
     })
 
     return () => {
-      target.removeChild(el)
-      raycaster.computeOffsets = oldCompute
-      events.connect?.(oldTarget)
+      if (el) {
+        target.removeChild(el)
+        raycaster.computeOffsets = oldCompute
+        events.connect?.(oldTarget)
+      }
     }
   }, [pages, distance, horizontal, el, fill, fixed, target])
 
@@ -182,10 +184,12 @@ export function ScrollControls({
       touchStart = touchMove
     }
 
-    el.addEventListener('scroll', onScroll, {passive: true})
-    el.addEventListener('touchstart', onTouchStart, {passive: true})
-    el.addEventListener('touchmove', onTouchMove, {passive: true})
-    requestAnimationFrame(() => (firstRun = false))
+    if (el) {
+      el.addEventListener('scroll', onScroll, {passive: true})
+      el.addEventListener('touchstart', onTouchStart, {passive: true})
+      el.addEventListener('touchmove', onTouchMove, {passive: true})
+      requestAnimationFrame(() => (firstRun = false))
+    }
 
     function onWheel(e: any) {
       el.scrollLeft += e.deltaY / 2
@@ -195,6 +199,8 @@ export function ScrollControls({
 
     return () => {
       el.removeEventListener('scroll', onScroll)
+      el.removeEventListener('touchstart', onTouchStart)
+      el.removeEventListener('touchmove', onTouchMove)
       if (horizontal) el.removeEventListener('wheel', onWheel)
     }
   }, [el, size, infinite, state, invalidate, horizontal])

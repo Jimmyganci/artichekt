@@ -44,10 +44,10 @@ async function fetchData(slug: string) {
  */
 function RenderPage({page}: {page: Page}) {
   return (
-    <main className="flex flex-col gap-8 mt-60 mx-auto">
+    <main className="flex flex-col gap-8 mt-40 sm:mt-60 mx-auto">
       <article>
         {/* <h1 dangerouslySetInnerHTML={{__html: page.title}} /> */}
-        <div className="px-32">
+        <div className="max-w-screen-2xl mx-auto px-10 sm:px-32">
           <Breadcrumb />
         </div>
 

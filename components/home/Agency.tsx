@@ -53,7 +53,7 @@ function Agency() {
   return (
     <div ref={containerRef} className={`my-8 sm:mt-40 mt-96`}>
       <div
-        className={`containerText sm:w-fit min-h-screen flex flex-col justify-evenly`}
+        className={`containerText  min-h-screen flex flex-col justify-evenly`}
       >
         <TitleSection title={"L'agence"} primary={false} />
 
