@@ -82,7 +82,7 @@ function Laboratory() {
     <div className="mb-20 cards" ref={containerRef}>
       <div className={`flex  justify-end`}>
         <h2
-          className={`text-black -mr-5  mt-0 mb-0 uppercase text-5xl sm:text-6xl text-right`}
+          className={`text-black -mr-5  mt-0 mb-0 uppercase text-2xl md:text-5xl sm:text-6xl text-right`}
         >
           LE LABORATOIRE
           <br />
@@ -96,7 +96,7 @@ function Laboratory() {
           {cards.map((item, index) => (
             <div
               key={index}
-              className="relative  bg-grey p-12 w-[450px] flex text-xl flex-col items-center text-center panel"
+              className="relative  bg-grey p-12 w-full sm:w-[450px] flex text-xl flex-col items-center text-center panel"
             >
               <div
                 className={`absolute w-10 h-20 z-10 bg-primary top-0 ${
@@ -113,7 +113,7 @@ function Laboratory() {
               <p className="font-fontBold text-primary mt-4 mb-0">
                 {item.title}
               </p>
-              <p className="mt-2">{item.text}</p>
+              <p className="mt-2 text-sm sm:text-xl">{item.text}</p>
             </div>
           ))}
         </div>

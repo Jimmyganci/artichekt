@@ -58,19 +58,17 @@ function Agency() {
         <TitleSection title={"L'agence"} primary={false} />
 
         <p
-          className={`relative max-w-7xl text-2xl w-full sm:w-2/3 mx-auto text-black text-right mt-12 pr-32 sm:pr-0 pl-4 sm:pl-4`}
+          className={`relative max-w-7xl text-xl sm:text-2xl md:text-4xl w-full sm:w-2/3 mx-auto text-black text-right mt-12 pr-20 sm:pr-0 pl-8 sm:pl-4`}
           ref={textRef}
         >
           {content.split(' ').map((word, index) => (
             <span key={index}>{word} </span>
           ))}
-          <em className="opacity-50">
-            <span
-              className={`absolute font-number text-primary text-[300px] right-[10%] sm:right-0 sm:left-[95%] top-0 sm:top-10 -z-10`}
-            >
-              {'“'}
-            </span>
-          </em>
+          <span
+            className={`absolute font-number text-primary text-[200px] sm:text-[300px] right-[4%] sm:right-0 sm:left-[98%] -top-2 sm:top-10 -z-10`}
+          >
+            {'“'}
+          </span>
         </p>
         <SeeAll path="/lagence" />
       </div>

@@ -12,7 +12,7 @@ function TLCard({title, featuredImage}: Post) {
           layout="fill" // Cette propriété permet de remplir entièrement l'élément parent
         />
       </div>
-      <h6 className="absolute left-1/2 -translate-x-1/2 text-3xl sm:text-[24px] p-1 bg-white bg-opacity-60 leading-tight bottom-0 text-center w-full text-white font-bold">
+      <h6 className="absolute left-1/2 -translate-x-1/2 text-lg sm:text-[24px] p-1 bg-[#D9D9D9] bg-opacity-80 leading-tight bottom-0 text-center w-full text-white font-bold">
         {title}
       </h6>
     </div>

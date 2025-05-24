@@ -20,7 +20,7 @@ function TitleSection({
   return (
     <div className={`flex ${row} justify-end`}>
       <h2
-        className={`${primary ? 'text-primary' : 'text-black'} ${titleSplitted.length > 1 ? '-mr-5' : '-ml-5 mt-6'}  mt-0 mb-0 uppercase tex-5xl sm:text-6xl ${textAlign}`}
+        className={`${primary ? 'text-primary' : 'text-black'} ${titleSplitted.length > 1 ? '-mr-5' : '-ml-5 mt-6'}  mt-0 mb-0 uppercase text-2xl sm:text-6xl ${textAlign}`}
       >
         <span>
           {titleSplitted.length > 1
@@ -33,7 +33,9 @@ function TitleSection({
             : title}
         </span>
       </h2>
-      <Skew style={titleSplitted.length > 1 ? '-mt-5' : 'mt-[38px]'} />
+      <Skew
+        style={titleSplitted.length > 1 ? '-mt-5' : 'mt-[47px] sm:mt-[38px]'}
+      />
     </div>
   )
 }

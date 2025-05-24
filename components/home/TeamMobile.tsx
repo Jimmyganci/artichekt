@@ -43,8 +43,8 @@ function TeamMobile() {
     <div className="relative px-14 sm:px-0 sm:hidden min-h-[200vh]">
       <div className="relative sm:px-16 lg:px-36 max-w-[1200px] mx-auto">
         <div>
-          <div className="z-10 absolute -top-28 text-end right-0">
-            <h3 className="text-[108px] flex flex-col leading-tight mt-0 mb-0 text-primary">
+          <div className="z-10 absolute -top-14 text-end -right-6">
+            <h3 className="text-[58px] flex flex-col leading-tight mt-0 mb-0 text-primary">
               <span>{"L'EQ"}</span>
               <span>UI</span>
               <span>PE</span>
@@ -52,20 +52,20 @@ function TeamMobile() {
           </div>
           <div className="flex w-full overflow-hidden flex-col-reverse">
             <div className=" w-full relative leading-none">
-              <p className="text-xl lg:text-2xl sm:pr-8 leading-[1.1]">
+              <p className="text-[15px] lg:text-2xl sm:pr-8 leading-[1.1]">
                 Amandine cumule 6 années d’activités dans le domaine de
                 l’architecture intérieure acquises par le biais d’une première
                 expérience réussie en tant qu’auto-entrepreneur durant laquelle
                 elle a dirigé, entre autres, la conception et la rénovation du
                 restaurant Le Katana.
               </p>
-              <p className="text-xl lg:text-2xl sm:pr-8 leading-[1.1]">
+              <p className="text-[15px]  lg:text-2xl sm:pr-8 leading-[1.1]">
                 Architecte d’intérieur cheffe de projet pour la société darroman
                 design d’octobre 2022 à janvier 2024, cette seconde expérience
                 lui a permis de consolider ses compétences dans la gestion
                 globale de projet d’architecture intérieure.
                 <span>
-                  <a href="/lequipe" className="text-[20px] pl-1">
+                  <a href="/lequipe" className="text-[15px] pl-1">
                     <strong>Lire plus</strong>
                   </a>
                 </span>
@@ -84,8 +84,8 @@ function TeamMobile() {
                 />
               )}
               <div className="absolute bottom-0 flex flex-col justify-center items-center w-full pb-2 text-white">
-                <p className="my-0 font-fontBold text-2xl">AMANDINE GANCI</p>
-                <p className="my-0 font-fontBold ">Dirigeante associé</p>
+                <p className="my-0 font-fontBold text-xl">AMANDINE GANCI</p>
+                <p className="my-0 font-fontBold text-sm">Dirigeante associé</p>
               </div>
             </div>
           </div>
@@ -104,24 +104,24 @@ function TeamMobile() {
               />
             )}
             <div className="absolute bottom-0 flex flex-col justify-center items-center w-full pb-2 text-white">
-              <p className="my-0 font-fontBold text-2xl">VINCENT BAUDAIN</p>
-              <p className="my-0 font-fontBold ">Dirigeant associé</p>
+              <p className="my-0 font-fontBold text-xl">VINCENT BAUDAIN</p>
+              <p className="my-0 font-fontBold text-sm">Dirigeant associé</p>
             </div>
           </div>
           <div className="w-full relative leading-none">
-            <p className="text-xl lg:text-2xl sm:pl-8">
+            <p className="text-[15px]  lg:text-2xl sm:pl-8">
               Bilingue, informaticien autoproclamé et couteau suisse, Vincent
               c’est celui qu’on aimerait toutes et tous avoir dans son équipe.
               C’est celui qui a une solution pour chaque problème mais qui ne
               sera pas à l’aise qu’on écrive cela à propos de lui.
             </p>
-            <p className="text-xl lg:text-2xl sm:pl-8">
+            <p className="text-[15px]  lg:text-2xl sm:pl-8">
               Les 5 années qu’il a passées à sillonner l’Europe dans plus de 15
               pays et 3 états des États-Unis lui ont permis de développer des
               capacités relationnelles, d’adaptation et de gestion de ses
               propres ressources afin de garantir le succès de son projet.
               <span>
-                <a href="/lequipe" className="text-[20px] pl-1">
+                <a href="/lequipe" className="text-[15px] pl-1">
                   <strong>Lire plus</strong>
                 </a>
               </span>

@@ -86,19 +86,19 @@ function Guarantee() {
     <div id="guaranteeContainer" ref={containerRef}>
       <div className={`flex flex-row-reverse justify-end`}>
         <h2
-          className={`text-black mt-0 mb-0 uppercase text-5xl sm:text-6xl -ml-5`}
+          className={`text-black mt-0 mb-0 uppercase text-2xl md:text-4xl sm:text-6xl -ml-5`}
         >
           LES GARANTIES
           <br />
           ARTICHEKT
         </h2>
-        <Skew style="mt-16" />
+        <Skew style="mt-10 sm:mt-16" />
       </div>
       <div className="flex justify-center items-center mt-20">
-        <ul className="flex flex-col gap-0 w-4/5 sm:w-full sm:max-w-[700px] relative">
+        <ul className="flex flex-col gap-0 w-full sm:max-w-[700px] relative">
           <span
             ref={progressBarRef}
-            className="w-1 h-0 left-[63px] -z-10 bg-[#D9D9D9] absolute top-12"
+            className="w-1 h-0 left-[55px] sm:left-[63px] -z-10 bg-[#D9D9D9] absolute top-12"
           ></span>
           {guarantees &&
             guarantees.length > 0 &&
@@ -110,15 +110,15 @@ function Guarantee() {
                   pointsRef.current[index] = el // Assigner la référence sans retourner de valeur
                 }}
               >
-                <span className="flex items-center justify-center rounded-full h-16 w-16 text-3xl bg-[#D9D9D9] text-white font-fontBlack flex-shrink-0">
+                <span className="flex items-center justify-center rounded-full h-12 w-12 sm:h-16 sm:w-16 text-3xl bg-[#D9D9D9] text-white font-fontBlack flex-shrink-0">
                   {guarantee.id + 1}
                 </span>
                 <div>
-                  <p className="font-fontBold text-primary text-xl sm:text-2xl mb-0">
+                  <p className="font-fontBold text-primary mt-0 text-sm sm:text-2xl mb-0">
                     {guarantee.content}
                   </p>
                   <p
-                    className={`${activePoint !== undefined && index <= activePoint ? 'opacity-100' : 'opacity-0'} duration-300 ease-in-out mt-0`}
+                    className={`${activePoint !== undefined && index <= activePoint ? 'opacity-100' : 'opacity-0'} text-sm duration-300 ease-in-out mt-0`}
                   >
                     {guarantee.description}
                   </p>
