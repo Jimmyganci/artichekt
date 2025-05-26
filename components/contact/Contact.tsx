@@ -187,7 +187,7 @@ function Contact() {
             <p className="text-7xl text-end text-primary font-fontRegular font-normal">
               Venez nous
               <br />
-              parle de
+              parler de
               <br />
               votre projet
               <br />
