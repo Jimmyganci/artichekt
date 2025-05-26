@@ -191,6 +191,12 @@ html {
   z-index: -1;
 }
 
+@media screen and (width <= 640px) {
+  .line-garuantees::before {
+    left: 90px;
+  }
+}
+
 .wpcf7-form p span {
   display: flex;
   flex-direction: column;
