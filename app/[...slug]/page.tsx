@@ -65,24 +65,25 @@ function RenderPage({page}: {page: Page}) {
  */
 function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
   return (
-    <main className="flex flex-col gap-8 px-32 max-w-[1500px] mx-auto my-60">
-      <div className="flex gap-8">
+    <main className="flex flex-col gap-8 px-10 sm:px-32 max-w-[1500px] mx-auto my-60">
+      <Breadcrumb />
+      <div className="flex flex-col md:flex-row gap-8">
         <div className="w-1/2">
-          <h1 className="capitalize flex flex-col text-[128px] font-fontBold mb-0">
+          <h1 className="capitalize flex flex-col text-7xl lg:text-[128px] font-fontBold mb-0">
             <span>Le</span>
-            <span>Blog</span>{' '}
+            <span>Blog</span>
           </h1>
           <div className="mt-10">
-            <p className="bg-primary text-white text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
+            <p className="bg-primary text-white text-xl lg:text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
               Inspirez-vous,
             </p>
-            <p className="bg-primary text-white text-4xl w-fit max-w-[650px] my-0 p-1 mb-5 font-bold">
+            <p className="bg-primary text-white text-xl lg:text-4xl w-fit max-w-[650px] my-0 p-1 mb-5 font-bold">
               découvrez notre univers.
             </p>
           </div>
         </div>
 
-        <div className="p-10 w-1/2">
+        <div className="hidden md:block lg:p-10 w-1/2">
           <img
             className="my-0 mx-auto"
             src={posts[0].featuredImage.node.sourceUrl}
@@ -91,9 +92,9 @@ function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-8">
+      <div className="flex flex-col lg:flex-row lg:flex-wrap gap-8">
         {posts.map((post: Post) => (
-          <article className="w-72" key={post.databaseId}>
+          <article className="lg:w-72" key={post.databaseId}>
             {post.featuredImage && (
               <Image
                 alt={post.featuredImage.node.altText}
