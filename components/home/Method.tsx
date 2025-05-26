@@ -2,6 +2,7 @@
 import data from '@/public/data/method.json'
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import Link from 'next/link'
 import {useEffect, useRef, useState} from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -154,9 +155,11 @@ function Method() {
               className={`w-[10vw] transition ease-in-out duration-300 z-10 ${activePoint !== undefined && activePoint >= index ? 'opacity-100' : 'opacity-0'}`}
             >
               <div className="flex flex-col items-center">
-                <span className="flex items-center justify-center rounded-full h-10 w-10 bg-[#B9B9B9] text-white font-fontBlack">
-                  {method.id + 1}
-                </span>
+                <Link href={'/a-propos/la-methode-artichekt'}>
+                  <span className="flex items-center justify-center rounded-full h-10 w-10 bg-[#B9B9B9] text-white font-fontBlack">
+                    {method.id + 1}
+                  </span>
+                </Link>
                 <p className="uppercase text-primary font-fontBlack text-sm">
                   {method.content}
                 </p>

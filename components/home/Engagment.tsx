@@ -1,10 +1,12 @@
 import engagments from '@/public/data/engagments.json'
+import SeeAll from '../layouts/SeeAll'
 
 function Engagment() {
   return (
     <div className="px-[10%] bg-white max-w-screen-2xl mx-auto" id="engagment">
-      <h4 className="font-fontBold text-black leading-[0.7] text-5xl md:text-6xl sm:text-9xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
-        LES VALEURS ARTICHEKT
+      <h4 className="font-fontBold text-black leading-[0.7] lg:leading-[0.7] text-5xl sm:text-6xl md:text-8xl pl-24 my-0 opacity-100 z-[2] -ml-24 relative">
+        LES VALEURS <br className="hidden lg:block" />
+        ARTICHEKT
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-center items-center mx-auto">
         {engagments.map((engagment, index) => (
@@ -24,6 +26,7 @@ function Engagment() {
           </div>
         ))}
       </div>
+      <SeeAll path="/a-propos/les-valeurs-artichekt" />
     </div>
   )
 }
