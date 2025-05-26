@@ -14,10 +14,7 @@ function CarouselContact() {
     arrows: false
   }
 
-  const images = Array.from(
-    {length: 10},
-    (_, i) => `/images/photo-${i + 1}.png`
-  )
+  const images = Array.from({length: 9}, (_, i) => `/images/photo-${i + 1}.png`)
 
   return (
     <div>
