@@ -176,7 +176,7 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
   if (lastSlug === 'les-lieux-cibles') {
     const targetedLocations = await getAllTargetedLocations()
     return (
-      <div className="mt-40 px-20 max-w-screen-2xl mx-auto">
+      <div className="mt-40 px-10 sm:px-20 max-w-screen-2xl mx-auto">
         <div className="max-w-screen-2xl mx-auto">
           <Breadcrumb />
         </div>
