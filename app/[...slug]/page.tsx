@@ -188,9 +188,9 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
   if (lastSlug === 'estimez-le-cout-de-nos-services') {
     return (
       <div>
-        <div className="mt-40 px-32">
-          <div className="flex max-w-screen-2xl mx-auto">
-            <h1 className="flex flex-col gap-1 text-[64px] font-fontBold w-2/5 min-w-[400px]">
+        <div className="mt-40 px-10 sm:px-32">
+          <div className="flex flex-col lg:flex-row max-w-screen-2xl mx-auto">
+            <h1 className="flex flex-col gap-1 sm:text-[64px] font-fontBold lg:w-2/5 lg:min-w-[400px]">
               <span className="bg-primary w-fit text-white p-1">Outil de</span>
               <span className="bg-primary w-fit text-white p-1">calcul</span>
               <span className="bg-primary w-fit text-white p-1">des</span>
@@ -198,7 +198,7 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
                 prestations
               </span>
             </h1>
-            <div className="w-3/5 text-lg">
+            <div className="lg:w-3/5 sm:text-lg">
               <p className="mt-0">
                 ARTICHEKT a développé un outil qui vous permet d’estimer
                 approximativement le montant de vos prestations en fonction de
@@ -225,8 +225,8 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
 
           <Estimate />
         </div>
-        <div className="bg-grey px-32 pt-10 pb-64 text-xl">
-          <div className="max-w-screen-2xl mx-auto">
+        <div className="bg-grey px-10 sm:px-32 pt-10 pb-64 text-xl">
+          <div className="max-w-screen-2xl mx-auto text-sm sm:text-xl">
             <p className="mt-0  m-auto">
               Le détail de chaque prestation est expliqué dans l’onglet
               conception.

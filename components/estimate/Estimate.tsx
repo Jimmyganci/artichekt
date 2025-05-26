@@ -287,8 +287,8 @@ function Estimate() {
             {formData.natureProjet}
           </span>
         </p>
-        <div className="flex gap-10 justify-between">
-          <div className="space-y-4 text-lg w-1/3">
+        <div className="flex flex-col lg:flex-row gap-10 justify-between">
+          <div className="space-y-4 text-lg lg:w-1/3">
             <p className="flex mt-0 flex-col">
               <span>Type de travaux :</span>
               <span className="font-fontBold">{formData.typeTravaux}</span>
@@ -307,7 +307,7 @@ function Estimate() {
             </p>
           </div>
 
-          <div className="bg-primary text-white p-6 w-1/3 text-center ">
+          <div className="bg-primary text-white p-6 lg:w-1/3 text-center ">
             <p className="text-xl font-fontBold">Total des prestations</p>
             <p className="text-9xl my-0 font-number">
               {Math.round(tempsTotal)}
@@ -318,7 +318,7 @@ function Estimate() {
               projet d’étude
             </p>
           </div>
-          <div className="text-lg w-1/3">
+          <div className="text-lg lg:w-1/3">
             <p className="mt-0 text-center ">
               <strong className="font-fontBold">Contenu de la mission</strong>
             </p>
@@ -334,7 +334,7 @@ function Estimate() {
 
         <div className="mt-32 text-center">
           <p className="text-xl mb-2">Coût total des prestations :</p>
-          <p className="text-6xl my-0 font-fontBold text-primary">
+          <p className="text-4xl md:text-6xl my-0 font-fontBold text-primary">
             €{' '}
             {estimationEuros.toLocaleString('fr-FR', {
               maximumFractionDigits: 0
@@ -372,7 +372,7 @@ function Estimate() {
   }
 
   return (
-    <div className="p-4 max-w-screen-2xl mx-auto" ref={headerRef}>
+    <div className="sm:p-4 max-w-screen-2xl mx-auto" ref={headerRef}>
       <form onSubmit={handleSubmit} className=" mt-10">
         <label htmlFor="natureProjet">
           1. Nature du projet :
@@ -396,7 +396,7 @@ function Estimate() {
         {formErrors.typeTravaux && (
           <p className="text-red-500 text-sm my-0">{formErrors.typeTravaux}</p>
         )}
-        <div className="flex gap-2 justify-between mt-4">
+        <div className="flex flex-wrap gap-2 justify-between mt-4">
           {[
             'Rénovation légère',
             'Rénovation lourde',
@@ -418,7 +418,7 @@ function Estimate() {
         {formErrors.typeMarche && (
           <p className="text-red-500 text-sm my-0">{formErrors.typeMarche}</p>
         )}
-        <div className="flex gap-11 justify-center mt-4">
+        <div className="flex flex-col md-flex-row gap-11 justify-center mt-4">
           {['Marché privé', 'Marché public'].map((marche, i) => (
             <button
               key={marche}
@@ -469,12 +469,12 @@ function Estimate() {
         </label>
 
         <p>5. Surface approximative :</p>
-        <div className="flex gap-40">
-          <div className="flex flex-1 items-center">
-            <label className="w-1/2 font-fontBold text-black">
+        <div className="flex flex-col sm:flex-row gap-10 lg:gap-40">
+          <div className="fle flex-col lg:flex-row flex-1 items-center">
+            <label className="lg:w-1/2 font-fontBold text-black">
               A rénover :
             </label>
-            <div className="w-1/2">
+            <div className="lg:w-1/2">
               <select
                 value={formData.surfaceRenover}
                 onChange={(e) => handleChange('surfaceRenover', e.target.value)}
@@ -493,11 +493,11 @@ function Estimate() {
               )}
             </div>
           </div>
-          <div className="flex flex-1 items-center">
-            <label className="w-1/2 font-fontBold text-black">
+          <div className="flex flex-col lg:flex-row flex-1 lg:items-center">
+            <label className="lg:w-1/2 font-fontBold text-black">
               A aménager :
             </label>
-            <div className="w-1/2">
+            <div className="lg:w-1/2">
               <select
                 value={formData.surfaceAmenager}
                 onChange={(e) =>
@@ -524,7 +524,7 @@ function Estimate() {
         {formErrors.finitions && (
           <p className="text-red-500 text-sm my-0">{formErrors.finitions}</p>
         )}
-        <div className="flex gap-11 justify-center mt-4">
+        <div className="flex flex-col md:flex-row gap-11 justify-center mt-4">
           {['Standard', 'Haut de gamme'].map((finition) => (
             <button
               key={finition}
@@ -543,7 +543,7 @@ function Estimate() {
             {formErrors.niveauPrestation}
           </p>
         )}
-        <div className="flex gap-10 mt-4 justify-between">
+        <div className="flex flex-col xl:flex-row gap-10 mt-4 justify-between">
           {[1, 2, 3].map((niveau) => {
             const selectedProject = projectTimes[formData.typeProjet]
             const niveauKey = `niveau${niveau}` as keyof typeof selectedProject
@@ -552,7 +552,7 @@ function Estimate() {
             const detail = niveauxListes['Niveau ' + niveau]
 
             return (
-              <div className="w-1/3" key={niveau}>
+              <div className="xl:w-1/3" key={niveau}>
                 <p className="font-fontBlack mb-1 text-2xl text-center">
                   Niveau {niveau}
                 </p>

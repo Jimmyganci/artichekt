@@ -98,10 +98,10 @@ function Contact() {
   }
 
   return (
-    <main className="w- pt-60 px-32 max-w-screen-xl mx-auto mb-60">
+    <main className="pt-32 lg:pt-60 px-10 lg:px-32 max-w-screen-2xl mx-auto mb-60">
       <Breadcrumb />
-      <section className="flex gap-20">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/2">
+      <section className="flex flex-col lg:flex-row gap-20">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 lg:w-1/2">
           <label htmlFor="website" className="hidden">
             Website
             <input
@@ -143,7 +143,7 @@ function Contact() {
           )}
           <input className="w-fit mt-20" type="submit" value="Envoyer" />
         </form>
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <div className="mt-6">
             <h4 className="text-4xl mt-0 font-fontRegular font-light text-primary">
               AGENCE
@@ -203,19 +203,23 @@ function Contact() {
         <div>
           <h4
             ref={headlineRef}
-            className="flex flex-col absolute top-36 left-0 z-10"
+            className="flex flex-col absolute top-0 sm:top-36 left-0 z-10"
           >
             <span
               style={{
                 perspective: '500px'
               }}
-              className="text-9xl font-number text-primary"
+              className="text-5xl sm:text-7xl lg:text-9xl font-number text-primary"
             >
               UN LIEU
             </span>
-            <span className="text-9xl font-number text-primary">DÉDIÉ</span>
-            <span className="text-9xl font-number text-primary">A LA</span>
-            <span className="text-9xl font-fontBold text-primary">
+            <span className="text-5xl sm:text-7xl lg:text-9xl font-number text-primary">
+              DÉDIÉ
+            </span>
+            <span className="text-5xl sm:text-7xl lg:text-9xl font-number text-primary">
+              A LA
+            </span>
+            <span className="text-5xl sm:text-7xl lg:text-9xl font-fontBold text-primary">
               CRÉATION
             </span>
           </h4>
