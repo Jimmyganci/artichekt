@@ -257,7 +257,7 @@ export default function Header() {
             </div>
           </div>
           <nav
-            onMouseLeave={() => handleMouseLeave()}
+            // onMouseLeave={() => handleMouseLeave()}
             className=" mt-[15vh] sm:mt-[18vh] w-fit sm:w-auto mx-auto  sm:pb-28 flex items-end flex-1 flex-col gap-1 sm:gap-4"
           >
             {!!menu &&
@@ -295,8 +295,8 @@ export default function Header() {
 
                         {
                           <ul
-                            onMouseLeave={() => handleMouseLeave(true)}
-                            className={`sm:gap-2 gap-2 absolute top-[150%] pl-0 sm:top-0 translate-x-1/2 sm:translate-x-0 right-1/2 sm:right-[105%] flex flex-col items-end w-max ${parentId === item.node.id ? 'z-10' : 'z-0'} `}
+                            // onMouseLeave={() => handleMouseLeave(true)}
+                            className={`sm:gap-2 gap-2 absolute top-[150%] pl-0 sm:top-0 translate-x-1/2 sm:translate-x-0 right-1/2 sm:right-[73%] pr-[30%] flex flex-col items-end w-max ${parentId === item.node.id ? 'z-10' : 'z-0'} `}
                           >
                             {menu
                               .filter(

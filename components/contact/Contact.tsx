@@ -18,6 +18,10 @@ function Contact() {
   const containerRef = useRef<HTMLDivElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
 
+  const destination =
+    "ARTICHEKT | Agence d'architecture intérieure, Rue du Tuquet 3, Angresse"
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`
+
   useEffect(() => {
     const container = containerRef.current
     const headline = headlineRef.current
@@ -187,7 +191,7 @@ function Contact() {
             <p className="text-7xl text-end text-primary font-fontRegular font-normal">
               Venez nous
               <br />
-              parle de
+              parler de
               <br />
               votre projet
               <br />
@@ -229,6 +233,14 @@ function Contact() {
           <CarouselContact />
         </div>
       </section>
+
+      <div className="w-full flex justify-center mt-20">
+        <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+          <button className="px-4 text-2xl py-2 text-white bg-primary">
+            {"S'y rendre"}
+          </button>
+        </a>
+      </div>
     </main>
   )
 }
