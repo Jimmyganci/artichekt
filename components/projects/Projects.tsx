@@ -130,6 +130,9 @@ function Images({images}: any) {
   const group: any = useRef()
   const data = useScroll()
   const {width, height} = useThree((state) => state.viewport)
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 640
+
   useFrame(() => {
     group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3
     group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3
@@ -148,29 +151,37 @@ function Images({images}: any) {
   return (
     <group ref={group} position={[0, -1.5, 0]}>
       <Image
-        position={[-2, 0, 0]}
-        scale={[4, height]}
+        position={[isMobile ? -1 : -2, isMobile ? 2 : 0, 0]}
+        scale={[4, isMobile ? 2 : height]}
         url={images[0].full_image_url}
       />
-      <Image position={[2, 0, 3]} scale={3} url={images[1].full_image_url} />
       <Image
-        position={[-2.05, -height, 6]}
-        scale={[1, 3]}
+        position={[isMobile ? 1 : 2, isMobile ? -1 : 0, 3]}
+        scale={[3, 3]}
+        url={images[1].full_image_url}
+      />
+      <Image
+        position={[isMobile ? 0 : -2.05, isMobile ? -height * 0.8 : -height, 6]}
+        scale={[isMobile ? 2 : 1, 3]}
         url={images[2].full_image_url}
       />
       <Image
-        position={[-0.6, -height, 9]}
+        position={[isMobile ? 0 : -0.6, isMobile ? -height - 2 : -height, 9]}
         scale={[1, 2]}
         url={images[3].full_image_url}
       />
       <Image
-        position={[0.65, -height, 10.5]}
+        position={[1.65, -height, 10.5]}
         scale={1.5}
         url={images[4].full_image_url}
       />
       <Image
-        position={[-1.5, -height * 1.5, 7.5]}
-        scale={[1.5, 3]}
+        position={[
+          isMobile ? 0 : -1.5,
+          isMobile ? -height * 2.5 : -height * 1.5,
+          7.5
+        ]}
+        scale={[isMobile ? 1 : 1.5, isMobile ? 1 : 3]}
         url={images[5].full_image_url}
       />
       <Image
@@ -191,8 +202,11 @@ function Typography({title}: {title: string}) {
     state.cameta,
     [0, 0, 12]
   )
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 640
+
   const shared = {
-    fontSize: 0.5,
+    fontSize: isMobile ? 0.2 : 0.5,
     letterSpacing: -0.1,
     color: '#7da365'
   }
