@@ -1,3 +1,4 @@
+import Breadcrumb from '@/components/Breadcrumb'
 import {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -52,21 +53,22 @@ export default async function CategoryArchive({
   const secondPart = description.slice(before + 1)
 
   return (
-    <main className="flex flex-col gap-8 mt-60 px-32 max-w-screen-2xl mx-auto mb-60">
-      <h1 className="capitalize text-primary text-8xl mb-0">
+    <main className="flex flex-col gap-8 mt-60 px-10 sm:px-32 max-w-screen-2xl mx-auto mb-60">
+      <Breadcrumb />
+      <h1 className="capitalize text-primary text-5xl sm:text-8xl mb-0">
         {category.category.name}
       </h1>
       <div className="mt-10 space-y-2">
-        <p className="bg-primary text-white text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
+        <p className="bg-primary text-white text-lg sm:text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
           {firstPart}
         </p>
-        <p className="bg-primary text-white text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
+        <p className="bg-primary text-white text-lg sm:text-4xl w-fit max-w-[650px] mt-0 mb-1 p-1 font-bold">
           {secondPart}
         </p>
       </div>
-      <div className="flex flex-wrap gap-8">
+      <div className="flex flex-col lg:flex-wrap md:flex-row gap-8">
         {category.posts.map((post) => (
-          <article className="w-72" key={post.databaseId}>
+          <article className="md:w-72" key={post.databaseId}>
             <Image
               alt={post.featuredImage.node.altText}
               height={post.featuredImage.node.mediaDetails.height}
@@ -77,9 +79,7 @@ export default async function CategoryArchive({
             <Link href={`/blog/${post.slug}`}>
               <h2 dangerouslySetInnerHTML={{__html: post.title}} />
             </Link>
-            {/* <p className="text-sm text-gray-500">
-              {post.commentCount} Comments
-            </p> */}
+
             <div
               className="mt-0"
               dangerouslySetInnerHTML={{

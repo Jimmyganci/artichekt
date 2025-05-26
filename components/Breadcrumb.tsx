@@ -23,20 +23,22 @@ export default function Breadcrumb() {
             Menu
           </Link>
         </li>
-        {crumbs.map((crumb, i) => (
-          <li key={crumb.href} className="flex items-center p-0">
-            <span className="mx-3">/</span>
-            {i === crumbs.length - 1 ? (
-              <span className="font-semibold text-gray-900">
-                {crumb.label.charAt(0).toUpperCase() + crumb.label.slice(1)}
-              </span>
-            ) : (
-              <Link href={crumb.href} className="hover:underline">
-                {crumb.label.charAt(0).toUpperCase() + crumb.label.slice(1)}
-              </Link>
-            )}
-          </li>
-        ))}
+        {crumbs
+          .filter((crumb) => crumb.label !== 'category')
+          .map((crumb, i) => (
+            <li key={crumb.href} className="flex items-center p-0">
+              <span className="mx-3">/</span>
+              {i === crumbs.length - 1 ? (
+                <span className="font-semibold text-gray-900">
+                  {crumb.label.charAt(0).toUpperCase() + crumb.label.slice(1)}
+                </span>
+              ) : (
+                <Link href={crumb.href} className="hover:underline">
+                  {crumb.label.charAt(0).toUpperCase() + crumb.label.slice(1)}
+                </Link>
+              )}
+            </li>
+          ))}
       </ol>
     </nav>
   )

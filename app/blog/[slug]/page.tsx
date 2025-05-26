@@ -69,12 +69,12 @@ export default async function Post({params}: {params: {slug: string}}) {
   )
 
   return (
-    <article className="px-32 max-w-screen-2xl mx-auto my-60">
+    <article className="px-10 sm:px-32 max-w-screen-2xl mx-auto my-60">
       <header>
-        <div className="flex gap-8">
-          <div className="w-1/2 ">
+        <div className="flex flex-col-reverse md:flex-row gap-8">
+          <div className="md:w-1/2 ">
             <h1
-              className="mt-0 text-4xl md:text-6xl font-bold leading-tight text-gray-900"
+              className="mt-0 text-4xl md:text-5xl font-bold leading-tight text-gray-900"
               dangerouslySetInnerHTML={{__html: post.title}}
             />
             <ul className="m-0 flex list-none gap-2 p-0">
@@ -95,7 +95,7 @@ export default async function Post({params}: {params: {slug: string}}) {
           </div>
 
           {post.featuredImage && (
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <img
                 className="mt-0"
                 src={post.featuredImage.node.sourceUrl}
@@ -119,17 +119,17 @@ export default async function Post({params}: {params: {slug: string}}) {
         </p>
       </header>
       <div
-        className="content-post px-12"
+        className="content-post md:px-12"
         dangerouslySetInnerHTML={{__html: post.content}}
       />
       {relatedPosts.length > 0 && (
         <section className="mt-20 px-10">
           <h2 className="text-2xl bg-primary text-center text-white w-fit mx-auto mt-0 mb-1 p-1 px-2 font-fontBold">
-            Articles liés à cet catégorie
+            Articles liés à cette catégorie
           </h2>
           <div className="flex gap-8 flex-wrap">
             {relatedPosts.map((related) => (
-              <article key={related.databaseId} className="w-80">
+              <article key={related.databaseId} className="w-full md:w-80">
                 <Link href={`/blog/${related.slug}`}>
                   {related.featuredImage && (
                     <img
