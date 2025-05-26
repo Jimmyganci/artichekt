@@ -24,6 +24,7 @@ export default function Projects({projects}: any) {
   function handleLeave() {
     setIsEnter(false)
   }
+
   return (
     <Canvas camera={{position: [0, 0, 20], fov: 15}} className="min-h-screen">
       <ScrollControls damping={0.2} pages={3} distance={0.5}>
@@ -39,18 +40,9 @@ export default function Projects({projects}: any) {
                   onMouseEnter={handleEnter}
                   onMouseLeave={handleLeave}
                   style={{transform: 'translate3d(40vw, 212vh, 0)'}}
-                  className={`w-[40vw] text-white ${isEnter ? 'opacity-100' : 'opacity-0'}`}
+                  className={`md:w-[40vw] text-white ${isEnter ? 'opacity-100' : 'opacity-0'}`}
                 >
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>
+                  <p dangerouslySetInnerHTML={{__html: project.excerpt}}></p>
                 </div>
               </Scroll>
               {/** This is a helper that pre-emptively makes threejs aware of all geometries, textures etc

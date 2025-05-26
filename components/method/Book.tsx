@@ -88,7 +88,7 @@ function Book() {
               onClick={(e) => goToPage(3, e)}
               className="list-decimal list-inside  w-fit m-0 text-end cursor-pointer text-primary font-fontBold"
             >
-              Analyses des besoins
+              Analyse des besoins
             </li>
             <li
               onClick={(e) => goToPage(9, e)}
@@ -129,7 +129,7 @@ function Book() {
           </ol>
         </div>
         <div className="demoPage bg-white p-4 text-center border-[25px] border-primary rounded-3xl"></div>
-        <div className="demoPage bg-white p-4 text-center border-[25px] border-primary rounded-3xl">
+        <div className="demoPage bg-white p-4 text-center border-[25px] border-primary rounded-3xl relative">
           <p className="text-primary text-5xl font-fontBold mb-0">1.</p>
           <h3 className="text-primary text-3xl font-fontBold p-10 m-0">
             Analyse des besoins
