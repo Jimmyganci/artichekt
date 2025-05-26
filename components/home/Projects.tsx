@@ -1,7 +1,7 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react'
-import Carousel from './carousel/Carousel'
 import {Post} from '@/lib/types'
+import {useEffect, useRef} from 'react'
+import Carousel from './carousel/Carousel'
 
 import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
