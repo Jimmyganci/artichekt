@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 import guarantees from '@/public/data/guarantees.json'
+import SeeAll from '../layouts/SeeAll'
 import Skew from '../layouts/Skew'
 
 function Guarantee() {
@@ -127,6 +128,7 @@ function Guarantee() {
             ))}
         </ul>
       </div>
+      <SeeAll path="/services/les-garanties-artichekt" />
     </div>
   )
 }

@@ -41,7 +41,7 @@ function Laboratory() {
         trigger: card,
         start: `top 20%`,
         endTrigger: '.cards',
-        end: `bottom top+=${200 + cards.length * spacer}`,
+        end: `bottom top+=${500 + cards.length * spacer}`,
         pin: true,
         pinSpacing: false,
         markers: false,

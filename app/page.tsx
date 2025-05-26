@@ -79,6 +79,7 @@ export default async function Home() {
       <SeeAll path="/projects" />
       <Spacer h={150} />
       <Laboratory />
+      <SeeAll path="/le-lab" />
       <Spacer h={250} />
       <GoogleReview />
     </main>
