@@ -9,23 +9,14 @@ import {
   useScroll
 } from '@react-three/drei'
 import {Canvas, useFrame, useThree} from '@react-three/fiber'
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
 
 export default function Projects({project}: {project: Post}) {
-  const [isEnter, setIsEnter] = useState(false)
-
-  function handleEnter() {
-    setIsEnter(true)
-  }
-  function handleLeave() {
-    setIsEnter(false)
-  }
-
   const title = project.title
 
   return (
     <Canvas camera={{position: [0, 0, 20], fov: 15}} className="min-h-screen">
-      <ScrollControls damping={0.2} pages={3} distance={0.5} horizontal={true}>
+      <ScrollControls damping={0.5} pages={3} distance={0.5} horizontal={true}>
         <Scroll>
           <Images images={project.imagesGalleries?.images} />
         </Scroll>
@@ -34,7 +25,7 @@ export default function Projects({project}: {project: Post}) {
             {title.split(' ').map((word, i) => (
               <span
                 key={i}
-                style={{left: 100 + i * 50 + 'vw'}}
+                style={{left: 50 + i * 50 + 'vw'}}
                 className={`odd:text-[40vw] text-primary even:text-[50vw] odd:sm:text-[20vw] even:sm:text-[30vw] sm:text-[20vw] absolute odd:top-[10vh] even:top-[50vh]`}
               >
                 {word}
@@ -73,7 +64,7 @@ function Images({images}: any) {
   return (
     <group ref={group} position={[0, -1.5, 0]}>
       <Image
-        position={[-1, 3, 0]}
+        position={[-1, 2, 0]}
         scale={[4, 2]}
         url={images[0].full_image_url}
       />
