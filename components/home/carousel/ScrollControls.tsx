@@ -170,10 +170,24 @@ export function ScrollControls({
       }
     }
 
+    function onTouchStart(e: TouchEvent) {
+      if (!enabled) return
+      touchStart = horizontal ? e.touches[0].clientX : e.touches[0].clientY
+    }
+
+    // Fonction pour gérer le mouvement du touch (mobile)
+    function onTouchMove(e: TouchEvent) {
+      if (!enabled || !touchStart) return
+      const touchMove = horizontal ? e.touches[0].clientX : e.touches[0].clientY
+      const delta = touchMove - touchStart
+      el[horizontal ? 'scrollLeft' : 'scrollTop'] -= delta
+      touchStart = touchMove
+    }
+
     if (el) {
       el.addEventListener('scroll', onScroll, {passive: true})
-      // el.addEventListener('touchstart', onTouchStart, {passive: true})
-      // el.addEventListener('touchmove', onTouchMove, {passive: true})
+      el.addEventListener('touchstart', onTouchStart, {passive: true})
+      el.addEventListener('touchmove', onTouchMove, {passive: true})
       requestAnimationFrame(() => (firstRun = false))
     }
 
@@ -185,6 +199,8 @@ export function ScrollControls({
 
     return () => {
       el.removeEventListener('scroll', onScroll)
+      el.removeEventListener('touchstart', onTouchStart)
+      el.removeEventListener('touchmove', onTouchMove)
       if (horizontal) el.removeEventListener('wheel', onWheel)
     }
   }, [el, size, infinite, state, invalidate, horizontal])
