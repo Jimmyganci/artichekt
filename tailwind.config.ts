@@ -90,6 +90,7 @@ const config: Config = {
     'pl-40',
     'pl-10',
     'w-20',
+    'xl:gap-10',
     'lg:gap-12',
     'pr-60',
     'justify-self-end',
