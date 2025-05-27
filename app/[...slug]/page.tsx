@@ -2,6 +2,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Contact from '@/components/contact/Contact'
 import Estimate from '@/components/estimate/Estimate'
 import Book from '@/components/method/Book'
+import BookMobile from '@/components/method/BookMobile'
 import Projects from '@/components/projects/Projects'
 import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
 import getAllProjects from '@/lib/queries/getAllProjects'
@@ -169,7 +170,12 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
           height: '100vh' // Hauteur en viewport
         }}
       >
-        <Book />
+        <div className="hidden lg:block">
+          <Book />
+        </div>
+        <div className="lg:hidden">
+          <BookMobile />
+        </div>
       </div>
     )
   }
