@@ -18,6 +18,7 @@ import Laboratory from '@/components/home/Laboratory'
 import Method from '@/components/home/Method'
 import MethodMobile from '@/components/home/MethodMobile'
 import Projects from '@/components/home/Projects'
+import ProjectsMobile from '@/components/home/ProjectsMobile'
 import ScrollTitle from '@/components/home/ScrollTitle'
 import TargetedLocations from '@/components/home/TargetedLocations'
 import Team from '@/components/home/Team'
@@ -75,7 +76,12 @@ export default async function Home() {
       <Spacer h={150} />
       <Engagment />
       <Spacer h={150} />
-      <Projects project={projects[0]} />
+      <div className="hidden xl:block">
+        <Projects project={projects[0]} />
+      </div>
+      <div className="xl:hidden">
+        <ProjectsMobile project={projects[0]} />
+      </div>
       <SeeAll path="/projects" />
       <Spacer h={150} />
       <Laboratory />
