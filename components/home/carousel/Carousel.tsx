@@ -21,7 +21,7 @@ function Carousel({project, horizontal}: {project: Post; horizontal: boolean}) {
     imagesGalleries.images.length > 0 &&
     title && (
       <Canvas
-        className="w-full overflow-hidden"
+        className="w-full overflow-hidden min-h-screen"
         gl={{antialias: false}}
         dpr={[1, 1.5]}
       >

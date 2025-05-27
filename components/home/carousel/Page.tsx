@@ -1,5 +1,4 @@
 import {useThree} from '@react-three/fiber'
-import React from 'react'
 import Image from './Image'
 
 function Page({m = 0.4, urls, ...props}: any) {
