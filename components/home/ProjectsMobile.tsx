@@ -64,7 +64,7 @@ function Images({images}: any) {
   return (
     <group ref={group} position={[0, -1.5, 0]}>
       <Image
-        position={[-1, 3, 0]}
+        position={[-1, 2, 0]}
         scale={[4, 2]}
         url={images[0].full_image_url}
       />

@@ -79,7 +79,7 @@ export default async function Home() {
       <div className="hidden xl:block">
         <Projects project={projects[0]} />
       </div>
-      <div className="xl:hidden h-[800px] w-[300vw]">
+      <div className="xl:hidden h-[800px] w-[270vw]">
         <ProjectsMobile project={projects[0]} />
       </div>
       <SeeAll path="/projects" />
