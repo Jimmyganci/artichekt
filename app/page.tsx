@@ -79,8 +79,10 @@ export default async function Home() {
       <div className="hidden xl:block">
         <Projects project={projects[0]} />
       </div>
-      <div className="xl:hidden h-[800px] w-[270vw]">
-        <ProjectsMobile project={projects[0]} />
+      <div className="xl:hidden  overflow-hidden w-screen">
+        <div className="h-[800px] w-[270vw]">
+          <ProjectsMobile project={projects[0]} />
+        </div>
       </div>
       <SeeAll path="/projects" />
       <Spacer h={150} />
