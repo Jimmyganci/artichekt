@@ -24,11 +24,11 @@ function TitleSection({
       >
         <span>
           {titleSplitted.length > 1
-            ? titleSplitted.map((word) => (
-                <>
+            ? titleSplitted.map((word, index) => (
+                <div key={index}>
                   {word}
                   <br />
-                </>
+                </div>
               ))
             : title}
         </span>
