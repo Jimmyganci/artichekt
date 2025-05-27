@@ -141,7 +141,7 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
 
   // If there's an error, return a 404 page.
   if (data.error) {
-    notFound()
+    return notFound()
   }
 
   if (lastSlug === 'projets') {
