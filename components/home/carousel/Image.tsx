@@ -1,14 +1,15 @@
 'use client'
-import * as THREE from 'three'
-import React, {useRef} from 'react'
-import {useScroll} from './ScrollControls'
-import {useFrame} from '@react-three/fiber'
 import {Image as ImageImpl} from '@react-three/drei'
+import {useFrame} from '@react-three/fiber'
+import {useRef} from 'react'
+import * as THREE from 'three'
+import {useScroll} from './ScrollControls'
 
 function Image(props: any) {
   const ref = useRef<any>()
   const group = useRef<any>()
   const data = useScroll()
+
   useFrame((state, delta) => {
     group.current.position.z = THREE.MathUtils.damp(
       group.current.position.z,
