@@ -20,8 +20,7 @@
     "format": "prettier '**/*.{js,jsx,ts,tsx,md,html,css,json,yml}' --ignore-path .gitignore --cache --write",
     "info": "next info",
     "lint": "next lint",
-    "start": "next start",
-    "postbuild": "next-sitemap"
+    "start": "next start"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
