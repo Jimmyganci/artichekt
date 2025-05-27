@@ -16,7 +16,7 @@ export default function Projects({project}: {project: Post}) {
 
   return (
     <Canvas camera={{position: [0, 0, 20], fov: 15}} className="min-h-screen">
-      <ScrollControls damping={0.2} pages={3} distance={0.5} horizontal={true}>
+      <ScrollControls damping={2} pages={3} distance={0.5} horizontal={true}>
         <Scroll>
           <Images images={project.imagesGalleries?.images} />
         </Scroll>
