@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://artichekt.com
+
+# Sitemaps
+Sitemap: https://artichekt.com/sitemap.xml
