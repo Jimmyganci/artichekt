@@ -100,7 +100,7 @@ function Approch() {
         </div>
       </div>
       <div className="mt-8">
-        <SeeAll path="/methodologie" />
+        <SeeAll path="/a-propos/la-methode-artichekt" />
       </div>
     </div>
   )

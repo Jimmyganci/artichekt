@@ -82,7 +82,7 @@ export default async function Home() {
       <div className="xl:hidden w-[100vw] overflow-hidden">
         <ProjectsMobile project={projects[0]} />
       </div>
-      <SeeAll path="/projects" />
+      <SeeAll path="/projets" />
       <Spacer h={150} />
       <Laboratory />
       <SeeAll path="/le-lab" />
