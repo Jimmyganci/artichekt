@@ -63,6 +63,7 @@ export interface Menu {
 }
 
 export interface Page {
+  uri: string
   author: {
     node: {
       avatar: {
