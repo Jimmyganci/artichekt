@@ -7,6 +7,7 @@ import Projects from '@/components/projects/Projects'
 import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
+import {Metadata} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {notFound} from 'next/navigation'
@@ -32,6 +33,28 @@ async function fetchData(slugPath: string) {
 
   // Otherwise, return an error.
   return {error: 'No data found'}
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: {slug: string[]}
+}): Promise<Metadata> {
+  const slugPath = '/' + params.slug.join('/') + '/'
+
+  const page = await getPageBySlug(slugPath)
+
+  if (!page) {
+    return {
+      title: 'Page introuvable',
+      description: 'La page que vous cherchez est introuvable.'
+    }
+  }
+
+  return {
+    title: page.seo?.title || page.title,
+    description: page.seo?.metaDesc || ''
+  }
 }
 
 /**
