@@ -16,7 +16,7 @@ function TargetedLocations({targetedLocations}: {targetedLocations: Post[]}) {
         </div>
       )}
       <div className="mt-20">
-        <SeeAll path="/targeted-locations" />
+        <SeeAll path="/services/les-lieux-cibles" />
       </div>
     </div>
   )
