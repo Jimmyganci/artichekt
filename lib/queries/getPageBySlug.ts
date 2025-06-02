@@ -6,41 +6,42 @@ import {Page} from '../../lib/types'
  */
 export default async function getPageBySlug(slug: string) {
   const query = `
-    query GetPageBySlug($slug: ID = "URI") {
-      page(idType: URI, id: $slug) {
-        databaseId
-        date
-        modified
-        content(format: RENDERED)
-        title(format: RENDERED)
-        featuredImage {
-          node {
-            altText
-            sourceUrl
-            mediaDetails {
-                height
-                width
-            }
+  query GetPageBySlug($uri: ID!) {
+    page(idType: URI, id: $uri) {
+      uri
+      databaseId
+      date
+      modified
+      content(format: RENDERED)
+      title(format: RENDERED)
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+          mediaDetails {
+            height
+            width
           }
-        }
-        author {
-          node {
-            name
-            avatar {
-              url
-            }
-          }
-        }
-        seo {
-          metaDesc
-          title
         }
       }
+      author {
+        node {
+          name
+          avatar {
+            url
+          }
+        }
+      }
+      seo {
+        metaDesc
+        title
+      }
     }
-  `
+  }
+`
 
   const variables = {
-    slug: slug
+    uri: slug
   }
 
   const response = await fetchGraphQL(query, variables)

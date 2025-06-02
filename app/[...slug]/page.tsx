@@ -17,14 +17,13 @@ import {Page, Post} from '../../lib/types'
 /**
  * Fetches data from WordPress.
  */
-async function fetchData(slug: string) {
+async function fetchData(slugPath: string) {
   // If the slug is 'blog', fetch all posts.
-  if (slug === 'blog') {
+  if (slugPath === '/blog/') {
     return {posts: await getAllPosts(), context: 'blog'}
   }
 
-  // Otherwise, this could be a page.
-  const page = await getPageBySlug(slug)
+  const page = await getPageBySlug(slugPath)
 
   // If page data exists, return it.
   if (page) {
@@ -133,11 +132,15 @@ function RenderPostsList({posts, context}: {posts: Post[]; context: string}) {
  */
 export default async function Archive({params}: {params: {slug: string[]}}) {
   // Get the slug from the params.
-  const slugPath = params.slug.join('/') // 'a-propos/lequipe'
-  const lastSlug = params.slug.at(-1)
 
-  // Fetch data from WordPress.
-  const data = await fetchData(lastSlug!)
+  const slugPath = '/' + params.slug.join('/') + '/' // → ex: "/a-propos/les-valeurs-artichekt/"
+  const data = await fetchData(slugPath)
+
+  // Vérifie que le chemin correspond exactement à celui de WordPress
+  if (data.post && data.post.uri !== slugPath) {
+    return notFound()
+  }
+  const lastSlug = params.slug.at(-1)
 
   // If there's an error, return a 404 page.
   if (data.error) {

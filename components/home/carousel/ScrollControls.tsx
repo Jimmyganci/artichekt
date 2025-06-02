@@ -129,7 +129,7 @@ export function ScrollControls({
     })
 
     return () => {
-      if (el) {
+      if (el && events) {
         target.removeChild(el)
         raycaster.computeOffsets = oldCompute
         events.connect?.(oldTarget)
