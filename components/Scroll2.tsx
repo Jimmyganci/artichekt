@@ -86,7 +86,7 @@ function Scroll2({
             </span>
           </em>
         </p>
-        <SeeAll path="/lagence" />
+        <SeeAll path="/a-propos/lagence" />
       </div>
     </div>
   )
