@@ -418,7 +418,7 @@ function Estimate() {
         {formErrors.typeMarche && (
           <p className="text-red-500 text-sm my-0">{formErrors.typeMarche}</p>
         )}
-        <div className="flex flex-col md-flex-row gap-11 justify-center mt-4">
+        <div className="flex flex-col md:flex-row gap-11 justify-center mt-4">
           {['Marché privé', 'Marché public'].map((marche, i) => (
             <button
               key={marche}
@@ -442,8 +442,8 @@ function Estimate() {
           </p>
           <p className="mt-0 text-xs">
             <strong className="font-fontBold">2.</strong> Est considéré comme{' '}
-            <strong className="font-fontBold">marché public</strong> toutes
-            collectivité et administration publique telles que les bibliothèques
+            <strong className="font-fontBold">marché public</strong> toute
+            collectivité et administration publique telle que les bibliothèques
             communales, musées, établissements scolaires, Mairie, etc.
           </p>
         </div>
