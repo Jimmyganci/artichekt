@@ -69,6 +69,7 @@ export default async function Home() {
       <Team />
       <TeamMobile />
       <ScrollTitle />
+      <SeeAll path="/contact" />
       <Spacer h={150} />
       <Guarantee />
       <Spacer h={150} />
