@@ -105,7 +105,10 @@ export default function Footer() {
               </p>
               <ul className="m-0 p-0">
                 <li className="text-left">
-                  <Link className="text-white" href={'contact@artichekt.com'}>
+                  <Link
+                    className="text-white"
+                    href={'mailto:contact@artichekt.com'}
+                  >
                     Envoyer un email
                   </Link>
                 </li>
