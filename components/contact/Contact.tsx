@@ -183,7 +183,42 @@ function Contact() {
         setResponseType('success')
         form.reset()
       } else {
-        setResponseMessage(json.error || 'Erreur lors de l’envoi.')
+        // Gérer le format errors du backend (objet avec erreurs par champ)
+        if (json.errors && typeof json.errors === 'object') {
+          const backendErrors: string[] = []
+          const backendMissingFields: string[] = []
+          
+          // Collecter les erreurs par type
+          Object.entries(json.errors).forEach(([field, message]) => {
+            const msg = message as string
+            if (msg.includes('obligatoire')) {
+              if (field === 'name') backendMissingFields.push('le nom')
+              else if (field === 'email') backendMissingFields.push("l'email")
+              else if (field === 'message') backendMissingFields.push('le message')
+            } else {
+              backendErrors.push(msg)
+            }
+          })
+          
+          // Formater le message pour les champs obligatoires
+          if (backendMissingFields.length > 0) {
+            let missingMessage = ''
+            if (backendMissingFields.length === 1) {
+              missingMessage = `${backendMissingFields[0].charAt(0).toUpperCase() + backendMissingFields[0].slice(1)} est obligatoire.`
+            } else if (backendMissingFields.length === 2) {
+              missingMessage = `${backendMissingFields[0].charAt(0).toUpperCase() + backendMissingFields[0].slice(1)} et ${backendMissingFields[1]} sont obligatoires.`
+            } else {
+              const lastField = backendMissingFields[backendMissingFields.length - 1]
+              const otherFields = backendMissingFields.slice(0, -1)
+              missingMessage = `${otherFields.map(f => f.charAt(0).toUpperCase() + f.slice(1)).join(', ')} et ${lastField} sont obligatoires.`
+            }
+            backendErrors.unshift(missingMessage)
+          }
+          
+          setResponseMessage(backendErrors.join(' ') || "Erreur lors de l'envoi.")
+        } else {
+          setResponseMessage(json.error || "Erreur lors de l'envoi.")
+        }
         setResponseType('error')
       }
     } catch (err) {
