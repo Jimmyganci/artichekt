@@ -1,9 +1,9 @@
 'use client'
 import getLogo from '@/lib/queries/getLogo'
 import getMenuBySlug from '@/lib/queries/getMenuBySlug'
-import {Logo, MenuItem} from '@/lib/types'
+import { Logo, MenuItem } from '@/lib/types'
 import Link from 'next/link'
-import {useCallback, useEffect, useState} from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Skew from './layouts/Skew'
 
 /**
@@ -203,7 +203,7 @@ export default function Header() {
               </div>
             )}
             <div>
-              <Link
+              {/* <Link
                 onClick={() => handleOpenMenu()}
                 className={`  text-[20px] max-[640px]:text-[18px] max-[872px]:text-[12px] 2xl:text-2xl flex items-center duration-700 ${showContentmenu ? 'delay-500  opacity-100 translate-y-0' : 'delay-200 opacity-0 translate-y-10'}`}
                 href={'/estimez-le-cout-de-nos-services'}
@@ -213,7 +213,7 @@ export default function Header() {
                 >
                   Estimez le coût de nos services
                 </p>
-              </Link>
+              </Link> */}
             </div>
             <div
               className={`flex flex-col gap-0 sm:gap-4 items-center w-full sm:items-start`}

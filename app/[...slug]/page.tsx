@@ -1,19 +1,18 @@
 import Breadcrumb from '@/components/Breadcrumb'
 import Contact from '@/components/contact/Contact'
-import Estimate from '@/components/estimate/Estimate'
 import Book from '@/components/method/Book'
 import BookMobile from '@/components/method/BookMobile'
 import Projects from '@/components/projects/Projects'
 import TargetedLocations from '@/components/targeted-locations/TargetedLocations'
 import getAllProjects from '@/lib/queries/getAllProjects'
 import getAllTargetedLocations from '@/lib/queries/getAllTargetedLocations'
-import {Metadata} from 'next'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import {notFound} from 'next/navigation'
+import { notFound } from 'next/navigation'
 import getAllPosts from '../../lib/queries/getAllPosts'
 import getPageBySlug from '../../lib/queries/getPageBySlug'
-import {Page, Post} from '../../lib/types'
+import { Page, Post } from '../../lib/types'
 
 /**
  * Fetches data from WordPress.
@@ -214,83 +213,84 @@ export default async function Archive({params}: {params: {slug: string[]}}) {
   }
 
   if (lastSlug === 'estimez-le-cout-de-nos-services') {
-    return (
-      <div>
-        <div className="mt-40 px-10 sm:px-32">
-          <div className="flex flex-col lg:flex-row max-w-screen-2xl mx-auto">
-            <h1 className="flex flex-col gap-1 sm:text-[64px] font-fontBold lg:w-2/5 lg:min-w-[400px]">
-              <span className="bg-primary w-fit text-white p-1">Outil de</span>
-              <span className="bg-primary w-fit text-white p-1">calcul</span>
-              <span className="bg-primary w-fit text-white p-1">des</span>
-              <span className="bg-primary w-fit text-white p-1">
-                prestations
-              </span>
-            </h1>
-            <div className="lg:w-3/5 sm:text-lg">
-              <p className="mt-0">
-                ARTICHEKT a développé un outil qui vous permet d’estimer
-                approximativement le montant de vos prestations en fonction de
-                la nature de votre projet, sa typologie et le niveau de
-                prestations souhaité.
-              </p>
-              <p className="mt-0 ">
-                Cette estimation n’est évidemment pas contractuelle et ne peut
-                se substituer a une étude donnant lieu à une offre de service
-                personnalisée et détaillée.
-              </p>
-              <p className="mt-0 ">
-                <strong className="font-fontBold">Bon à savoir</strong> : si
-                vous souhaitez faire appel à ARTICHEKT uniquement dans le cadre
-                d’une demande d’autorisation d’urbanisme (déclaration préalable
-                ou permis de construire pour des surfaces n’excédant pas 150 m²)
-                nous vous invitons à consulter la rubrique conception.
-              </p>
-            </div>
-          </div>
-          <div className="max-w-screen-2xl mx-auto">
-            <Breadcrumb />
-          </div>
+    return notFound();
+    // return (
+    //   <div>
+    //     <div className="mt-40 px-10 sm:px-32">
+    //       <div className="flex flex-col lg:flex-row max-w-screen-2xl mx-auto">
+    //         <h1 className="flex flex-col gap-1 sm:text-[64px] font-fontBold lg:w-2/5 lg:min-w-[400px]">
+    //           <span className="bg-primary w-fit text-white p-1">Outil de</span>
+    //           <span className="bg-primary w-fit text-white p-1">calcul</span>
+    //           <span className="bg-primary w-fit text-white p-1">des</span>
+    //           <span className="bg-primary w-fit text-white p-1">
+    //             prestations
+    //           </span>
+    //         </h1>
+    //         <div className="lg:w-3/5 sm:text-lg">
+    //           <p className="mt-0">
+    //             ARTICHEKT a développé un outil qui vous permet d’estimer
+    //             approximativement le montant de vos prestations en fonction de
+    //             la nature de votre projet, sa typologie et le niveau de
+    //             prestations souhaité.
+    //           </p>
+    //           <p className="mt-0 ">
+    //             Cette estimation n’est évidemment pas contractuelle et ne peut
+    //             se substituer a une étude donnant lieu à une offre de service
+    //             personnalisée et détaillée.
+    //           </p>
+    //           <p className="mt-0 ">
+    //             <strong className="font-fontBold">Bon à savoir</strong> : si
+    //             vous souhaitez faire appel à ARTICHEKT uniquement dans le cadre
+    //             d’une demande d’autorisation d’urbanisme (déclaration préalable
+    //             ou permis de construire pour des surfaces n’excédant pas 150 m²)
+    //             nous vous invitons à consulter la rubrique conception.
+    //           </p>
+    //         </div>
+    //       </div>
+    //       <div className="max-w-screen-2xl mx-auto">
+    //         <Breadcrumb />
+    //       </div>
 
-          <Estimate />
-        </div>
-        <div className="bg-grey px-10 sm:px-32 pt-10 pb-64 text-xl">
-          <div className="max-w-screen-2xl mx-auto text-sm sm:text-xl">
-            <p className="mt-0  m-auto">
-              Le détail de chaque prestation est expliqué dans l’onglet
-              conception.
-            </p>
-            <p className=" mx-auto">
-              Le calcul de nos honoraires diffère selon la nature de la
-              prestation. Nos honoraires pour la phase de conception ne
-              dépendent d’aucune façon du montant des travaux, ils sont calculés
-              à partir d’une estimation du temps affecté à chaque phase de
-              conception. En revanche, nos honoraires pour la direction des
-              opérations de chantier sont ajustés en fonction du coût réel des
-              travaux et leur complexité.
-            </p>
-            <p className=" mx-auto">
-              Pour toute demande particulière, vous pouvez nous adresser un mail
-              via le formulaire de contact ci-dessous. Chaque demande fait
-              l’objet d’une réponse attentive dans un délai raisonnable.
-            </p>
-            <p className=" mx-auto">
-              Nous refusons tout projet dont la demande porte uniquement sur des
-              missions de décoration intérieure. Le traitement esthétique des
-              volumes fait partie intégrante de nos propositions d’aménagement
-              dans le cadre des prestations de niveau 2 et 3.
-            </p>
-            <p className="mx-auto">
-              Egalement, il est important de noter que les niveaux 2 et 3
-              nécessitent une gestion de projet méthodique et rigoureuse dès le
-              démarrage de votre projet d’architecture intérieure. Pour nous
-              aider dans cette tâche, nous avons élaboré des outils
-              méthodologiques uniques et performants que nous prenons en compte
-              dans le calcul des prestations.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
+    //       <Estimate />
+    //     </div>
+    //     <div className="bg-grey px-10 sm:px-32 pt-10 pb-64 text-xl">
+    //       <div className="max-w-screen-2xl mx-auto text-sm sm:text-xl">
+    //         <p className="mt-0  m-auto">
+    //           Le détail de chaque prestation est expliqué dans l’onglet
+    //           conception.
+    //         </p>
+    //         <p className=" mx-auto">
+    //           Le calcul de nos honoraires diffère selon la nature de la
+    //           prestation. Nos honoraires pour la phase de conception ne
+    //           dépendent d’aucune façon du montant des travaux, ils sont calculés
+    //           à partir d’une estimation du temps affecté à chaque phase de
+    //           conception. En revanche, nos honoraires pour la direction des
+    //           opérations de chantier sont ajustés en fonction du coût réel des
+    //           travaux et leur complexité.
+    //         </p>
+    //         <p className=" mx-auto">
+    //           Pour toute demande particulière, vous pouvez nous adresser un mail
+    //           via le formulaire de contact ci-dessous. Chaque demande fait
+    //           l’objet d’une réponse attentive dans un délai raisonnable.
+    //         </p>
+    //         <p className=" mx-auto">
+    //           Nous refusons tout projet dont la demande porte uniquement sur des
+    //           missions de décoration intérieure. Le traitement esthétique des
+    //           volumes fait partie intégrante de nos propositions d’aménagement
+    //           dans le cadre des prestations de niveau 2 et 3.
+    //         </p>
+    //         <p className="mx-auto">
+    //           Egalement, il est important de noter que les niveaux 2 et 3
+    //           nécessitent une gestion de projet méthodique et rigoureuse dès le
+    //           démarrage de votre projet d’architecture intérieure. Pour nous
+    //           aider dans cette tâche, nous avons élaboré des outils
+    //           méthodologiques uniques et performants que nous prenons en compte
+    //           dans le calcul des prestations.
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </div>
+    // )
   }
 
   if (lastSlug === 'contact') {
