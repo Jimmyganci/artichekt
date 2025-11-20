@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import {useEffect, useRef, useState} from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Breadcrumb from '../Breadcrumb'
 import CarouselContact from './CarouselContact'
@@ -64,14 +64,106 @@ function Contact() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    setResponseType(null)
+    setResponseMessage(null)
     const form: any = e.currentTarget
+    
+    // Réinitialiser les messages précédents
+    setResponseType('error')
+    
+    // Vérification du honeypot (anti-spam)
+    if (form.website.value) {
+      setResponseMessage('Erreur de validation.')
+      return
+    }
+    
+    // Trim des valeurs
+    const name = form.name.value.trim()
+    const email = form.email.value.trim()
+    const object = form.object.value.trim()
+    const budget = form.budget.value.trim()
+    const message = form.message.value.trim()
+    
+    // Tableaux pour collecter les erreurs par catégorie
+    const missingFields: string[] = []
+    const errors: string[] = []
+    
+    // Validation du nom
+    if (!name) {
+      missingFields.push('le nom')
+    } else {
+      if (name.length < 2) {
+        errors.push('Le nom doit comporter au minimum 2 caractères.')
+      }
+      if (name.length > 100) {
+        errors.push('Le nom ne peut pas dépasser 100 caractères.')
+      }
+    }
+    
+    // Validation de l'email
+    if (!email) {
+      missingFields.push("l'email")
+    } else {
+      if (email.length > 255) {
+        errors.push("L'email ne peut pas dépasser 255 caractères.")
+      } else {
+        // Validation du format email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+          errors.push("Le format de l'email n'est pas valide.")
+        }
+      }
+    }
+    
+    // Validation de l'objet
+    if (object.length > 200) {
+      errors.push("L'objet ne peut pas dépasser 200 caractères.")
+    }
+    
+    // Validation du message
+    if (!message) {
+      missingFields.push('le message')
+    } else {
+      if (message.length < 10) {
+        errors.push('Le message doit comporter au minimum 10 caractères.')
+      }
+      if (message.length > 2000) {
+        errors.push('Le message ne peut pas dépasser 2000 caractères.')
+      }
+    }
+    
+    // Validation du budget (optionnel mais si rempli, vérifier la longueur)
+    if (budget.length > 100) {
+      errors.push('Le budget ne peut pas dépasser 100 caractères.')
+    }
+    
+    // Formater le message d'erreur pour les champs obligatoires
+    if (missingFields.length > 0) {
+      let missingMessage = ''
+      if (missingFields.length === 1) {
+        missingMessage = `${missingFields[0].charAt(0).toUpperCase() + missingFields[0].slice(1)} est obligatoire.`
+      } else if (missingFields.length === 2) {
+        missingMessage = `${missingFields[0].charAt(0).toUpperCase() + missingFields[0].slice(1)} et ${missingFields[1]} sont obligatoires.`
+      } else {
+        const lastField = missingFields[missingFields.length - 1]
+        const otherFields = missingFields.slice(0, -1)
+        missingMessage = `${otherFields.map(f => f.charAt(0).toUpperCase() + f.slice(1)).join(', ')} et ${lastField} sont obligatoires.`
+      }
+      errors.unshift(missingMessage)
+    }
+    
+    // Si des erreurs ont été trouvées, les afficher toutes
+    if (errors.length > 0) {
+      setResponseMessage(errors.join(' '))
+      return
+    }
 
     const data = {
-      name: form.name.value,
-      email: form.email.value,
-      object: form.object.value,
-      budget: form.budget.value,
-      message: form.message.value,
+      name,
+      email,
+      object,
+      budget,
+      message,
       website: form.website.value // honeypot
     }
 
