@@ -275,25 +275,6 @@ function Contact() {
           <input className="w-fit mt-20" type="submit" value="Envoyer" />
         </form>
         <div className="lg:w-1/2">
-          <div className="mt-6">
-            <h4 className="text-4xl mt-0 font-fontRegular font-light text-primary">
-              AGENCE
-            </h4>
-            <p className="leading-none font-fontBold text-primary text-2xl">
-              SARL ARTICHEKT <br /> 96 rue du Tuquet 3 <br /> 40150 ANGRESSE
-            </p>
-          </div>
-          <div className="mt-20">
-            <h4 className="text-4xl mt-0 font-fontRegular font-light text-primary">
-              CONTACT
-            </h4>
-            <p className="leading-none font-fontBold text-primary text-2xl">
-              96 rue du Tuquet 3 <br />
-              40150 ANGRESSE <br />
-              (+33) 5 35 65 95 64 <br />
-              contact@artichekt.com
-            </p>
-          </div>
           <div className="mt-20">
             <h4 className="text-4xl mt-0 font-fontRegular font-light text-primary">
               RESEAUX
